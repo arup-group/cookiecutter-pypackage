@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 from pathlib import Path
 
-PROJECT_DIRECTORY = Path.cwd().absolute()
+PROJECT_DIRECTORY = Path.cwd()
 
 
 def remove_file(filepath: Path | str):
+    assert (PROJECT_DIRECTORY / filepath).exists()
     (PROJECT_DIRECTORY / filepath).unlink()
 
 
