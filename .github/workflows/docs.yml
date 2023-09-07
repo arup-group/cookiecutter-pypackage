@@ -14,17 +14,17 @@ defaults:
 permissions:
   contents: write
 
-  jobs:
-    docs-test:
-      if: github.ref != 'refs/heads/main'
-      uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@repo-name-prefix
-      with:
-        deploy_type: test
+jobs:
+  docs-test:
+    if: github.ref != 'refs/heads/main'
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@repo-name-prefix
+    with:
+      deploy_type: test
 
-    docs-update-latest:
-      permissions:
-        contents: write
-      if: github.ref == 'refs/heads/main'
-      uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@repo-name-prefix
-      with:
-        deploy_type: update_latest
+  docs-update-latest:
+    permissions:
+      contents: write
+    if: github.ref == 'refs/heads/main'
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@repo-name-prefix
+    with:
+      deploy_type: update_latest
