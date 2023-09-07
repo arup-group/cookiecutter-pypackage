@@ -16,6 +16,8 @@ permissions:
 
 jobs:
   docs-test:
+    permissions:
+      contents: write
     if: github.ref != 'refs/heads/main'
     uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@repo-name-prefix
     with:
