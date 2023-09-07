@@ -1,6 +1,6 @@
 name: Minimal CI
 
-on: 
+on:
   push:
     branches:
       - "**"
@@ -10,7 +10,7 @@ on:
       - LICENSE
       - CONTRIBUTING.md
       - docs/**
-      - mkdocs.yml  
+      - mkdocs.yml
 
 defaults:
   run:
@@ -18,18 +18,9 @@ defaults:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: mamba-org/setup-micromamba@v1
-      with:
-        micromamba-version: latest
-        environment-name: ubuntu-latest-311
-        environment-file: requirements_dev.txt
-        create-args: >-
-          python=3.11
-        post-cleanup: all
-        cache-environment: true
-
-    - name: run tests
-      run: pytest
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/python-install-lint-test.yml@repo-name-prefix
+    with:
+      os: ubuntu-latest
+      py3version: "11"
+      lint: false
+      upload_to_codecov: false

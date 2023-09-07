@@ -60,7 +60,7 @@ git clone git@github.com:YOUR_GITHUB_USERNAME/cookiecutter-pypackage.git
    development by typing:
 
 ``` bash
-mamba create -c conda-forge -n cookiecutter-pypackage-dev --file requirements_dev.txt
+mamba create -c conda-forge -n cookiecutter-pypackage-dev --file requirements/dev.txt
 mamba activate cookiecutter-pypackage-dev
 pip install --no-deps -e .
 ```

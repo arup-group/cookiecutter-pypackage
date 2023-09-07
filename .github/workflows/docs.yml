@@ -1,6 +1,6 @@
 name: Development docs CI
 
-on: 
+on:
   push:
     branches:
       - "**"
@@ -14,33 +14,17 @@ defaults:
 permissions:
   contents: write
 
-jobs:
-  docs-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-      with: 
-        fetch-depth: 0  # used to build docs into the gh-pages branch without losing branch history. See https://github.com/jimporter/mike/issues/49
-    - uses: mamba-org/setup-micromamba@v1
-      with:
-        micromamba-version: latest
-        environment-name: ubuntu-latest-311
-        environment-file: requirements/base.txt
-        create-args: >-
-            -f requirements_dev.txt
-            python=3.11
-        post-cleanup: all
-        cache-environment: true
-
-    - name: Setup doc deploy
-      run: |
-        git config --global user.name Docs deploy
-        git config --global user.email docs@dummy.bot.com
-    
-    - name: Test that docs build
+  jobs:
+    docs-test:
       if: github.ref != 'refs/heads/main'
-      run: mike deploy develop
+      uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@repo-name-prefix
+      with:
+        deploy_type: test
 
-    - name: deploy docs to gh-pages branch
+    docs-update-latest:
+      permissions:
+        contents: write
       if: github.ref == 'refs/heads/main'
-      run: mike deploy --push develop
+      uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@repo-name-prefix
+      with:
+        deploy_type: update_latest

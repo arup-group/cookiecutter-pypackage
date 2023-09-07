@@ -44,6 +44,9 @@ docstring-quotes = "double"
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools.packages.find]
+include = []
+
 [project]
 keywords = ['cookiecutter', 'template', 'package']
 name = "cookiecutter-pypackage"
@@ -69,7 +72,7 @@ dynamic = ["dependencies"]
 version = "0.1.0"
 
 [tool.setuptools.dynamic]
-dependencies = { file = ["requirements_dev.txt"] }
+dependencies = { file = ["requirements/dev.txt"] }
 
 [project.urls]
 repository = "https://github.com/arup-group/cookiecutter-pypackage"
