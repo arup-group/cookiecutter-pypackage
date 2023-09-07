@@ -1,5 +1,5 @@
 $schema: http://json-schema.org/draft-07/schema#
-description: You will be prompted to fill these values when you create your Python project. If you do not know how what value to provide, press _enter_ and a default value will be used.
+description: You will be prompted to fill these values when you create your Python project. If you do not know what value to provide, press _enter_ and a default value will be used.
 
 additionalProperties: false
 properties:
