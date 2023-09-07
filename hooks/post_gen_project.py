@@ -1,22 +1,35 @@
 #!/usr/bin/env python
-import os
+from pathlib import Path
 
-PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
-
-
-def remove_file(filepath):
-    os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
+PROJECT_DIRECTORY = Path(".").absolute()
 
 
-if __name__ == '__main__':
+def remove_file(filepath: Path | str):
+    (PROJECT_DIRECTORY / filepath).unlink()
 
-    if '{{ cookiecutter.create_author_file }}' != 'y':
-        remove_file('AUTHORS.rst')
-        remove_file('docs/authors.rst')
 
-    if 'no' in '{{ cookiecutter.command_line_interface|lower }}':
-        cli_file = os.path.join('{{ cookiecutter.project_slug }}', 'cli.py')
+def remove_dir(dirpath: Path | str):
+    (PROJECT_DIRECTORY / dirpath).rmdir()
+
+
+if __name__ == "__main__":
+    if "{{ cookiecutter.create_author_file|lower }}" != "y":
+        remove_file("AUTHORS")
+
+    if "{{ cookiecutter.command_line_interface|lower }}" != "y":
+        cli_file = Path("") / "{{ cookiecutter.project_slug }}" / "cli.py"
+        cli_docs = Path("") / "docs" / "api" / "cli.md"
         remove_file(cli_file)
+        remove_file(cli_docs)
 
-    if 'Not open source' == '{{ cookiecutter.open_source_license }}':
-        remove_file('LICENSE')
+    if "{{ cookiecutter.create_jupyter_notebook_directory|lower }}" != "y":
+        for hidden_file in (PROJECT_DIRECTORY / "examples").glob(".*"):
+            hidden_file.unlink()
+        remove_dir("examples")
+
+    if "{{ cookiecutter.create_docker_file|lower }}" != "y":
+        for file in [".dockerignore", "Dockerfile"]:
+            remove_file(file)
+
+    if "{{ cookiecutter.open_source_license }}" == "Not open source":
+        remove_file("LICENSE")

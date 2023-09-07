@@ -1,0 +1,41 @@
+site_name: Arup Cookiecutter Python Package
+nav:
+  - Home: README.md
+  - Getting Started: tutorial.md
+  - Input Arguments: schema.md
+  - Contributing: CONTRIBUTING.md
+  - Changelog: CHANGELOG.md
+theme:
+  name: material
+  features:
+    - navigation.indexes
+repo_url: https://github.com/arup-group/cookiecutter-pypackage
+site_dir: .docs
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.tasklist:
+      clickable_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: "#"
+      toc_depth: 3
+hooks:
+  - docs/static/hooks.py
+plugins:
+  - autorefs
+  - search
+extra:
+  version:
+    provider: mike

@@ -1,0 +1,35 @@
+name: Minimal CI
+
+on: 
+  push:
+    branches:
+      - "**"
+    paths-ignore:
+      - README.md
+      - CHANGELOG.md
+      - LICENSE
+      - CONTRIBUTING.md
+      - docs/**
+      - mkdocs.yml  
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: mamba-org/setup-micromamba@v1
+      with:
+        micromamba-version: latest
+        environment-name: ubuntu-latest-311
+        environment-file: requirements_dev.txt
+        create-args: >-
+          python=3.11
+        post-cleanup: all
+        cache-environment: true
+
+    - name: run tests
+      run: pytest

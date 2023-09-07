@@ -1,0 +1,12 @@
+name: Build Package
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  conda-build:
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/conda-build.yml@main
+    with:
+      package_name: {{ cookiecutter.project_slug }}

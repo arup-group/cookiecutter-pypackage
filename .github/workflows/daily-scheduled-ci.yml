@@ -1,0 +1,56 @@
+name: Daily CI Build
+
+on:
+  schedule:
+    - cron: '23 14 * * 1-5'
+
+defaults:
+  run:
+    shell: bash -l {0}
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Get date
+      run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+      
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - uses: mamba-org/setup-micromamba@v1
+      with:
+        micromamba-version: latest
+        environment-name: ${{ env.DATE }}
+        environment-file: requirements/base.txt
+        create-args: >-
+            -f requirements_dev.txt
+        post-cleanup: all
+    
+    - name: Run tests
+      run: pytest
+
+    - name: Send build success notification
+      if: success()
+      uses: rtCamp/action-slack-notify@v2.2.0
+      env:
+        SLACK_MESSAGE: ${{ github.repository }} Daily scheduled CI Build ${{ github.run_number }} has succeeded
+        SLACK_TITLE: Daily CI Build Success
+        SLACK_CHANNEL: cookiecutter-feeds
+        SLACK_USERNAME: GitHub Build Bot
+        SLACK_ICON: https://slack-files2.s3-us-west-2.amazonaws.com/avatars/2017-12-19/288981919427_f45f04edd92902a96859_512.png
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+
+    - name: Send build failure notification
+      if: failure()
+      uses: rtCamp/action-slack-notify@v2.2.0
+      env:
+        SLACK_COLOR: '#FF0000'
+        SLACK_LINK_NAMES: true
+        SLACK_MESSAGE: '<!here> ${{ github.repository }} Daily scheduled CI Build ${{ github.run_number }} has failed'
+        SLACK_TITLE: Daily CI Build Failure!
+        SLACK_CHANNEL: cookiecutter-feeds
+        SLACK_USERNAME: GitHub Build Bot
+        SLACK_ICON: https://slack-files2.s3-us-west-2.amazonaws.com/avatars/2017-12-19/288981919427_f45f04edd92902a96859_512.png
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}

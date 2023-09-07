@@ -1,0 +1,26 @@
+name: Feature Request
+description: Suggest an idea for the Cookiecutter template.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for letting us know about your idea!
+        
+  - type: textarea
+    id: description
+    attributes:
+      label: What can be improved?
+      placeholder: Tell us what you would like to see!
+      value: "The template should include TOX testing!"
+    validations:
+      required: true
+
+  - type: textarea
+    id: version
+    attributes:
+      label: Version
+      description: Which version of the arup-group/cookiecutter-pypackage are you using?
+      placeholder: v0.1.0
+    validations:
+      required: true

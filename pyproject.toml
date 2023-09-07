@@ -1,0 +1,77 @@
+[tool.pytest.ini_options]
+minversion = "6.0"
+# opts:
+# `-n2` - parallelise over two threads (uses pytest-xdist)
+# `--keep-baked-projects` - keep the cookiecutter projects that are generated in the tests (they will be stored in a temporary directory)
+
+addopts = "-rav -n2 --keep-baked-projects"
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 100
+skip_magic_trailing_comma = true
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "Q"]
+
+ignore = [
+    "E501", # line too long: Black will handle this.
+    "D1",   # Ignore missing docstrings in public functions/modules. There are just too many of them missing...
+]
+
+# Exclude a variety of commonly ignored directories.
+exclude = [".*", "__pypackages__", "build", "dist", "venv", "reports/"]
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.ruff.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 10
+
+# Ignore `E402` (import violations) and `F401` (unused imports) in all `__init__.py` files
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["E402", "F401"]
+
+[tool.ruff.flake8-quotes]
+docstring-quotes = "double"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+keywords = ['cookiecutter', 'template', 'package']
+name = "cookiecutter-pypackage"
+authors = [{ name = "Bryn Pickering", email = "bryn.pickering@arup.com" }]
+maintainers = []
+description = 'Cookiecutter template for a Python package'
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+classifiers = [
+    'Development Status :: 3 - Alpha',
+    'Environment :: Console',
+    'Intended Audience :: Developers',
+    'Natural Language :: English',
+    'License :: OSI Approved :: BSD License',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: Implementation :: CPython',
+    'Programming Language :: Python :: Implementation :: PyPy',
+    'Topic :: Software Development',
+]
+dynamic = ["dependencies"]
+version = "0.1.0"
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements_dev.txt"] }
+
+[project.urls]
+repository = "https://github.com/arup-group/cookiecutter-pypackage"
+documentation = "https://arup-group.github.io/cookiecutter-pypackage"
+changelog = "https://github.com/arup-group/cookiecutter-pypackage/blob/main/CHANGELOG.md"
