@@ -1,0 +1,103 @@
+$schema: http://json-schema.org/draft-07/schema#
+description: You will be prompted to fill these values when you create your Python project. If you do not know what value to provide, press _enter_ and a default value will be used.
+
+additionalProperties: false
+properties:
+  full_name:
+    type: string
+    default: "Ove Arup"
+    description: Your full name.
+  email:
+    type: string
+    default: "ove.arup@arup.com"
+    description: Your email address.
+  github_username:
+    type: string
+    default: "ovearup"
+    description: Your GitHub username.
+  repository_org:
+    type: string
+    default: "arup-group"
+    description: The organisation in which your repository will be hosted. For personal projects, this can be your GitHub username.
+  project_name:
+    type: string
+    default: "Python Boilerplate"
+    description: The name of your new Python package project. This is used in documentation, so spaces and any characters are fine here.
+  project_slug:
+    type: string
+    default: "Lower case equivalent of [project_name] with spaces and dashes (-) replaced with an underscore (_)"
+    description: The namespace of your Python package. This should be Python import-friendly. Typically, it is the "slugified" version of `project_name` (e.g. `My software package` -> `my_software_package`).
+  project_short_description:
+    type: string
+    default: "Python Boilerplate contains all the boilerplate you need to create a Python package."
+    description: A 1-sentence description of what your Python package does.
+  index_package:
+    type: array
+    description: Where to release new packaged versions of the project to. If "none", releases will not be published beyond GitHub.
+    uniqueItems: true
+    minItems: 1
+    items:
+      type: string
+      default: "conda"
+      enum:
+        - conda
+        - none
+  conda_channel:
+    type: string
+    default: "[github_username]"
+    description: Your anaconda channel, if releases of your package will be uploaded to Anaconda.
+  version:
+    type: string
+    default: "0.1.0"
+    description: The starting version number of the package.
+  create_jupyter_notebook_directory:
+    type: array
+    description: If "y", an `examples` directory will be created in which Jupyter Notebooks can be saved. These notebooks will be rendered in the documentation and will be formatted with Black and Ruff.
+    uniqueItems: true
+    minItems: 1
+    items:
+      type: string
+      default: "y"
+      enum: ["y", "n"]
+  command_line_interface:
+    type: array
+    description: If "y", a `cli.py` file will be included in the project source code based on using `Click`.
+    uniqueItems: true
+    minItems: 1
+    items:
+      type: string
+      default: "y"
+      enum: ["y", "n"]
+  create_author_file:
+    type: array
+    description: If "y", create an authors file.
+    uniqueItems: true
+    minItems: 1
+    items:
+      type: string
+      default: "y"
+      enum: ["y", "n"]
+  create_docker_file:
+    type: array
+    description: If "y", create an Dockerfile which allows a Docker image of the project to be built in a linux virtual machine with a basic Bash entry-point.
+    uniqueItems: true
+    minItems: 1
+    items:
+      type: string
+      default: "y"
+      enum: ["y", "n"]
+  open_source_license:
+    type: array
+    description: Choose a [license](https://choosealicense.com/).
+    uniqueItems: true
+    minItems: 1
+    items:
+      type: string
+      default: "MIT license"
+      enum:
+        - MIT license
+        - BSD license
+        - ISC license
+        - Apache Software License 2.0
+        - GNU General Public License v3
+        - Not open source
