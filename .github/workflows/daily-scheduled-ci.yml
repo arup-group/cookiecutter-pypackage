@@ -17,7 +17,7 @@ jobs:
 
   test:
     needs: get-date
-    uses: arup-group/actions-city-modelling-lab/.github/workflows/python-install-lint-test.yml@repo-name-prefix
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/python-install-lint-test.yml@main
     with:
       os: ubuntu-latest
       py3version: "11"

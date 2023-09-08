@@ -23,7 +23,7 @@ jobs:
         os: [windows-latest, ubuntu-latest, macos-latest]
         py3version: ["9", "10", "11"]
       fail-fast: false
-    uses: arup-group/actions-city-modelling-lab/.github/workflows/python-install-lint-test.yml@repo-name-prefix
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/python-install-lint-test.yml@main
     with:
       os: ubuntu-latest
       py3version: "11"
