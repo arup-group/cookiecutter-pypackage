@@ -1,7 +1,5 @@
 """Console script for {{cookiecutter.project_slug}}."""
 
-import sys
-
 import click
 
 
