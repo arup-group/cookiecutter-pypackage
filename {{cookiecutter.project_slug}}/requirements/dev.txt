@@ -1,16 +1,16 @@
-{%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
+{% if cookiecutter.create_jupyter_notebook_directory|lower == "y" -%}
 jupyter < 2
 {% endif -%}
 mike < 2
 mkdocs < 2
-{%- if cookiecutter.command_line_interface|lower == "y" %}
+{% if cookiecutter.command_line_interface|lower == "y" -%}
 mkdocs-click < 0.7
 {% endif -%}
-{%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
+{% if cookiecutter.create_jupyter_notebook_directory|lower == "y" -%}
 mkdocs-jupyter < 0.25
 {% endif -%}
 mkdocstrings-python < 2
-{%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
+{% if cookiecutter.create_jupyter_notebook_directory|lower == "y" -%}
 nbmake < 2
 {% endif -%}
 pre-commit < 4
