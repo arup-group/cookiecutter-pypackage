@@ -57,11 +57,13 @@ jobs:
 
   test-template:
     runs-on: ubuntu-latest
+    needs: build-template
     steps:
       - name: Download built package
         uses: actions/download-artifact@v3
         with:
           name: built-package
+          path: python_boilerplate
 
       - name: change directory
         run: cd python_boilerplate
