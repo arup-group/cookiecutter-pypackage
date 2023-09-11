@@ -7,13 +7,6 @@ on:
     paths-ignore:
       - tests/**
 
-defaults:
-  run:
-    shell: bash -l {0}
-
-permissions:
-  contents: write
-
 jobs:
   docs-test:
     permissions:

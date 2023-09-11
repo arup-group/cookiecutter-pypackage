@@ -4,10 +4,6 @@ on:
   schedule:
     - cron: '23 14 * * 1-5'
 
-defaults:
-  run:
-    shell: bash -l {0}
-
 jobs:
   get-date:
     runs-on: ubuntu-latest
