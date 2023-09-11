@@ -63,12 +63,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: built-package
-          path: python_boilerplate
+          path: "."
 
       - name: change directory
-        run: |
-          cd python_boilerplate
-          ls .
+        run: ls .
 
       - uses: mamba-org/setup-micromamba@v1
         with:
