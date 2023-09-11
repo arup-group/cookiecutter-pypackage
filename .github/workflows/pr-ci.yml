@@ -54,6 +54,7 @@ jobs:
           name: built-package
           path: python_boilerplate/
           if-no-files-found: error
+          retention-days: 5
 
   test-template:
     runs-on: ubuntu-latest
