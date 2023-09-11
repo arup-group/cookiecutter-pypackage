@@ -4,10 +4,6 @@ on:
   pull_request:
     branches:
       - main
-    types:
-      - opened
-      - ready_for_review
-      - review_requested
     paths-ignore:
       - README.md
       - CHANGELOG.md
