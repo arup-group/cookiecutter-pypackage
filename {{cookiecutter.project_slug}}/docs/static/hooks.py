@@ -6,7 +6,11 @@ from mkdocs.structure.files import File
 
 TEMPDIR = tempfile.TemporaryDirectory()
 # Add to this list if you want to ignore any other source files from the documentation API reference
+{%- if cookiecutter.command_line_interface|lower == "y" %}
 API_FILES_TO_IGNORE = ["cli.py"]
+{%- else %}
+API_FILES_TO_IGNORE = []
+{%- endif %}
 
 
 # Bump priority to ensure files are moved before jupyter notebook conversion takes place

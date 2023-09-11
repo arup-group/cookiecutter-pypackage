@@ -1,12 +1,11 @@
+<!--- the "--8<--" html comments define what part of the README to add to the index page of the documentation -->
+<!--- --8<-- [start:docs] -->
 ![{{ cookiecutter.project_slug }}](resources/logos/title.png)
 
 # {{ cookiecutter.project_name }}
 
-![CIbadge](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.project_slug }}/workflows/CI/badge.svg) 
+![CIbadge](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.project_slug }}/workflows/CI/badge.svg)
 [![](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.project_slug }}/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://{{ cookiecutter.repository_org }}.github.io/{{ cookiecutter.project_slug }})
-
-<!--- the "--8<--" html comments define what part of the README to add to the index page of the documentation -->
-<!--- --8<-- [start:docs] -->
 
 <!--- --8<-- [end:docs] -->
 
@@ -56,8 +55,8 @@ Before making contributions to the {{ cookiecutter.project_slug }} source code, 
 
 If you plan to make changes to the code then please make regular use of the following tools to verify the codebase while you work:
 
-- `pre-commit`: run `pre-commit install` in your command line to load inbuilt checks that will run every time you commit your changes. 
-The checks are: 1. check no large files have been staged, 2. lint python files for major errors, 3. format python files to conform with the [pep8 standard](https://peps.python.org/pep-0008/). 
+- `pre-commit`: run `pre-commit install` in your command line to load inbuilt checks that will run every time you commit your changes.
+The checks are: 1. check no large files have been staged, 2. lint python files for major errors, 3. format python files to conform with the [pep8 standard](https://peps.python.org/pep-0008/).
 You can also run these checks yourself at any time to ensure staged changes are clean by simple calling `pre-commit`.
 - `pytest` - run the unit test suite and check test coverage.
 - `pytest -p memray -m "high_mem" --no-cov` (not available on Windows) - after installing memray (`mamba install memray pytest-memray`), test that memory and time performance does not exceed benchmarks.

@@ -3,15 +3,15 @@ nav:
   - Home: index.md
   - Installation: installation.md
   {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
-  - Examples: [] # this will be filled in automatically to include reference to all the notebooks 
+  - Examples: [] # this will be filled in automatically to include reference to all the notebooks
   {% endif -%}
   - Contributing: contributing.md
   - Changelog: CHANGELOG.md
-  - Reference: 
+  - Reference:
   {%- if cookiecutter.command_line_interface|lower == "y" %}
     - Command line interface: api/cli.md
   {% endif %}
-theme: 
+theme:
   name: material
   custom_dir: docs/overrides
   features:
@@ -43,20 +43,13 @@ hooks:
   - docs/static/hooks.py
 plugins:
   - autorefs
-  - generate-api:
-      package_dir: "{{ cookiecutter.project_slug }}"
-      api_dir: "api"
-      skip:
-{%- if cookiecutter.command_line_interface|lower == "y" %}
-          - {{ cookiecutter.project_slug }}/cli.py
-{%- endif %}
 {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
   - mkdocs-jupyter:
       include: ["examples/*.ipynb"]
       allow_errors: false
       kernel_name: {{ cookiecutter.project_slug }}
       include_source: True
-      execute: true
+      execute: false
 {%- endif %}
   - mkdocstrings:
       default_handler: python
@@ -76,11 +69,10 @@ plugins:
           import:
             - https://docs.python.org/3/objects.inv
   - search
-watch: 
+watch:
   - {{ cookiecutter.project_slug }}
 extra_css:
   - static/extras.css
 extra:
   version:
     provider: mike
- 
