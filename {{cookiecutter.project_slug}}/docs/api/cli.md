@@ -8,4 +8,3 @@ This page provides documentation for our command line tools.
     :prog_name: {{ cookiecutter.project_slug }}
     :style: table
     :depth: 1
-

@@ -65,9 +65,6 @@ jobs:
           name: built-package
           path: "."
 
-      - name: change directory
-        run: ls .
-
       - uses: mamba-org/setup-micromamba@v1
         with:
           micromamba-version: latest
@@ -81,7 +78,10 @@ jobs:
           post-cleanup: all
           cache-environment: false
 
-      - name: install jupyter kernel
+      - name: Install package
+        run: pip install --no-dependencies -e .
+
+      - name: Install jupyter kernel
         run: python -m ipykernel install --user --name python_boilerplate
 
       - name: Lint with Ruff
