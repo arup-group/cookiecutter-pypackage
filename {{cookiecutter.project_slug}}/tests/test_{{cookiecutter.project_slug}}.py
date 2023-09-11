@@ -7,9 +7,10 @@ import pytest
 from click.testing import CliRunner
 {%- endif %}
 
+{% if cookiecutter.command_line_interface|lower == "y" -%}
+from {{ cookiecutter.project_slug }} import cli, {{ cookiecutter.project_slug }}
+{%- else %}
 from {{ cookiecutter.project_slug }} import {{ cookiecutter.project_slug }}
-{%- if cookiecutter.command_line_interface|lower == "y" %}
-from {{ cookiecutter.project_slug }} import cli
 {%- endif %}
 
 
@@ -25,10 +26,11 @@ def response():
 
 def test_content(response):
     """Sample pytest test function with the pytest fixture as an argument."""
-    # from bs4 import BeautifulSoup
+    print({{ cookiecutter.project_slug }}.__file__)
     # assert 'GitHub' in BeautifulSoup(response.content).title.string
 
-{%- if cookiecutter.command_line_interface|lower == "y" %}
+
+{% if cookiecutter.command_line_interface|lower == "y" -%}
 def test_command_line_interface():
     """Test the CLI."""
     runner = CliRunner()
@@ -39,4 +41,3 @@ def test_command_line_interface():
     assert help_result.exit_code == 0
     assert "--help  Show this message and exit." in help_result.output
 {%- endif %}
-
