@@ -48,10 +48,20 @@ jobs:
       py3version: "11"
       upload_flamegraph: true
 
-  docs:
-    permissions:
-      contents: write
-    uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@main
-    with:
-      deploy_type: test
-      notebook_kernel: {{ cookiecutter.project_slug }}
+  cruft-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: mamba-org/setup-micromamba@v1
+        with:
+          micromamba-version: latest
+          environment-name: {% raw %}${{ github.event.repository.name }}-cruft{% endraw %}
+          create-args: >-
+            cruft
+            python=3.11
+          post-cleanup: all
+          cache-environment: true
+
+      - name: Check project against template
+        id: check
+        run: cruft check
