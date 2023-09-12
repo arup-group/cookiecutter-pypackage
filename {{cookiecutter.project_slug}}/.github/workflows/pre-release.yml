@@ -8,5 +8,7 @@ on:
 jobs:
   conda-build:
     uses: arup-group/actions-city-modelling-lab/.github/workflows/conda-build.yml@main
+    secrets:
+      ANACONDA_TOKEN: {% raw %}${{ secrets.ANACONDA_TOKEN }}{% endraw %}
     with:
       package_name: {{ cookiecutter.project_slug }}

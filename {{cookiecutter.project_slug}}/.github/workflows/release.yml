@@ -7,7 +7,8 @@ on:
 jobs:
   conda-upload:
     uses: arup-group/actions-city-modelling-lab/.github/workflows/conda-upload.yml@main
-    secrets: inherit
+    secrets:
+      ANACONDA_TOKEN: {% raw %}${{ secrets.ANACONDA_TOKEN }}{% endraw %}
     with:
       package_name: {{ cookiecutter.project_slug }}
 

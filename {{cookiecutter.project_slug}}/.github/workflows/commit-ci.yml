@@ -25,4 +25,7 @@ jobs:
     needs: test
     if: needs.test.result == 'success'
     uses: arup-group/actions-city-modelling-lab/.github/workflows/aws-upload.yml@main
-    secrets: inherit
+    secrets:
+      AWS_ACCESS_KEY_ID: {% raw %}${{ secrets.AWS_ACCESS_KEY_ID }}{% endraw %}
+      AWS_SECRET_ACCESS_KEY: {% raw %}${{ secrets.AWS_SECRET_ACCESS_KEY }}{% endraw %}
+      AWS_S3_CODE_BUCKET: {% raw %}${{ secrets.AWS_S3_CODE_BUCKET }}{% endraw %}
