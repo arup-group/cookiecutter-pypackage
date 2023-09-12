@@ -283,43 +283,70 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#step-1-install-cookiecutter" class="md-nav__link">
-    Step 1: Install Cookiecutter
+  <a href="#setting-up-your-project" class="md-nav__link">
+    Setting up your project
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting up your project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-cruft" class="md-nav__link">
+    Step 1: Install Cruft
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-2-generate-your-package" class="md-nav__link">
     Step 2: Generate Your Package
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-3-create-a-github-repository" class="md-nav__link">
     Step 3: Create a GitHub Repository
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-4-define-requirements" class="md-nav__link">
     Step 4: Define requirements
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-5-create-a-development-environment-for-your-project" class="md-nav__link">
     Step 5: Create a development environment for your project
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-6-tweak-the-generated-project-files-to-meet-your-specific-needs-preferences" class="md-nav__link">
     Step 6: Tweak the generated project files to meet your specific needs / preferences
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keeping-your-project-up-to-date" class="md-nav__link">
+    Keeping your project up-to-date
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-inputs-after-project-generation" class="md-nav__link">
+    Changing inputs after project generation
   </a>
   
 </li>
@@ -423,43 +450,70 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#step-1-install-cookiecutter" class="md-nav__link">
-    Step 1: Install Cookiecutter
+  <a href="#setting-up-your-project" class="md-nav__link">
+    Setting up your project
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting up your project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-cruft" class="md-nav__link">
+    Step 1: Install Cruft
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-2-generate-your-package" class="md-nav__link">
     Step 2: Generate Your Package
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-3-create-a-github-repository" class="md-nav__link">
     Step 3: Create a GitHub Repository
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-4-define-requirements" class="md-nav__link">
     Step 4: Define requirements
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-5-create-a-development-environment-for-your-project" class="md-nav__link">
     Step 5: Create a development environment for your project
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#step-6-tweak-the-generated-project-files-to-meet-your-specific-needs-preferences" class="md-nav__link">
     Step 6: Tweak the generated project files to meet your specific needs / preferences
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keeping-your-project-up-to-date" class="md-nav__link">
+    Keeping your project up-to-date
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-inputs-after-project-generation" class="md-nav__link">
+    Changing inputs after project generation
   </a>
   
 </li>
@@ -497,32 +551,33 @@
 <p>To start with, you will need a <a href="https://github.com/">GitHub account</a>.
 If you are an Arup employee, you should sign up to the Arup <a href="https://github.arup.com/signup">GitHub group</a>.</p>
 <p>If you are new to Git and GitHub, you should probably spend a few minutes on some of the tutorials at the top of the page at <a href="https://help.github.com/">GitHub Help</a>.</p>
-<h2 id="step-1-install-cookiecutter">Step 1: Install Cookiecutter<a class="headerlink" href="#step-1-install-cookiecutter" title="Permanent link">#</a></h2>
-<p>First, you need to create and activate a conda/<a href="https://mamba.readthedocs.io/en/latest/index.html">mamba</a> environment for using cookiecutter.
+<h2 id="setting-up-your-project">Setting up your project<a class="headerlink" href="#setting-up-your-project" title="Permanent link">#</a></h2>
+<h3 id="step-1-install-cruft">Step 1: Install Cruft<a class="headerlink" href="#step-1-install-cruft" title="Permanent link">#</a></h3>
+<p>First, you need to create and activate a conda/<a href="https://mamba.readthedocs.io/en/latest/index.html">mamba</a> environment for using Cruft (a Cookiecutter-compatible tool which allows for project updating).
 Use your favorite method, or create an environment like this:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span>mamba<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>cookiecutter<span class="w"> </span>cookiecutter
-</span></code></pre></div>
-<p>Activate your environment:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span>mamba<span class="w"> </span>activate<span class="w"> </span>cookiecutter
-</span></code></pre></div>
-<h2 id="step-2-generate-your-package">Step 2: Generate Your Package<a class="headerlink" href="#step-2-generate-your-package" title="Permanent link">#</a></h2>
-<p>Now it's time to generate your Python package.</p>
-<p>Use cookiecutter, pointing it at the cookiecutter-pypackage repo:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Slim</label><label for="__tabbed_1_2">Long-form</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">With mamba</label><label for="__tabbed_1_2">With pip</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span>cookiecutter<span class="w"> </span>gh:arup-group/cookiecutter-pypackage
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span>mamba<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>cookiecutter<span class="w"> </span>cruft
+</span></code></pre></div>
+Activate your environment:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span>mamba<span class="w"> </span>activate<span class="w"> </span>cookiecutter
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">    </span>cookiecutter<span class="w"> </span>https://github.com/arup-group/cookiecutter-pypackage.git
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>cruft
 </span></code></pre></div>
 </div>
 </div>
 </div>
+<h3 id="step-2-generate-your-package">Step 2: Generate Your Package<a class="headerlink" href="#step-2-generate-your-package" title="Permanent link">#</a></h3>
+<p>Now it's time to generate your Python package.</p>
+<p>Use cruft, pointing it at the cookiecutter-pypackage repository:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">    </span>cruft<span class="w"> </span>create<span class="w"> </span>https://github.com/arup-group/cookiecutter-pypackage.git
+</span></code></pre></div>
 <p>You'll be asked to enter a bunch of values to set the package up.
 If you don't know what to enter, stick with the defaults.</p>
-<h2 id="step-3-create-a-github-repository">Step 3: Create a GitHub Repository<a class="headerlink" href="#step-3-create-a-github-repository" title="Permanent link">#</a></h2>
+<h3 id="step-3-create-a-github-repository">Step 3: Create a GitHub Repository<a class="headerlink" href="#step-3-create-a-github-repository" title="Permanent link">#</a></h3>
 <p>Go to your GitHub account and create a new repository named <code>mypackage</code>, where <code>mypackage</code> matches the <code>[project_slug]</code> from your answers to running cookiecutter.</p>
 <p>You will find one folder named after the <code>[project_slug]</code>.
 Change directory into this folder, and then setup git to use your GitHub repo and upload the code:</p>
@@ -538,12 +593,12 @@ Change directory into this folder, and then setup git to use your GitHub repo an
 <p class="admonition-title">Note</p>
 <p>If you are uploading directly to an <code>arup-group</code> repository, use <code>arup-group</code> for <code>HOST</code>.</p>
 </div>
-<h2 id="step-4-define-requirements">Step 4: Define requirements<a class="headerlink" href="#step-4-define-requirements" title="Permanent link">#</a></h2>
+<h3 id="step-4-define-requirements">Step 4: Define requirements<a class="headerlink" href="#step-4-define-requirements" title="Permanent link">#</a></h3>
 <p>As well as writing the package source code, documentation, and tests, you will need to define the packages on which your project depends.
 You can find an empty requirements file for you to complete in your new project folder: <code>requirements/base.txt</code>.</p>
-<h2 id="step-5-create-a-development-environment-for-your-project">Step 5: Create a development environment for your project<a class="headerlink" href="#step-5-create-a-development-environment-for-your-project" title="Permanent link">#</a></h2>
+<h3 id="step-5-create-a-development-environment-for-your-project">Step 5: Create a development environment for your project<a class="headerlink" href="#step-5-create-a-development-environment-for-your-project" title="Permanent link">#</a></h3>
 <p>To install the necessary packages to develop your Python package, follow the instructions given in the new project's README / online documentation (https://HOST.github.io/mypackage, where <code>HOST</code> is the name of the owner of the repository on GitHub, e.g. <code>myusername</code> or <code>arup-group</code>).</p>
-<h2 id="step-6-tweak-the-generated-project-files-to-meet-your-specific-needs-preferences">Step 6: Tweak the generated project files to meet your specific needs / preferences<a class="headerlink" href="#step-6-tweak-the-generated-project-files-to-meet-your-specific-needs-preferences" title="Permanent link">#</a></h2>
+<h3 id="step-6-tweak-the-generated-project-files-to-meet-your-specific-needs-preferences">Step 6: Tweak the generated project files to meet your specific needs / preferences<a class="headerlink" href="#step-6-tweak-the-generated-project-files-to-meet-your-specific-needs-preferences" title="Permanent link">#</a></h3>
 <p>Although we recommend you stick with the default setup provided by the template, there are a few files you may like to tweak / things you'll want to add.
 This list is not exhaustive, but gives you an idea of where to look.</p>
 <ol>
@@ -572,6 +627,40 @@ This is due to existing projects being very difficult to update to meet strict r
 If you are starting a project from scratch, you may like to add more rules for it to check from its <a href="https://beta.ruff.rs/docs/rules/">extensive list</a>.</p>
 </li>
 </ol>
+<h2 id="keeping-your-project-up-to-date">Keeping your project up-to-date<a class="headerlink" href="#keeping-your-project-up-to-date" title="Permanent link">#</a></h2>
+<p>We may make changes to this template that you want to pull into your project after you have created it.
+Cruft allows you to do this, and one of your project's CI workflows will verify whether there are new template updates that you might like to merge in.</p>
+<p>Check if there are updates:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">    </span>cruft<span class="w"> </span>check
+</span></code></pre></div></p>
+<p>View the diff between your project and the most up-to-date template:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="w">    </span>cruft<span class="w"> </span>diff
+</span></code></pre></div></p>
+<p>Apply any updates that exist:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">    </span>cruft<span class="w"> </span>update
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is a limit to how well cruft can apply an update.
+More likely than not, it will produce a lot of <code>.rej</code> files explaining what updates it tried to implement, but failed to merge in.
+You will need to go through each of these manually and make the changes in the corresponding source code file.</p>
+</div>
+<h2 id="changing-inputs-after-project-generation">Changing inputs after project generation<a class="headerlink" href="#changing-inputs-after-project-generation" title="Permanent link">#</a></h2>
+<p>You can change your mind on <em>some</em> of the input variables you gave when initialising the project and use <code>cruft</code> to update them.</p>
+<p>The following variables are suitable for updating:</p>
+<ul>
+<li>full_name</li>
+<li>email</li>
+<li>github_username</li>
+<li>repository_org</li>
+<li>project_name</li>
+<li>project_slug</li>
+<li>project_short_description</li>
+<li>conda_channel</li>
+<li>version</li>
+<li>open_source_license</li>
+</ul>
+<p>Even when changing one of these values, be aware that you will need to apply some manual changes based on <code>.rej</code> files that cruft will generate.</p>
 <h2 id="having-problems">Having problems?<a class="headerlink" href="#having-problems" title="Permanent link">#</a></h2>
 <p><strong>Is something not working?</strong></p>
 <p><a class="md-button" href="https://github.com/arup-group/cookiecutter-pypackage/issues/new?template=BUG-REPORT.yml" title="Report a bug in the template by creating an issue and a reproduction"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 12h-4v-2h4m0 6h-4v-2h4m6-6h-2.81a5.985 5.985 0 0 0-1.82-1.96L17 4.41 15.59 3l-2.17 2.17a6.002 6.002 0 0 0-2.83 0L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8Z"/></svg></span> Report a bug</a></p>

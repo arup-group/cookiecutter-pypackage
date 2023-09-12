@@ -273,6 +273,19 @@
     Quickstart
   </a>
   
+    <nav class="md-nav" aria-label="Quickstart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keeping-your-project-up-to-date" class="md-nav__link">
+    Keeping your project up-to-date
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -438,6 +451,19 @@
     Quickstart
   </a>
   
+    <nav class="md-nav" aria-label="Quickstart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keeping-your-project-up-to-date" class="md-nav__link">
+    Keeping your project up-to-date
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -512,32 +538,34 @@ It has been updated to use latest Python Package best practices and to align wit
 <ul>
 <li>Testing setup with <a href="https://docs.pytest.org">pytest</a>.</li>
 <li>Markdown based documentation, using <a href="https://pypi.org/project/mkdocs/">mkdocs</a>, ready for generation with <a href="https://pages.github.com">GitHub pages</a>.</li>
+<li>Project metadata and plugin configuration specified in a <code>pyproject.toml</code> file, according to the <a href="https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html">latest standards</a>.</li>
 <li>Auto-release to your private <a href="https://anaconda.org">conda</a> channel when you create a new release on GitHub (optional).</li>
 <li>Command line interface using <a href="https://click.palletsprojects.com">click</a> (optional).</li>
 </ul>
 <h2 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">#</a></h2>
-<p>Install the latest Cookiecutter if you haven't installed it yet (this requires Cookiecutter 1.4.0 or higher):</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">With conda</label><label for="__tabbed_1_2">With pip</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span>conda<span class="w"> </span>install<span class="w"> </span>cookiecutter
+<p>To be able to keep your project up-tp-date as changes are made to the template, we recommend you use <a href="https://cruft.github.io/cruft/">Cruft</a>, which is fully compatible with Cookiecutter.
+First, install the latest version of Cruft if you haven't installed it yet:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span>conda<span class="w"> </span>install<span class="w"> </span>cruft
 </span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>cookiecutter
-</span></code></pre></div>
-</div>
-</div>
-</div>
 <p>Generate a Python package project:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span>cookiecutter<span class="w"> </span>gh:arup-group/cookiecutter-pypackage
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span>cruft<span class="w"> </span>create<span class="w"> </span>https://github.com/arup-group/cookiecutter-pypackage
 </span></code></pre></div>
 <p>Then:</p>
 <ul>
 <li>Create a local repository and put it there.</li>
 <li>Add the packages you will need for your project and their versions to <code>requirements/base.txt</code>.</li>
+<li>initialise your project as a git repository and link it to an online repository.
+For more details, see the <a href="https://arup-group.github.io/cookiecutter-pypackage/latest/tutorial">tutorial</a>.</li>
 </ul>
-<p>For more details, see the <a href="https://arup-group.github.io/cookiecutter-pypackage/latest/tutorial">cookiecutter-pypackage tutorial</a>.</p>
+<h3 id="keeping-your-project-up-to-date">Keeping your project up-to-date<a class="headerlink" href="#keeping-your-project-up-to-date" title="Permanent link">#</a></h3>
+<p>We may make changes to this template that you want to pull into your project after you have created it.
+Cruft allows you to do this, and one of your project's CI workflows will verify whether there are new template updates that you might like to merge in.</p>
+<p>To check if there are updates:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">    </span>cruft<span class="w"> </span>check
+</span></code></pre></div></p>
+<p>To apply updates:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">    </span>cruft<span class="w"> </span>update
+</span></code></pre></div></p>
 <h2 id="not-exactly-what-you-want">Not Exactly What You Want?<a class="headerlink" href="#not-exactly-what-you-want" title="Permanent link">#</a></h2>
 <p>Don't worry, you have options:</p>
 <h3 id="other-arup-cookiecutter-templates">Other Arup Cookiecutter Templates<a class="headerlink" href="#other-arup-cookiecutter-templates" title="Permanent link">#</a></h3>
