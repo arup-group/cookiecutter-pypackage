@@ -55,7 +55,7 @@ jobs:
       - uses: mamba-org/setup-micromamba@v1
         with:
           micromamba-version: latest
-          environment-name: ${{ github.event.repository.name }}-cruft
+          environment-name: {% raw %}${{ github.event.repository.name }}-cruft{% endraw %}
           create-args: >-
             cruft
             python=3.11
