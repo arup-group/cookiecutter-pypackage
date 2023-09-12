@@ -28,8 +28,9 @@ jobs:
     needs: [docs-test, docs-update-latest]
     if: always() && contains(needs.*.result, 'failure')
     uses: arup-group/actions-city-modelling-lab/.github/workflows/slack-notify.yml@main
-    secrets: inherit
+    secrets:
+      SLACK_WEBHOOK: {% raw %}${{ secrets.SLACK_WEBHOOK }}{% endraw %}
     with:
       result: 'failure'
-      channel: pam-feed
+      channel: {{ cookiecutter.project_slug }}-feed
       message: Docs Build

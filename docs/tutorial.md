@@ -85,14 +85,14 @@ Although we recommend you stick with the default setup provided by the template,
 This list is not exhaustive, but gives you an idea of where to look.
 
 1. **Changing how continuous integration (CI) works**.
-The configuration files in `.github/workflows` are based on the [PAM](https://github.com/arup-group/pam) package workflows.
+The configuration files in `.github/workflows` are based on the [PAM](https://github.com/arup-group/pam) package workflows and rely on the City Modelling Lab's [reusable workflows](https://github.com/arup-group/actions-city-modelling-lab).
 They will run different levels of tests when pushing new commits and when opening pull requests.
 You may want to change some of this configuration, e.g., the python versions that tests are run on or whether to notify a slack channel when CI fails/succeeds.
 
 2. **Adding [repository secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository) for use in CI**.
 To upload your package to an AWS S3 bucket you will need the secrets `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_S3_CODE_BUCKET` available in your repository.
 You also need secrets for uploading to Anaconda and initiating the Slack notification bot.
-You can find all the secrets you need for different actions in the City Modelling Lab [actions repository](https://github.com/arup-group/actions-city-modelling-lab).
+You can find all the secrets you need for different actions in the City Modelling Lab [reusable workflow repository](https://github.com/arup-group/actions-city-modelling-lab).
 
 3. **Adding logos**.
 The `resources` directory includes a logo subdirectory that you can add any branding for your package.
