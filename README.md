@@ -15,43 +15,58 @@ It has been updated to use latest Python Package best practices and to align wit
 ## Features
 
 * Testing setup with [pytest].
-* Markdown based documentation, using [mkdocs], ready for generation with [GitHub pages][github-pages].
+* Markdown based documentation, using [mkdocs], ready for generation with [GitHub pages].
+* Project metadata and plugin configuration specified in a `pyproject.toml` file, according to the [latest standards].
 * Auto-release to your private [conda] channel when you create a new release on GitHub (optional).
 * Command line interface using [click] (optional).
 
 [Cookiecutter]: https://github.com/cookiecutter/cookiecutter
 [pytest]: https://docs.pytest.org
 [mkdocs]: https://pypi.org/project/mkdocs/
-[github-pages]: https://pages.github.com
+[GitHub pages]: https://pages.github.com
 [conda]: https://anaconda.org
 [click]: https://click.palletsprojects.com
+[latest standards]: https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
 
 ## Quickstart
 
-Install the latest Cookiecutter if you haven't installed it yet (this requires Cookiecutter 1.4.0 or higher):
+To be able to keep your project up-tp-date as changes are made to the template, we recommend you use [Cruft], which is fully compatible with Cookiecutter.
+First, install the latest version of Cruft if you haven't installed it yet:
 
-=== "With conda"
-    ``` bash
-        conda install cookiecutter
-    ```
+[cruft]: https://cruft.github.io/cruft/
 
-=== "With pip"
-    ``` bash
-        pip install -U cookiecutter
-    ```
+``` bash
+    conda install cruft
+```
 
 Generate a Python package project:
 
 ``` bash
-    cookiecutter gh:arup-group/cookiecutter-pypackage
+    cruft create https://github.com/arup-group/cookiecutter-pypackage
 ```
 
 Then:
 
 * Create a local repository and put it there.
 * Add the packages you will need for your project and their versions to `requirements/base.txt`.
+* initialise your project as a git repository and link it to an online repository.
+For more details, see the [tutorial](https://arup-group.github.io/cookiecutter-pypackage/latest/tutorial).
 
-For more details, see the [cookiecutter-pypackage tutorial](https://arup-group.github.io/cookiecutter-pypackage/latest/tutorial).
+### Keeping your project up-to-date
+
+We may make changes to this template that you want to pull into your project after you have created it.
+Cruft allows you to do this, and one of your project's CI workflows will verify whether there are new template updates that you might like to merge in.
+
+To check if there are updates:
+``` bash
+    cruft check
+```
+
+To apply updates:
+``` bash
+    cruft update
+```
+
 
 
 ## Not Exactly What You Want?
