@@ -1,6 +1,7 @@
 # Arup Cookiecutter Python Package Template
 
-[![](https://github.com/arup-group/cookiecutter-pypackage/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://arup-group.github.io/cookiecutter-pypackage)
+[![Daily CI Build](https://github.com/arup-group/cookiecutter-pypackage/actions/workflows/daily-scheduled-ci.yml/badge.svg)](https://github.com/arup-group/cookiecutter-pypackage/actions/workflows/daily-scheduled-ci.yml)
+[![Documentation](https://github.com/arup-group/cookiecutter-pypackage/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://arup-group.github.io/cookiecutter-pypackage)
 
 [Cookiecutter] template for an Arup Python package.
 

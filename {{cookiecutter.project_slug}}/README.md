@@ -4,8 +4,8 @@
 
 # {{ cookiecutter.project_name }}
 
-![CIbadge](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.project_slug }}/workflows/CI/badge.svg)
-[![](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.project_slug }}/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://{{ cookiecutter.repository_org }}.github.io/{{ cookiecutter.project_slug }})
+[![Daily CI Build](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.project_slug }}/actions/workflows/daily-scheduled-ci.yml/badge.svg)](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.project_slug }}/actions/workflows/daily-scheduled-ci.yml)
+[![Documentation](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.project_slug }}/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://{{ cookiecutter.repository_org }}.github.io/{{ cookiecutter.project_slug }})
 
 <!--- --8<-- [end:docs] -->
 
