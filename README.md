@@ -7,12 +7,6 @@
 
 This template is based on [@audreyfeldroy's original cookiecutter template](https://github.com/audreyfeldroy/cookiecutter-pypackage).
 It has been updated to use latest Python Package best practices and to align with [Arup's City Modelling Lab Python projects](https://github.com/search?q=topic%3Acml+org%3Aarup-group&type=repositories).
-
-
-[:octicons-mark-github-16: GitHub Repo](https://github.com/arup-group/cookiecutter-pypackage "GitHub repository"){ .md-button }
-[:material-book-open-blank-variant: Docs](https://arup-group.github.io/cookiecutter-pypackage "Documentation"){ .md-button }
-[:material-license: Open-source MIT license](https://opensource.org/license/mit/ "MIT License"){ .md-button }
-
 ## Features
 
 * Testing setup with [pytest].
@@ -67,8 +61,6 @@ To apply updates:
 ``` bash
     cruft update
 ```
-
-
 
 ## Not Exactly What You Want?
 
