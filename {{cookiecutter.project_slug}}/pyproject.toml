@@ -94,9 +94,10 @@ docstring-quotes = "double"
 include = ["{{ cookiecutter.project_slug }}*"]
 
 [tool.setuptools.package-data]
-
-{{ cookiecutter.project_slug }} = []  # Add file globs from the source code directory if they include non-py files that should be packaged
+# Add file globs from the source code directory if they include non-py files that should be packaged
 # E.g. "fixtures/**/*"
+{{ cookiecutter.project_slug }} = []
+
 
 [build-system]
 requires = ["setuptools"]
@@ -129,12 +130,12 @@ dynamic = ["dependencies", "optional-dependencies"]
 version = "{{ cookiecutter.version }}"
 
 [tool.setuptools.dynamic]
-{%- if cookiecutter.command_line_interface|lower == "y" %}
 dependencies = { file = ["requirements/base.txt"] }
 
+{%- if cookiecutter.command_line_interface|lower == "y" %}
 [project.scripts]
-{%- endif %}
 {{ cookiecutter.project_slug }}="{{ cookiecutter.project_slug }}.cli:cli"
+{%- endif %}
 
 [tool.setuptools.dynamic.optional-dependencies]
 dev = { file = ["requirements/dev.txt"] }
