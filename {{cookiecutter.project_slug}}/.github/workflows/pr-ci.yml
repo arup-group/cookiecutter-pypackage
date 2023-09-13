@@ -1,13 +1,9 @@
-name: CI
+name: Pull Request CI
 
 on:
   pull_request:
     branches:
       - main
-    types:
-      - opened
-      - ready_for_review
-      - review_requested
     paths-ignore:
       - README.md
       - CHANGELOG.md
@@ -49,19 +45,4 @@ jobs:
       upload_flamegraph: true
 
   cruft-check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: mamba-org/setup-micromamba@v1
-        with:
-          micromamba-version: latest
-          environment-name: {% raw %}${{ github.event.repository.name }}-cruft{% endraw %}
-          create-args: >-
-            cruft
-            python=3.11
-          post-cleanup: all
-          cache-environment: true
-
-      - name: Check project against template
-        id: check
-        run: cruft check
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/template-check.yml@main
