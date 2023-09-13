@@ -14,6 +14,8 @@ def remove_dir(dirpath: Path | str):
 
 
 if __name__ == "__main__":
+    remove_file(Path() / "resources" / "logos" / ".ignore")
+
     if "{{ cookiecutter.create_author_file|lower }}" == "n":
         remove_file("AUTHORS")
 
