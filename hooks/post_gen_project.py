@@ -14,6 +14,9 @@ def remove_dir(dirpath: Path | str):
 
 
 if __name__ == "__main__":
+    for file_to_delete in PROJECT_DIRECTORY.rglob(".ignore"):
+        file_to_delete.unlink()
+
     if "{{ cookiecutter.create_author_file|lower }}" == "n":
         remove_file("AUTHORS")
 

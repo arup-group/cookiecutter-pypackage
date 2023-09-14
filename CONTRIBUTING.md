@@ -1,7 +1,7 @@
 # Contributing
 
-Contributions are welcome, and they are greatly appreciated! Every little bit
-helps, and credit will always be given.
+Contributions are welcome, and they are greatly appreciated!
+Every little bit helps, and credit will always be given.
 
 You can contribute in many ways:
 
@@ -107,6 +107,17 @@ Before you submit a PR, check that it meets these guidelines:
 
 3. The PR should work for Python 3.9 - 3.11 (inclusive).
    Continuous integration tests will run in your PR and will fail if your changes break anything.
+
+### Add to the template
+Cookiecutter templates use [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) templating syntax.
+For example, `{{ cookiecutter.project_slug }}` -> `python_boilerplate` on running cookiecutter.
+You can get a good feel for this by looking at the current implementation.
+
+The GitHub CI workflows also use the `{{}}` syntax, requiring anything that should be left behind after cookiecutter works its magic to be wrapped in {% raw %} and {% endraw %} commands.
+
+If you want to add an empty directory, you should add a `.ignore` file into it (e.g., see `resources/logos`).
+This will ensure that cruft actually builds the directories.
+In a post-generation hook, this `.ignore` file will be deleted and you will be left with the empty directory.
 
 ### Add a New Test
 
