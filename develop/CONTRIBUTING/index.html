@@ -384,6 +384,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#add-to-the-template" class="md-nav__link">
+    Add to the template
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#add-a-new-test" class="md-nav__link">
     Add a New Test
   </a>
@@ -512,6 +519,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#add-to-the-template" class="md-nav__link">
+    Add to the template
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#add-a-new-test" class="md-nav__link">
     Add a New Test
   </a>
@@ -542,8 +556,8 @@
 
 
 <h1 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">#</a></h1>
-<p>Contributions are welcome, and they are greatly appreciated! Every little bit
-helps, and credit will always be given.</p>
+<p>Contributions are welcome, and they are greatly appreciated!
+Every little bit helps, and credit will always be given.</p>
 <p>You can contribute in many ways:</p>
 <h2 id="types-of-contributions">Types of Contributions<a class="headerlink" href="#types-of-contributions" title="Permanent link">#</a></h2>
 <h3 id="report-issues">Report Issues<a class="headerlink" href="#report-issues" title="Permanent link">#</a></h3>
@@ -633,6 +647,14 @@ Please note this documentation assumes you already have <code>mamba</code> and <
    Continuous integration tests will run in your PR and will fail if your changes break anything.</p>
 </li>
 </ol>
+<h3 id="add-to-the-template">Add to the template<a class="headerlink" href="#add-to-the-template" title="Permanent link">#</a></h3>
+<p>Cookiecutter templates use <a href="https://jinja.palletsprojects.com/en/3.1.x/">Jinja</a> templating syntax.
+For example, <code>{{ cookiecutter.project_slug }}</code> -&gt; <code>python_boilerplate</code> on running cookiecutter.
+You can get a good feel for this by looking at the current implementation.</p>
+<p>The GitHub CI workflows also use the <code>{{}}</code> syntax, requiring anything that should be left behind after cookiecutter works its magic to be wrapped in {% raw %} and {% endraw %} commands.</p>
+<p>If you want to add an empty directory, you should add a <code>.ignore</code> file into it (e.g., see <code>resources/logos</code>).
+This will ensure that cruft actually builds the directories.
+In a post-generation hook, this <code>.ignore</code> file will be deleted and you will be left with the empty directory.</p>
 <h3 id="add-a-new-test">Add a New Test<a class="headerlink" href="#add-a-new-test" title="Permanent link">#</a></h3>
 <p>When fixing a bug or adding features, it's good practice to add a test to demonstrate your fix or new feature behaves as expected.
 These tests should focus on one tiny bit of functionality and prove changes are correct.</p>
