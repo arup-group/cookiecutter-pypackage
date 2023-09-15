@@ -17,7 +17,7 @@ jobs:
     with:
       os: ubuntu-latest
       py3version: "11"
-      notebook_kernel: {{ cookiecutter.project_slug }}
+      notebook_kernel: {{ cookiecutter.repository_name }}
       pytest_args: '--no-cov'  # ignore coverage
       cache_mamba_env: false
       lint: false
@@ -31,5 +31,5 @@ jobs:
       SLACK_WEBHOOK: {% raw %}${{ secrets.SLACK_WEBHOOK }}{% endraw %}
     with:
       result: needs.test.result
-      channel: {{ cookiecutter.project_slug }}-feed
+      channel: {{ cookiecutter.repository_name }}-feed
       message: Daily CI action

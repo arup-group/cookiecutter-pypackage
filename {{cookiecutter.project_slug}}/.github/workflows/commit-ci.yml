@@ -18,7 +18,7 @@ jobs:
     with:
       os: ubuntu-latest
       py3version: "11"
-      notebook_kernel: {{ cookiecutter.project_slug }}
+      notebook_kernel: {{ cookiecutter.repository_name }}
       lint: false
 
   aws-upload:

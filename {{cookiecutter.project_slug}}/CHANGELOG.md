@@ -30,4 +30,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Initial release.
 
-[unreleased]: https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.project_slug }}/compare/{{ cookiecutter.version }}...main
+[unreleased]: https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/compare/{{ cookiecutter.version }}...main

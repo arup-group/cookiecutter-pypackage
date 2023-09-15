@@ -21,7 +21,7 @@ if __name__ == "__main__":
         remove_file("AUTHORS")
 
     if "{{ cookiecutter.command_line_interface|lower }}" == "n":
-        cli_file = Path() / "{{ cookiecutter.project_slug }}" / "cli.py"
+        cli_file = Path() / "{{ cookiecutter.package_name }}" / "cli.py"
         cli_docs = Path() / "docs" / "api" / "cli.md"
         remove_file(cli_file)
         remove_file(cli_docs)
@@ -30,7 +30,7 @@ if __name__ == "__main__":
         notebook_dir = Path("examples")
         for hidden_file in (PROJECT_DIRECTORY / notebook_dir).glob(".*"):
             hidden_file.unlink()
-        remove_file(notebook_dir / "01_intro_to_{{cookiecutter.project_slug}}.ipynb")
+        remove_file(notebook_dir / "01_intro_to_{{cookiecutter.package_name}}.ipynb")
         remove_dir(notebook_dir)
 
     if "{{ cookiecutter.create_docker_file|lower }}" == "n":

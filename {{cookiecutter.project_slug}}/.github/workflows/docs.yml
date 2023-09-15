@@ -13,7 +13,7 @@ jobs:
     uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@main
     with:
       deploy_type: test
-      notebook_kernel: {{ cookiecutter.project_slug }}
+      notebook_kernel: {{ cookiecutter.repository_name }}
 
   docs-update-latest:
     permissions:
@@ -22,15 +22,4 @@ jobs:
     uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@main
     with:
       deploy_type: update_latest
-      notebook_kernel: {{ cookiecutter.project_slug }}
-
-  slack-notify-ci-failure:
-    needs: [docs-test, docs-update-latest]
-    if: always() && contains(needs.*.result, 'failure')
-    uses: arup-group/actions-city-modelling-lab/.github/workflows/slack-notify.yml@main
-    secrets:
-      SLACK_WEBHOOK: {% raw %}${{ secrets.SLACK_WEBHOOK }}{% endraw %}
-    with:
-      result: 'failure'
-      channel: {{ cookiecutter.project_slug }}-feed
-      message: Docs Build
+      notebook_kernel: {{ cookiecutter.repository_name }}

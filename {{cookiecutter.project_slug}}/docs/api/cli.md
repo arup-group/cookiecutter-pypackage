@@ -3,8 +3,8 @@
 This page provides documentation for our command line tools.
 
 ::: mkdocs-click
-    :module: {{ cookiecutter.project_slug }}.cli
+    :module: {{ cookiecutter.package_name }}.cli
     :command: cli
-    :prog_name: {{ cookiecutter.project_slug }}
+    :prog_name: {{ cookiecutter.package_name }}
     :style: table
     :depth: 1

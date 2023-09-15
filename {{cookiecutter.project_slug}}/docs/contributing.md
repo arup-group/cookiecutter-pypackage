@@ -1,6 +1,6 @@
 # Contributing
 
-{{ cookiecutter.project_slug }} is an actively maintained and utilised project.
+{{ cookiecutter.package_name }} is an actively maintained and utilised project.
 
 ## How to contribute
 
@@ -8,35 +8,35 @@ to report issues, request features, or exchange with our community, just follow 
 
 __Is something not working?__
 
-[:material-bug: Report a bug](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.project_slug }}/issues/new?template=BUG-REPORT.yml "Report a bug in {{ cookiecutter.project_slug }} by creating an issue and a reproduction"){ .md-button }
+[:material-bug: Report a bug](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/issues/new?template=BUG-REPORT.yml "Report a bug in {{ cookiecutter.package_name }} by creating an issue and a reproduction"){ .md-button }
 
 __Missing information in our docs?__
 
-[:material-file-document: Report a docs issue](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.project_slug }}/issues/new?template=DOCS.yml "Report missing information or potential inconsistencies in our documentation"){ .md-button }
+[:material-file-document: Report a docs issue](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/issues/new?template=DOCS.yml "Report missing information or potential inconsistencies in our documentation"){ .md-button }
 
 __Want to submit an idea?__
 
-[:material-lightbulb-on: Request a change](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.project_slug }}/issues/new?template=FEATURE-REQUEST.yml "Propose a change or feature request or suggest an improvement"){ .md-button }
+[:material-lightbulb-on: Request a change](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/issues/new?template=FEATURE-REQUEST.yml "Propose a change or feature request or suggest an improvement"){ .md-button }
 
 __Have a question or need help?__
 
-[:material-chat-question: Ask a question](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.project_slug }}/discussions "Ask questions on our discussion board and get in touch with our community"){ .md-button }
+[:material-chat-question: Ask a question](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/discussions "Ask questions on our discussion board and get in touch with our community"){ .md-button }
 
-## Developing {{ cookiecutter.project_slug }}
+## Developing {{ cookiecutter.package_name }}
 
-To find beginner-friendly existing bugs and feature requests you may like to start out with, take a look at our [good first issues](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.project_slug }}/contribute).
+To find beginner-friendly existing bugs and feature requests you may like to start out with, take a look at our [good first issues](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/contribute).
 
 ### Setting up a development environment
 
-To create a development environment for {{ cookiecutter.project_slug }}, with all libraries required for development and quality assurance installed, it is easiest to install {{ cookiecutter.project_slug }} using the [mamba](https://mamba.readthedocs.io/en/latest/index.html) package manager, as follows:
+To create a development environment for {{ cookiecutter.package_name }}, with all libraries required for development and quality assurance installed, it is easiest to install {{ cookiecutter.package_name }} using the [mamba](https://mamba.readthedocs.io/en/latest/index.html) package manager, as follows:
 
 1. Install mamba with the [Mambaforge](https://github.com/conda-forge/miniforge#mambaforge) executable for your operating system.
 2. Open the command line (or the "miniforge prompt" in Windows).
-3. Download (a.k.a., clone) the {{ cookiecutter.project_slug }} repository: `git clone git@github.com:{{ cookiecutter.repository_org }}/{{ cookiecutter.project_slug }}.git`
-4. Change into the `{{ cookiecutter.project_slug }}` directory: `cd {{ cookiecutter.project_slug }}`
-5. Create the {{ cookiecutter.project_slug }} mamba environment: `mamba create -n {{ cookiecutter.project_slug }} -c conda-forge --file requirements/base.txt --file requirements/dev.txt`
-6. Activate the {{ cookiecutter.project_slug }} mamba environment: `mamba activate {{ cookiecutter.project_slug }}`
-7. Install the {{ cookiecutter.project_slug }} package into the environment, in editable mode and ignoring dependencies (we have dealt with those when creating the mamba environment): `pip install --no-deps -e .`
+3. Download (a.k.a., clone) the {{ cookiecutter.repository_name }} repository: `git clone git@github.com:{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}.git`
+4. Change into the `{{ cookiecutter.repository_name }}` directory: `cd {{ cookiecutter.repository_name }}`
+5. Create the {{ cookiecutter.repository_name }} mamba environment: `mamba create -n {{ cookiecutter.repository_name }} -c conda-forge --file requirements/base.txt --file requirements/dev.txt`
+6. Activate the {{ cookiecutter.repository_name }} mamba environment: `mamba activate {{ cookiecutter.repository_name }}`
+7. Install the {{ cookiecutter.package_name }} package into the environment, in editable mode and ignoring dependencies (we have dealt with those when creating the mamba environment): `pip install --no-deps -e .`
 
 All together:
 
@@ -45,7 +45,7 @@ All together:
 If installing directly with pip, you can install these libraries using the `dev` option, i.e., `pip install -e '.[dev]'`
 
 {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
-Either way, you should add your environment as a jupyter kernel, so the example notebooks can run in the tests: `ipython kernel install --user --name={{ cookiecutter.project_slug }}`
+Either way, you should add your environment as a jupyter kernel, so the example notebooks can run in the tests: `ipython kernel install --user --name={{ cookiecutter.repository_name }}`
 {% endif -%}
 
 If you plan to make changes to the code then please make regular use of the following tools to verify the codebase while you work:
@@ -58,7 +58,7 @@ You can also run these checks yourself at any time to ensure staged changes are 
 {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
 !!! note
 
-    If you already have an environment called `{{ cookiecutter.project_slug }}` on your system (e.g., for a stable installation of the package), you will need to [chose a different environment name][choosing-a-different-environment-name].
+    If you already have an environment called `{{ cookiecutter.repository_name }}` on your system (e.g., for a stable installation of the package), you will need to [chose a different environment name][choosing-a-different-environment-name].
     You will then need to add this as a pytest argument when running the tests: `pytest --nbmake-kernel=[my-env-name]`.
 {% endif -%}
 
@@ -89,10 +89,10 @@ pytest tests/ --no-cov -n4
     This means you don't *have* to do any profiling locally.
     However, if you can, it is still good practice to do so as you will catch issues earlier.
 
-{{ cookiecutter.project_slug }} can be memory intensive; we like to ensure that any development to the core code does not exacerbate this.
+{{ cookiecutter.package_name }} can be memory intensive; we like to ensure that any development to the core code does not exacerbate this.
 If you are running on a UNIX device (i.e., **not** on Windows), you can test whether any changes you have made adversely impact memory and time performance as follows:
 
-1. Install [memray](https://bloomberg.github.io/memray/index.html) in your `{{ cookiecutter.project_slug }}` mamba environment: `mamba install memray pytest-memray`.
+1. Install [memray](https://bloomberg.github.io/memray/index.html) in your `{{ cookiecutter.package_name }}` mamba environment: `mamba install memray pytest-memray`.
 2. Run the memory profiling integration test: `pytest -p memray -m "high_mem" --no-cov`.
 3. Optionally, to visualise the memory allocation, run `pytest -p memray -m "high_mem" --no-cov --memray-bin-path=[my_path] --memray-bin-prefix=[my_prefix]` - where you must define `[my_path]` and `[my_prefix]` - followed by `memray flamegraph [my_path]/[my_prefix]-tests-test_100_memory_profiling.py-test_mem.bin`.
 You will then find the HTML report at `[my_path]/memray-flamegraph-[my_prefix]-tests-test_100_memory_profiling.py-test_mem.html`.

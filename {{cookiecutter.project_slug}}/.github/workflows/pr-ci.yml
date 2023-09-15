@@ -23,7 +23,7 @@ jobs:
     with:
       os: {% raw %}${{ matrix.os }}{% endraw %}
       py3version: {% raw %}${{ matrix.py3version }}{% endraw %}
-      notebook_kernel: {{ cookiecutter.project_slug }}
+      notebook_kernel: {{ cookiecutter.repository_name }}
       lint: false
       pytest_args: '--no-cov'  # ignore coverage
       upload_to_codecov: false
@@ -33,7 +33,7 @@ jobs:
     with:
       os: ubuntu-latest
       py3version: "11"
-      notebook_kernel: {{ cookiecutter.project_slug }}
+      notebook_kernel: {{ cookiecutter.repository_name }}
       lint: false
       pytest_args: 'tests/'  # ignore example notebooks
       upload_to_codecov: true

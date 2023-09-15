@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Tests for `{{ cookiecutter.project_slug }}` package."""
+"""Tests for `{{ cookiecutter.package_name }}` package."""
 
 import pytest
 {%- if cookiecutter.command_line_interface|lower == "y" %}
@@ -8,9 +8,9 @@ from click.testing import CliRunner
 {%- endif %}
 
 {% if cookiecutter.command_line_interface|lower == "y" -%}
-from {{ cookiecutter.project_slug }} import cli, {{ cookiecutter.project_slug }}
+from {{ cookiecutter.package_name }} import cli, {{ cookiecutter.package_name }}
 {%- else %}
-from {{ cookiecutter.project_slug }} import {{ cookiecutter.project_slug }}
+from {{ cookiecutter.package_name }} import {{ cookiecutter.package_name }}
 {%- endif %}
 
 
@@ -26,7 +26,7 @@ def response():
 
 def test_content(response):
     """Sample pytest test function with the pytest fixture as an argument."""
-    print({{ cookiecutter.project_slug }}.__file__)
+    print({{ cookiecutter.package_name }}.__file__)
     # assert 'GitHub' in BeautifulSoup(response.content).title.string
 
 
@@ -36,7 +36,7 @@ def test_command_line_interface():
     runner = CliRunner()
     result = runner.invoke(cli.cli)
     assert result.exit_code == 0
-    assert "{{ cookiecutter.project_slug }}.cli.cli" in result.output
+    assert "{{ cookiecutter.package_name }}.cli.cli" in result.output
     help_result = runner.invoke(cli.cli, ["--help"])
     assert help_result.exit_code == 0
     assert "--help  Show this message and exit." in help_result.output

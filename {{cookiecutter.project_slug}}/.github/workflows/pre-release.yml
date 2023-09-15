@@ -11,4 +11,4 @@ jobs:
     secrets:
       ANACONDA_TOKEN: {% raw %}${{ secrets.ANACONDA_TOKEN }}{% endraw %}
     with:
-      package_name: {{ cookiecutter.project_slug }}
+      package_name: {{ cookiecutter.package_name }}

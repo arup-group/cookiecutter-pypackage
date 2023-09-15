@@ -53,17 +53,17 @@ def test_bake_with_apostrophe_and_run_tests(cookies, install_baked):
     install_baked(result.project)
 
 
-@pytest.mark.parametrize("project_name", ["Foo Bar", "Foo-Bar"])
-def test_bake_with_slugify_project_name(cookies, install_baked, project_name):
+@pytest.mark.parametrize("project_title", ["Foo Bar", "Foo-Bar"])
+def test_bake_with_slugify_project_title(cookies, install_baked, project_title):
     """Ensure that a `full_name` with apostrophes does not break setup.py"""
-    result = cookies.bake(extra_context={"project_name": project_name})
+    result = cookies.bake(extra_context={"project_title": project_title})
     assert result.project.basename == "foo_bar"
     install_baked(result.project)
 
 
-def test_bake_explicit_project_slug(cookies, install_baked):
+def test_bake_explicit_repository_name(cookies, install_baked):
     """Ensure that a `full_name` with apostrophes does not break setup.py"""
-    result = cookies.bake(extra_context={"project_name": "Foo-Bar", "project_slug": "foobar"})
+    result = cookies.bake(extra_context={"project_title": "Foo's-Bar", "repository_name": "foobar"})
     assert result.project.basename == "foobar"
     install_baked(result.project)
 
@@ -168,16 +168,16 @@ def test_bake_with_console_script_files(cookies):
 def test_bake_with_console_script_cli(cookies):
     context = {"command_line_interface": "y"}
     result = cookies.bake(extra_context=context)
-    project_slug = result.project.basename
-    module_path = Path(str(result.project)) / project_slug / "cli.py"
-    module_name = ".".join([project_slug, "cli"])
+    package_name = result.project.basename
+    module_path = Path(str(result.project)) / package_name / "cli.py"
+    module_name = ".".join([package_name, "cli"])
     spec = importlib.util.spec_from_file_location(module_name, module_path)
     cli = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(cli)
     runner = CliRunner()
     noarg_result = runner.invoke(cli.cli)
     assert noarg_result.exit_code == 0
-    noarg_output = " ".join(["Replace this message by putting your code into", project_slug])
+    noarg_output = " ".join(["Replace this message by putting your code into", package_name])
     assert noarg_output in noarg_result.output
     help_result = runner.invoke(cli.cli, ["--help"])
     assert help_result.exit_code == 0

@@ -1,4 +1,4 @@
-site_name: {{ cookiecutter.project_name }}
+site_name: {{ cookiecutter.project_title }}
 nav:
   - Home: index.md
   - Installation: installation.md
@@ -16,7 +16,7 @@ theme:
   custom_dir: docs/overrides
   features:
     - navigation.indexes
-repo_url: https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.project_slug }}/
+repo_url: https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/
 site_dir: .docs
 markdown_extensions:
   - admonition
@@ -47,7 +47,7 @@ plugins:
   - mkdocs-jupyter:
       include: ["examples/*.ipynb"]
       allow_errors: false
-      kernel_name: {{ cookiecutter.project_slug }}
+      kernel_name: {{ cookiecutter.repository_name }}
       include_source: True
       execute: false
 {%- endif %}
@@ -70,7 +70,7 @@ plugins:
             - https://docs.python.org/3/objects.inv
   - search
 watch:
-  - {{ cookiecutter.project_slug }}
+  - {{ cookiecutter.package_name }}
 extra_css:
   - static/extras.css
 extra:

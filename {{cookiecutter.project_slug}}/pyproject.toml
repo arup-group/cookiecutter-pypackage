@@ -19,13 +19,13 @@ minversion = "6.0"
 # `--strict-markers` - Raise error on unexpected pytest markers being used (add new markers to `markers` config)
 # `-n2` - parallelise over two threads (uses pytest-xdist)
 {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
-# `--nbmake --nbmake-kernel={{ cookiecutter.project_slug }}` - test example notebooks using the "{{ cookiecutter.project_slug }}" notebook kernel (uses nbmake)
+# `--nbmake --nbmake-kernel={{ cookiecutter.repository_name }}` - test example notebooks using the "{{ cookiecutter.repository_name }}" notebook kernel (uses nbmake)
 {% endif -%}
 # `--cov --cov-report=xml --cov-config=pyproject.toml` - generate coverage report for tests (uses pytest-cov; call `--no-cov` in CLI to switch off; `--cov-config` include to avoid bug)
 # `-m 'not high_mem'` - Do not run tests marked as consuming large amounts of memory (call `-m "high_mem"` in CLI to invert this; only `high_mem` marked tests will be run)
 # `-p no:memray` - Do not use the memray memory profiling plugin (call `-p memray` in CLI to switch on memory profiling)
 {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
-addopts = "-rav --strict-markers -n2 --nbmake --nbmake-kernel={{ cookiecutter.project_slug }} --cov --cov-report=xml --cov-config=pyproject.toml -m 'not high_mem' -p no:memray"
+addopts = "-rav --strict-markers -n2 --nbmake --nbmake-kernel={{ cookiecutter.repository_name }} --cov --cov-report=xml --cov-config=pyproject.toml -m 'not high_mem' -p no:memray"
 {% else %}
 addopts = "-rav --strict-markers -n2 --cov --cov-report=xml --cov-config=pyproject.toml -m 'not high_mem' -p no:memray"
 {% endif -%}
@@ -39,7 +39,7 @@ filterwarnings = [
 
 [tool.coverage.run]
 branch = true
-source = ["{{ cookiecutter.project_slug }}/"]
+source = ["{{ cookiecutter.package_name }}/"]
 
 [tool.coverage.report]
 fail_under = 89
@@ -91,12 +91,12 @@ ruff = ["--extend-ignore=E402"]
 docstring-quotes = "double"
 
 [tool.setuptools.packages.find]
-include = ["{{ cookiecutter.project_slug }}*"]
+include = ["{{ cookiecutter.package_name }}*"]
 
 [tool.setuptools.package-data]
 # Add file globs from the source code directory if they include non-py files that should be packaged
 # E.g. "fixtures/**/*"
-{{ cookiecutter.project_slug }} = []
+{{ cookiecutter.package_name }} = []
 
 
 [build-system]
@@ -114,7 +114,7 @@ classifiers = [
         "Programming Language :: Python :: 3",
     ]
 
-name = "{{ cookiecutter.project_slug }}"
+name = "{{ cookiecutter.package_name }}"
 authors = [
     { name = "{{ cookiecutter.full_name.replace('\"', '\\\"') }}", email = "{{ cookiecutter.email }}" },
 ]
@@ -122,7 +122,7 @@ maintainers = []
 description = "{{ cookiecutter.project_short_description }}"
 readme = "README.md"
 requires-python = ">=3.8"
-keywords = ["{{ cookiecutter.project_slug }}"]
+keywords = ["{{ cookiecutter.package_name }}"]
 {%- if cookiecutter.open_source_license in license_shortname %}
 license = { text = "{{ license_shortname[cookiecutter.open_source_license] }}" }
 {%- endif %}
@@ -134,13 +134,13 @@ dependencies = { file = ["requirements/base.txt"] }
 
 {%- if cookiecutter.command_line_interface|lower == "y" %}
 [project.scripts]
-{{ cookiecutter.project_slug }}="{{ cookiecutter.project_slug }}.cli:cli"
+{{ cookiecutter.package_name }}="{{ cookiecutter.package_name }}.cli:cli"
 {%- endif %}
 
 [tool.setuptools.dynamic.optional-dependencies]
 dev = { file = ["requirements/dev.txt"] }
 
 [project.urls]
-repository = "https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.project_slug }}"
-documentation = "https://{{ cookiecutter.repository_org }}.github.io/{{ cookiecutter.project_slug }}"
-changelog = "https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.project_slug }}/blob/main/CHANGELOG.md"
+repository = "https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}"
+documentation = "https://{{ cookiecutter.repository_org }}.github.io/{{ cookiecutter.repository_name }}"
+changelog = "https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/blob/main/CHANGELOG.md"
