@@ -541,19 +541,20 @@ It has been updated to use latest Python Package best practices and to align wit
 </ul>
 <h2 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">#</a></h2>
 <p>To be able to keep your project up-tp-date as changes are made to the template, we recommend you use <a href="https://cruft.github.io/cruft/">Cruft</a>, which is fully compatible with Cookiecutter.
-First, install the latest version of Cruft if you haven't installed it yet:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span>conda<span class="w"> </span>install<span class="w"> </span>cruft
+First, install the latest version of Cruft if you haven't installed it yet.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>cookiecutter<span class="w"> </span>cruft
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span>conda<span class="w"> </span>activate<span class="w"> </span>cookiecutter
 </span></code></pre></div>
-<p>Generate a Python package project:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span>cruft<span class="w"> </span>create<span class="w"> </span>https://github.com/arup-group/cookiecutter-pypackage
+<p>Generate a local Python package project in a directory of your choice (change <code>my-repositories</code> to the relevant location on your device):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="nb">cd</span><span class="w"> </span>my-repositories
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span>cruft<span class="w"> </span>create<span class="w"> </span>https://github.com/arup-group/cookiecutter-pypackage
 </span></code></pre></div>
 <p>Then:</p>
 <ul>
-<li>Create a local repository and put it there.</li>
 <li>Add the packages you will need for your project and their versions to <code>requirements/base.txt</code>.</li>
-<li>initialise your project as a git repository and link it to an online repository.
-For more details, see the <a href="https://arup-group.github.io/cookiecutter-pypackage/latest/tutorial">tutorial</a>.</li>
+<li>initialise your project as a git repository and link it to an online repository.</li>
 </ul>
+<p>For more details, see the <a href="https://arup-group.github.io/cookiecutter-pypackage/latest/tutorial">tutorial</a>.</p>
 <h3 id="keeping-your-project-up-to-date">Keeping your project up-to-date<a class="headerlink" href="#keeping-your-project-up-to-date" title="Permanent link">#</a></h3>
 <p>We may make changes to this template that you want to pull into your project after you have created it.
 Cruft allows you to do this, and one of your project's CI workflows will verify whether there are new template updates that you might like to merge in.</p>

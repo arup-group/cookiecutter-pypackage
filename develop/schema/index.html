@@ -369,10 +369,13 @@
 <p><strong><code>repository_org</code></strong> <em>(string)</em>: The organisation in which your repository will be hosted. For personal projects, this can be your GitHub username. Default: <code>"arup-group"</code>.</p>
 </li>
 <li>
-<p><strong><code>project_name</code></strong> <em>(string)</em>: The name of your new Python package project. This is used in documentation, so spaces and any characters are fine here. Default: <code>"Python Boilerplate"</code>.</p>
+<p><strong><code>project_title</code></strong> <em>(string)</em>: The headline name of your new Python package project. This is used in documentation, so spaces and any characters are fine here. Default: <code>"Python Boilerplate"</code>.</p>
 </li>
 <li>
-<p><strong><code>project_slug</code></strong> <em>(string)</em>: The namespace of your Python package. This should be Python import-friendly. Typically, it is the "slugified" version of <code>project_name</code> (e.g. <code>My software package</code> -&gt; <code>my_software_package</code>). Default: <code>"Lower case equivalent of [project_name] with spaces and dashes (-) replaced with an underscore (_)"</code>.</p>
+<p><strong><code>repository_name</code></strong> <em>(string)</em>: Name of the github repository where you will upload your project. Typically, it is the "slugified" version of <code>project_title</code> (e.g. <code>My software package</code> -&gt; <code>my_software_package</code>). Default: <code>"Lower case equivalent of [project_title] with spaces and dashes (-) replaced with an underscore (_)"</code>.</p>
+</li>
+<li>
+<p><strong><code>package_name</code></strong> <em>(string)</em>: The namespace of your Python package. This should be Python import-friendly. Typically, it is the same as the <code>package_name</code>, but you should be careful not to include any dashes (-) if this is the case. Default: <code>"[repository_name]"</code>.</p>
 </li>
 <li>
 <p><strong><code>project_short_description</code></strong> <em>(string)</em>: A 1-sentence description of what your Python package does. Default: <code>"Python Boilerplate contains all the boilerplate you need to create a Python package."</code>.</p>
