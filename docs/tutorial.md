@@ -16,13 +16,16 @@ If you are new to Git and GitHub, you should probably spend a few minutes on som
 
     We will refer to project names, directories, github accounts, etc. in this tutorial.
     You will be using different ones for your project, with the possible exception of `arup-group` as the `repository_org`.
-    For reference, here's the [configuration values][#configuration-values] we will use that you will have the option to set when creating your project with cruft:
+    For reference, here's the [configuration values][configuration-values] we will use that you will have the option to set when creating your project with cruft:
+
     - `github_username`: "ovearup"
     - `repository_org`: "arup-group"
     - `project_title`: "Python Boilerplate"
     - `repository_name`: "python-boilerplate"
     - `package_name`: "python_boilerplate"
+
     Here are some of the assumptions we will make about your local system, which you will need to change as necessary:
+
     - You have [mamba](https://mamba.readthedocs.io/en/latest/index.html) installed (conda/micromamba also work)
     - You store your projects on your device at `~/Repos` (Windows: `C:\\Users\yourusername\Repos`)
 
@@ -63,7 +66,11 @@ If you don't know what to enter, stick with the defaults.
 The following steps are based on using the default values.
 
 Once complete, you will find the `python-boilerplate` directory.
-Change directory into this folder: `cd python-boilerplate`
+Change directory into this folder:
+
+```bash
+cd python-boilerplate
+```
 
 ### Step 3: Create a GitHub Repository
 
@@ -108,7 +115,7 @@ You can keep update this as you go along and need new packages in your project.
 To install the necessary packages to develop your Python package, follow the instructions automatically generated in your new project's README / online documentation (e.g., https://arup-group.github.io/python-boilerplate).
 
 !!! note
-    As you update the requirements that [you define as dependencies][#step-4-define-requirements], you should bulldoze your install and recreate it.
+    As you update the requirements that [you define as dependencies][step-4-define-requirements], you should bulldoze your install and recreate it.
     E.g., if you create your environment using mamba/conda:
     ```bash
     mamba create -n python-boilerplate -c conda-forge --file requirements/base.txt --file requirements/dev.txt
@@ -130,7 +137,6 @@ You may want to change some of this configuration, e.g., the python versions tha
 To upload your package to Anaconda, you will need an [API token](https://server-docs.anaconda.com/en/latest/user/auth_token.html) saved as the `ANACONDA_TOKEN` repository secret.
 To upload to an AWS S3 bucket you will need the secrets `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_S3_CODE_BUCKET` available in your repository.
 You also need secrets for initiating the Slack notification bot and uploading to an AWS S3 bucket (+ possibly some AWS terraforming).
-
 You can find all the secrets you need for different actions in the City Modelling Lab [reusable workflow repository](https://github.com/arup-group/actions-city-modelling-lab).
 
 3. **Adding logos**.
