@@ -556,15 +556,19 @@ If you are an Arup employee, you should sign up to the Arup <a href="https://git
 <p class="admonition-title">Note</p>
 <p>We will refer to project names, directories, github accounts, etc. in this tutorial.
 You will be using different ones for your project, with the possible exception of <code>arup-group</code> as the <code>repository_org</code>.
-For reference, here's the [configuration values][#configuration-values] we will use that you will have the option to set when creating your project with cruft:
-- <code>github_username</code>: "ovearup"
-- <code>repository_org</code>: "arup-group"
-- <code>project_title</code>: "Python Boilerplate"
-- <code>repository_name</code>: "python-boilerplate"
-- <code>package_name</code>: "python_boilerplate"
-Here are some of the assumptions we will make about your local system, which you will need to change as necessary:
-- You have <a href="https://mamba.readthedocs.io/en/latest/index.html">mamba</a> installed (conda/micromamba also work)
-- You store your projects on your device at <code>~/Repos</code> (Windows: <code>C:\\Users\yourusername\Repos</code>)</p>
+For reference, here's the <a class="autorefs autorefs-internal" href="../schema/#configuration-values">configuration values</a> we will use that you will have the option to set when creating your project with cruft:</p>
+<ul>
+<li><code>github_username</code>: "ovearup"</li>
+<li><code>repository_org</code>: "arup-group"</li>
+<li><code>project_title</code>: "Python Boilerplate"</li>
+<li><code>repository_name</code>: "python-boilerplate"</li>
+<li><code>package_name</code>: "python_boilerplate"</li>
+</ul>
+<p>Here are some of the assumptions we will make about your local system, which you will need to change as necessary:</p>
+<ul>
+<li>You have <a href="https://mamba.readthedocs.io/en/latest/index.html">mamba</a> installed (conda/micromamba also work)</li>
+<li>You store your projects on your device at <code>~/Repos</code> (Windows: <code>C:\\Users\yourusername\Repos</code>)</li>
+</ul>
 </div>
 <h3 id="step-1-install-cruft">Step 1: Install Cruft<a class="headerlink" href="#step-1-install-cruft" title="Permanent link">#</a></h3>
 <p>First, you need to create and activate a conda/<a href="https://mamba.readthedocs.io/en/latest/index.html">mamba</a> environment for using Cruft (a Cookiecutter-compatible tool which allows for project updating).
@@ -594,7 +598,9 @@ Activate your environment:</p>
 If you don't know what to enter, stick with the defaults.
 The following steps are based on using the default values.</p>
 <p>Once complete, you will find the <code>python-boilerplate</code> directory.
-Change directory into this folder: <code>cd python-boilerplate</code></p>
+Change directory into this folder:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>python-boilerplate
+</span></code></pre></div>
 <h3 id="step-3-create-a-github-repository">Step 3: Create a GitHub Repository<a class="headerlink" href="#step-3-create-a-github-repository" title="Permanent link">#</a></h3>
 <p>Go to the GitHub page for <code>[repository_org]</code>, e.g. <code>https://github.com/arup-group</code> or <code>https://github.com/ovearup</code>, and create a new repository with <code>[repository_name]</code> (<code>python-boilerplate</code>).</p>
 <p>Do not add anything to your account: no <code>README</code>, no <code>LICENSE</code>, no <code>.gitignore</code>.
@@ -604,11 +610,11 @@ Everything will be added when you push your newly generated package.</p>
 <p>If the repository is in your own user account (e.g., <code>overarup</code>), you may benefit from making it a public repository to be able to host documentation using github pages.</p>
 </div>
 <p>Once you have your repository created, go back to your command line where you are inside your newly created local project, then upload that code:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span>git<span class="w"> </span>init<span class="w"> </span>.
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span>git<span class="w"> </span>add<span class="w"> </span>.
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial skeleton.&quot;</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>git@github.com:arup-group/python-boilerplate.git
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">    </span>git<span class="w"> </span>init<span class="w"> </span>.
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Initial skeleton.&quot;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>git@github.com:arup-group/python-boilerplate.git
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
 </span></code></pre></div>
 <p>Where <code>arup-group</code> and <code>python-boilerplate</code> are adjusted to the host group/user for your repository and the package name, respectively.</p>
 <p>Once you have uploaded your project to your repository, return to the repository and <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">set up GitHub Pages</a> to host your documentation.
@@ -627,9 +633,9 @@ You can keep update this as you go along and need new packages in your project.<
 <p>To install the necessary packages to develop your Python package, follow the instructions automatically generated in your new project's README / online documentation (e.g., https://arup-group.github.io/python-boilerplate).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>As you update the requirements that [you define as dependencies][#step-4-define-requirements], you should bulldoze your install and recreate it.
+<p>As you update the requirements that <a class="autorefs autorefs-internal" href="#step-4-define-requirements">you define as dependencies</a>, you should bulldoze your install and recreate it.
 E.g., if you create your environment using mamba/conda:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>mamba<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>python-boilerplate<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>--file<span class="w"> </span>requirements/base.txt<span class="w"> </span>--file<span class="w"> </span>requirements/dev.txt
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mamba<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>python-boilerplate<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>--file<span class="w"> </span>requirements/base.txt<span class="w"> </span>--file<span class="w"> </span>requirements/dev.txt
 </span></code></pre></div>
 You should run this exact same command after updating <code>requirements/base.txt</code> and say yes to overriding the existing <code>python-boilerplate</code> environment.
 This is a much better way of managing your python environments than adding the dependencies ad-hoc using <code>mamba install ...</code>.</p>
@@ -648,11 +654,9 @@ You may want to change some of this configuration, e.g., the python versions tha
 <p><strong>Adding <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository">repository secrets</a> for use in CI</strong>.
 To upload your package to Anaconda, you will need an <a href="https://server-docs.anaconda.com/en/latest/user/auth_token.html">API token</a> saved as the <code>ANACONDA_TOKEN</code> repository secret.
 To upload to an AWS S3 bucket you will need the secrets <code>AWS_ACCESS_KEY_ID</code>, <code>AWS_SECRET_ACCESS_KEY</code>, <code>AWS_S3_CODE_BUCKET</code> available in your repository.
-You also need secrets for initiating the Slack notification bot and uploading to an AWS S3 bucket (+ possibly some AWS terraforming).</p>
+You also need secrets for initiating the Slack notification bot and uploading to an AWS S3 bucket (+ possibly some AWS terraforming).
+You can find all the secrets you need for different actions in the City Modelling Lab <a href="https://github.com/arup-group/actions-city-modelling-lab">reusable workflow repository</a>.</p>
 </li>
-</ol>
-<p>You can find all the secrets you need for different actions in the City Modelling Lab <a href="https://github.com/arup-group/actions-city-modelling-lab">reusable workflow repository</a>.</p>
-<ol>
 <li>
 <p><strong>Adding logos</strong>.
 The <code>resources</code> directory includes a logo subdirectory that you can add any branding for your package.
@@ -670,13 +674,13 @@ If you are starting a project from scratch, you may like to add more rules for i
 <p>We may make changes to this template that you want to pull into your project after you have created it.
 Cruft allows you to do this, and one of your project's CI workflows will verify whether there are new template updates that you might like to merge in.</p>
 <p>Check if there are updates:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="w">    </span>cruft<span class="w"> </span>check
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">    </span>cruft<span class="w"> </span>check
 </span></code></pre></div></p>
 <p>View the diff between your project and the most up-to-date template:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">    </span>cruft<span class="w"> </span>diff
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">    </span>cruft<span class="w"> </span>diff
 </span></code></pre></div></p>
 <p>Apply any updates that exist:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">    </span>cruft<span class="w"> </span>update
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="w">    </span>cruft<span class="w"> </span>update
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
