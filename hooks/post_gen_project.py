@@ -21,10 +21,12 @@ if __name__ == "__main__":
         remove_file("AUTHORS")
 
     if "{{ cookiecutter.command_line_interface|lower }}" == "n":
-        cli_file = Path() / "{{ cookiecutter.package_name }}" / "cli.py"
-        cli_docs = Path() / "docs" / "api" / "cli.md"
-        remove_file(cli_file)
-        remove_file(cli_docs)
+        for file in [
+            Path("{{ cookiecutter.package_name }}", "cli.py"),
+            Path("tests", "test_cli.py"),
+            Path("docs", "api", "cli.md"),
+        ]:
+            remove_file(file)
 
     if "{{ cookiecutter.create_jupyter_notebook_directory|lower }}" == "n":
         notebook_dir = Path("examples")

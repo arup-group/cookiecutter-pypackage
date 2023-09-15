@@ -26,7 +26,7 @@ properties:
   repository_name:
     type: string
     default: "Lower case equivalent of [project_title] with spaces and dashes (-) replaced with an underscore (_)"
-    description: "Name of the github repository where you will upload your project.  Typically, it is the "slugified" version of `project_title` (e.g. `My software package` -> `my_software_package`). "
+    description: Name of the github repository where you will upload your project. Typically, it is the "slugified" version of `project_title` (e.g. `My software package` -> `my_software_package`).
   package_name:
     type: string
     default: "[repository_name]"
