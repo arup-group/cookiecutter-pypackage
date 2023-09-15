@@ -1,0 +1,21 @@
+name: Publish
+
+on:
+  release:
+    types: [released]
+
+jobs:
+  conda-upload:
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/conda-upload.yml@main
+    secrets:
+      ANACONDA_TOKEN: {% raw %}${{ secrets.ANACONDA_TOKEN }}{% endraw %}
+    with:
+      package_name: {{ cookiecutter.package_name }}
+
+  docs-stable:
+    permissions:
+      contents: write
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@main
+    with:
+      deploy_type: update_stable
+      notebook_kernel: {{ cookiecutter.repository_name }}

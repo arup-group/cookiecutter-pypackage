@@ -19,14 +19,18 @@ properties:
     type: string
     default: "arup-group"
     description: The organisation in which your repository will be hosted. For personal projects, this can be your GitHub username.
-  project_name:
+  project_title:
     type: string
     default: "Python Boilerplate"
-    description: The name of your new Python package project. This is used in documentation, so spaces and any characters are fine here.
-  project_slug:
+    description: The headline name of your new Python package project. This is used in documentation, so spaces and any characters are fine here.
+  repository_name:
     type: string
-    default: "Lower case equivalent of [project_name] with spaces and dashes (-) replaced with an underscore (_)"
-    description: The namespace of your Python package. This should be Python import-friendly. Typically, it is the "slugified" version of `project_name` (e.g. `My software package` -> `my_software_package`).
+    default: "Lower case equivalent of [project_title] with spaces and dashes (-) replaced with an underscore (_)"
+    description: Name of the github repository where you will upload your project. Typically, it is the "slugified" version of `project_title` (e.g. `My software package` -> `my_software_package`).
+  package_name:
+    type: string
+    default: "[repository_name]"
+    description: The namespace of your Python package. This should be Python import-friendly. Typically, it is the same as the `package_name`, but you should be careful not to include any dashes (-) if this is the case.
   project_short_description:
     type: string
     default: "Python Boilerplate contains all the boilerplate you need to create a Python package."

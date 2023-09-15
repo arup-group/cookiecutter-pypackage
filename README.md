@@ -26,25 +26,27 @@ It has been updated to use latest Python Package best practices and to align wit
 ## Quickstart
 
 To be able to keep your project up-tp-date as changes are made to the template, we recommend you use [Cruft], which is fully compatible with Cookiecutter.
-First, install the latest version of Cruft if you haven't installed it yet:
-
-[cruft]: https://cruft.github.io/cruft/
+First, install the latest version of Cruft if you haven't installed it yet.
 
 ``` bash
-    conda install cruft
+    conda create -n cookiecutter cruft
+    conda activate cookiecutter
 ```
 
-Generate a Python package project:
+Generate a local Python package project in a directory of your choice (change `my-repositories` to the relevant location on your device):
 
 ``` bash
+    cd my-repositories
     cruft create https://github.com/arup-group/cookiecutter-pypackage
 ```
 
+[cruft]: https://cruft.github.io/cruft/
+
 Then:
 
-* Create a local repository and put it there.
 * Add the packages you will need for your project and their versions to `requirements/base.txt`.
 * initialise your project as a git repository and link it to an online repository.
+
 For more details, see the [tutorial](https://arup-group.github.io/cookiecutter-pypackage/latest/tutorial).
 
 ### Keeping your project up-to-date
