@@ -36,7 +36,6 @@ repos:
         entry: found Cruft update rejection files (`.rej`); review them and then remove them.
         language: fail
         files: "\\.rej$"
-        always_run: true
 
 {% if cookiecutter.open_source_license != 'Not open source' -%}
 ci:  # https://pre-commit.ci/

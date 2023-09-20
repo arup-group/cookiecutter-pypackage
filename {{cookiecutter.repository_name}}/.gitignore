@@ -38,6 +38,3 @@ mike-*.yml
 
 # Jupyter notebooks
 .ipynb_checkpoints
-
-# Cruft update files
-*.rej
