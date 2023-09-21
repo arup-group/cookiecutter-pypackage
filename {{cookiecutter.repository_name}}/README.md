@@ -1,8 +1,8 @@
 <!--- the "--8<--" html comments define what part of the README to add to the index page of the documentation -->
 <!--- --8<-- [start:docs] -->
-![{{ cookiecutter.package_name }}](resources/logos/title.png)
+![{{ cookiecutter.module_name }}](resources/logos/title.png)
 
-# {{ cookiecutter.project_title }} ({{ cookiecutter.package_name }})
+# {{ cookiecutter.project_title }} ({{ cookiecutter.module_name }})
 
 [![Daily CI Build](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/actions/workflows/daily-scheduled-ci.yml/badge.svg)](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/actions/workflows/daily-scheduled-ci.yml)
 [![Documentation](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://{{ cookiecutter.repository_org }}.github.io/{{ cookiecutter.repository_name }})
@@ -15,7 +15,11 @@ For more detailed instructions, see our [documentation](https://{{ cookiecutter.
 
 ## Installation
 
-To install {{ cookiecutter.package_name }}, we recommend using the [mamba](https://mamba.readthedocs.io/en/latest/index.html) package manager:
+To install {{ cookiecutter.module_name }}
+{%- if cookiecutter.package_name != cookiecutter.module_name %}
+ (indexed online as {{ cookiecutter.package_name }})
+{%- endif -%}
+, we recommend using the [mamba](https://mamba.readthedocs.io/en/latest/index.html) package manager:
 
 ### As a user
 <!--- --8<-- [start:docs-install-user] -->
@@ -51,7 +55,7 @@ For more detailed instructions, see our [documentation](https://{{ cookiecutter.
 ## Contributing
 
 There are many ways to contribute to {{ cookiecutter.repository_name }}.
-Before making contributions to the {{ cookiecutter.package_name }} source code, see our contribution guidelines and follow the [development install instructions](#as-a-developer).
+Before making contributions to the {{ cookiecutter.module_name }} source code, see our contribution guidelines and follow the [development install instructions](#as-a-developer).
 
 If you plan to make changes to the code then please make regular use of the following tools to verify the codebase while you work:
 

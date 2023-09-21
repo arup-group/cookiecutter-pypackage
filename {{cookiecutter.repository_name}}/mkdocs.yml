@@ -70,7 +70,7 @@ plugins:
             - https://docs.python.org/3/objects.inv
   - search
 watch:
-  - {{ cookiecutter.package_name }}
+  - {{ cookiecutter.module_name }}
 extra_css:
   - static/extras.css
 extra:

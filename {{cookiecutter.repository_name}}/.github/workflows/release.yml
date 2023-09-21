@@ -11,6 +11,7 @@ jobs:
       ANACONDA_TOKEN: {% raw %}${{ secrets.ANACONDA_TOKEN }}{% endraw %}
     with:
       package_name: {{ cookiecutter.package_name }}
+      build_workflow: pre-release.yml
 
   docs-stable:
     permissions:

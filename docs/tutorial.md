@@ -22,7 +22,8 @@ If you are new to Git and GitHub, you should probably spend a few minutes on som
     - `repository_org`: "arup-group"
     - `project_title`: "Python Boilerplate"
     - `repository_name`: "python-boilerplate"
-    - `package_name`: "python_boilerplate"
+    - `package_name`: "arup_python_boilerplate" (because `python_boilerplate` is already taken on PyPI)
+    - `module_name`: "python_boilerplate"
 
     Here are some of the assumptions we will make about your local system, which you will need to change as necessary:
 
@@ -188,6 +189,7 @@ The following variables are suitable for updating:
 - project_title
 - repository_name
 - package_name
+- module_name
 - project_short_description
 - conda_channel
 - version

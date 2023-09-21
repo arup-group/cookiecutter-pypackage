@@ -110,7 +110,7 @@ Before you submit a PR, check that it meets these guidelines:
 
 ### Add to the template
 Cookiecutter templates use [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) templating syntax.
-For example, `{{ cookiecutter.package_name }}` -> `python_boilerplate` on running cookiecutter.
+For example, `{{ cookiecutter.module_name }}` -> `python_boilerplate` on running cookiecutter.
 You can get a good feel for this by looking at the current implementation.
 
 The GitHub CI workflows also use the `{{}}` syntax, requiring anything that should be left behind after cookiecutter works its magic to be wrapped in {% raw %} and {% endraw %} commands.

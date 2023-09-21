@@ -15,22 +15,26 @@ properties:
     type: string
     default: "ovearup"
     description: Your GitHub username.
-  repository_org:
-    type: string
-    default: "arup-group"
-    description: The organisation in which your repository will be hosted. For personal projects, this can be your GitHub username.
   project_title:
     type: string
     default: "Python Boilerplate"
     description: The headline name of your new Python package project. This is used in documentation, so spaces and any characters are fine here.
+  repository_owner:
+    type: string
+    default: "arup-group"
+    description: The owner of your GitHub repository (referring to e.g., https://github.com/arup-group). For personal projects, this can be your GitHub username. For Arup projects, this should be `arup-group`
   repository_name:
     type: string
     default: "Lower case equivalent of [project_title] with spaces and dashes (-) replaced with an underscore (_)"
-    description: Name of the github repository where you will upload your project. Typically, it is the "slugified" version of `project_title` (e.g. `My software package` -> `my_software_package`).
+    description: Name of the github repository where you will host your project (i.e., https://github.com/[repository_owner]/[repository_name]). Typically, it is the "slugified" version of `project_title` (e.g. `My software package` -> `my_software_package`) or an abbreviation derived from it (e.g., `Population Activity Modeller` -> `pam`).
   package_name:
     type: string
     default: "[repository_name]"
-    description: The namespace of your Python package. This should be Python import-friendly. Typically, it is the same as the `package_name`, but you should be careful not to include any dashes (-) if this is the case.
+    description: The name given to your package. This should be available on package indexing sites (PyPI/Anaconda). Typically, it is the same as the `module_name`, but if your preferred package name is already taken online, you should rename your project entirely or prepend the package name with e.g. `arup-`. For example, our PAM package is `pam` when imported in Python, but `cml-pam` online.
+  module_name:
+    type: string
+    default: "[repository_name]"
+    description: The name given to your module in Python. This should be available on package indexing sites (PyPI/Anaconda). Typically, it is the same as the `package_name`, assuming your preferred package name is available online. This is what users will call when importing your module in Python (e.g. `import pam`, even though the package name is `cml-pam`) or when calling your package from the command line (if you have a command line interface).
   project_short_description:
     type: string
     default: "Python Boilerplate contains all the boilerplate you need to create a Python package."

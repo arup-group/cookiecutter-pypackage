@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-"""Tests for `{{ cookiecutter.package_name }}` package."""
+"""Tests for `{{ cookiecutter.module_name }}` package."""
 
 import pytest
 
-from {{ cookiecutter.package_name }} import core
+from {{ cookiecutter.module_name }} import core
 
 
 @pytest.fixture

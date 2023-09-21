@@ -1,6 +1,6 @@
 # Contributing
 
-{{ cookiecutter.package_name }} is an actively maintained and utilised project.
+{{ cookiecutter.module_name }} is an actively maintained and utilised project.
 
 ## How to contribute
 
@@ -8,7 +8,7 @@ to report issues, request features, or exchange with our community, just follow 
 
 __Is something not working?__
 
-[:material-bug: Report a bug](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/issues/new?template=BUG-REPORT.yml "Report a bug in {{ cookiecutter.package_name }} by creating an issue and a reproduction"){ .md-button }
+[:material-bug: Report a bug](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/issues/new?template=BUG-REPORT.yml "Report a bug in {{ cookiecutter.module_name }} by creating an issue and a reproduction"){ .md-button }
 
 __Missing information in our docs?__
 
@@ -22,13 +22,13 @@ __Have a question or need help?__
 
 [:material-chat-question: Ask a question](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/discussions "Ask questions on our discussion board and get in touch with our community"){ .md-button }
 
-## Developing {{ cookiecutter.package_name }}
+## Developing {{ cookiecutter.module_name }}
 
 To find beginner-friendly existing bugs and feature requests you may like to start out with, take a look at our [good first issues](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/contribute).
 
 ### Setting up a development environment
 
-To create a development environment for {{ cookiecutter.package_name }}, with all libraries required for development and quality assurance installed, it is easiest to install {{ cookiecutter.package_name }} using the [mamba](https://mamba.readthedocs.io/en/latest/index.html) package manager, as follows:
+To create a development environment for {{ cookiecutter.module_name }}, with all libraries required for development and quality assurance installed, it is easiest to install {{ cookiecutter.package_name }} using the [mamba](https://mamba.readthedocs.io/en/latest/index.html) package manager, as follows:
 
 1. Install mamba with the [Mambaforge](https://github.com/conda-forge/miniforge#mambaforge) executable for your operating system.
 2. Open the command line (or the "miniforge prompt" in Windows).
@@ -89,10 +89,10 @@ pytest tests/ --no-cov -n4
     This means you don't *have* to do any profiling locally.
     However, if you can, it is still good practice to do so as you will catch issues earlier.
 
-{{ cookiecutter.package_name }} can be memory intensive; we like to ensure that any development to the core code does not exacerbate this.
+{{ cookiecutter.module_name }} can be memory intensive; we like to ensure that any development to the core code does not exacerbate this.
 If you are running on a UNIX device (i.e., **not** on Windows), you can test whether any changes you have made adversely impact memory and time performance as follows:
 
-1. Install [memray](https://bloomberg.github.io/memray/index.html) in your `{{ cookiecutter.package_name }}` mamba environment: `mamba install memray pytest-memray`.
+1. Install [memray](https://bloomberg.github.io/memray/index.html) in your `{{ cookiecutter.repository_name }}` mamba environment: `mamba install memray pytest-memray`.
 2. Run the memory profiling integration test: `pytest -p memray -m "high_mem" --no-cov`.
 3. Optionally, to visualise the memory allocation, run `pytest -p memray -m "high_mem" --no-cov --memray-bin-path=[my_path] --memray-bin-prefix=[my_prefix]` - where you must define `[my_path]` and `[my_prefix]` - followed by `memray flamegraph [my_path]/[my_prefix]-tests-test_100_memory_profiling.py-test_mem.bin`.
 You will then find the HTML report at `[my_path]/memray-flamegraph-[my_prefix]-tests-test_100_memory_profiling.py-test_mem.html`.
