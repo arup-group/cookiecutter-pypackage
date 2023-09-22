@@ -39,7 +39,7 @@ filterwarnings = [
 
 [tool.coverage.run]
 branch = true
-source = ["{{ cookiecutter.package_name }}/"]
+source = ["{{ cookiecutter.module_name }}/"]
 
 [tool.coverage.report]
 fail_under = 89
@@ -91,12 +91,12 @@ ruff = ["--extend-ignore=E402"]
 docstring-quotes = "double"
 
 [tool.setuptools.packages.find]
-include = ["{{ cookiecutter.package_name }}*"]
+include = ["{{ cookiecutter.module_name }}*"]
 
 [tool.setuptools.package-data]
 # Add file globs from the source code directory if they include non-py files that should be packaged
 # E.g. "fixtures/**/*"
-{{ cookiecutter.package_name }} = []
+{{ cookiecutter.module_name }} = []
 
 
 [build-system]
@@ -122,7 +122,7 @@ maintainers = []
 description = "{{ cookiecutter.project_short_description }}"
 readme = "README.md"
 requires-python = ">=3.8"
-keywords = ["{{ cookiecutter.package_name }}"]
+keywords = ["{{ cookiecutter.package_name }}", "arup"]
 {%- if cookiecutter.open_source_license in license_shortname %}
 license = { text = "{{ license_shortname[cookiecutter.open_source_license] }}" }
 {%- endif %}
@@ -134,13 +134,13 @@ dependencies = { file = ["requirements/base.txt"] }
 
 {%- if cookiecutter.command_line_interface|lower == "y" %}
 [project.scripts]
-{{ cookiecutter.package_name }}="{{ cookiecutter.package_name }}.cli:cli"
+{{ cookiecutter.module_name }}="{{ cookiecutter.module_name }}.cli:cli"
 {%- endif %}
 
 [tool.setuptools.dynamic.optional-dependencies]
 dev = { file = ["requirements/dev.txt"] }
 
 [project.urls]
-repository = "https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}"
-documentation = "https://{{ cookiecutter.repository_org }}.github.io/{{ cookiecutter.repository_name }}"
-changelog = "https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/blob/main/CHANGELOG.md"
+repository = "https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}"
+documentation = "https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }}"
+changelog = "https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/blob/main/CHANGELOG.md"

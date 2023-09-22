@@ -4,8 +4,8 @@ We're really glad you're reading this, because we need volunteer developers to h
 
 Some of the resources to look at if you're interested in contributing:
 
-* Look at open issues tagged with ["help wanted"](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) and ["good first issue"](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
-* Look at the [contributing guide in our documentation](https://{{ cookiecutter.repository_org }}.github.io/{{ cookiecutter.repository_name }}/contributing)
+* Look at open issues tagged with ["help wanted"](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) and ["good first issue"](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+* Look at the [contributing guide in our documentation](https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }}/contributing)
 
 ## Licensing
 
@@ -20,18 +20,18 @@ By contributing to {{ cookiecutter.repository_name }}, i.e. through opening a pu
 You can open an issue on GitHub to report bugs or request new {{ cookiecutter.repository_name }} features.
 Follow these links to submit your issue:
 
-- [Report bugs or other problems while running {{ cookiecutter.repository_name }}](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/issues/new?template=BUG-REPORT.yml).
+- [Report bugs or other problems while running {{ cookiecutter.repository_name }}](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/issues/new?template=BUG-REPORT.yml).
 If reporting an error, please include a full traceback in your issue.
 
-- [Request features that {{ cookiecutter.repository_name }} does not already include](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/issues/new?template=FEATURE-REQUEST.yml).
+- [Request features that {{ cookiecutter.repository_name }} does not already include](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/issues/new?template=FEATURE-REQUEST.yml).
 
-- [Report missing or inconsistent information in our documentation](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/issues/new?template=DOCS.yml).
+- [Report missing or inconsistent information in our documentation](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/issues/new?template=DOCS.yml).
 
-- [Any other issue](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/issues/new).
+- [Any other issue](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/issues/new).
 
 ## Submitting changes
 
-Look at the [development guide in our documentation](https://{{ cookiecutter.repository_org }}.github.io/{{ cookiecutter.repository_name }}/contributing) for information on how to get set up for development.
+Look at the [development guide in our documentation](https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }}/contributing) for information on how to get set up for development.
 
 <!--- the "--8<--" html comments define what part of this file to add to the index page of the documentation -->
 <!--- --8<-- [start:docs] -->
@@ -43,7 +43,7 @@ To contribute changes:
 3. Test your changes using `pytest`.
 4. Commit your changes to the feature branch (you should have `pre-commit` installed to ensure your code is correctly formatted when you commit changes).
 5. Push the branch to GitHub (`git push origin new-fix-or-feature`).
-6. On GitHub, create a new [pull request](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/pull/new/main) from the feature branch.
+6. On GitHub, create a new [pull request](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/pull/new/main) from the feature branch.
 
 ### Pull requests
 

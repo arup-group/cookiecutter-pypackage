@@ -1,1 +1,1 @@
-"""Unit test package for {{ cookiecutter.package_name }}."""
+"""Unit test package for {{ cookiecutter.module_name }}."""

@@ -1,5 +1,5 @@
 name: Bug Report
-description: Report a bug that leads to {{ cookiecutter.package_name }} not working as expected.
+description: Report a bug that leads to {{ cookiecutter.module_name }} not working as expected.
 labels: [bug]
 body:
   - type: markdown

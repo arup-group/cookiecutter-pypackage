@@ -16,7 +16,7 @@ theme:
   custom_dir: docs/overrides
   features:
     - navigation.indexes
-repo_url: https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/
+repo_url: https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/
 site_dir: .docs
 markdown_extensions:
   - admonition
@@ -70,7 +70,7 @@ plugins:
             - https://docs.python.org/3/objects.inv
   - search
 watch:
-  - {{ cookiecutter.package_name }}
+  - {{ cookiecutter.module_name }}
 extra_css:
   - static/extras.css
 extra:

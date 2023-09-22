@@ -2,10 +2,11 @@
   "full_name": "Ove Arup",
   "email": "ove.arup@arup.com",
   "github_username": "ovearup",
-  "repository_org": "arup-group",
+  "repository_owner": "arup-group",
   "project_title": "Python Boilerplate",
   "repository_name": "{{ cookiecutter.project_title.lower().replace(' ', '_').replace('-', '_') }}",
   "package_name": "{{ cookiecutter.repository_name }}",
+  "module_name": "{{ cookiecutter.repository_name }}",
   "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
   "index_package": [
     "conda",

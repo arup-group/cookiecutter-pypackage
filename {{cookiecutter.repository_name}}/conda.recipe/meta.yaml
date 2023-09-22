@@ -48,7 +48,7 @@ test:
     {% endfor %}
 {%- endraw %}
   commands:
-    - pytest --cov-reset --cov={{ cookiecutter.package_name }} tests/
+    - pytest --cov-reset --cov={{ cookiecutter.module_name }} tests/
 
 {% raw %}
 about:
