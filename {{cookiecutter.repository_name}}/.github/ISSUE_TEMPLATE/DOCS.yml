@@ -9,7 +9,7 @@ body:
       label: Description
       description: >-
         Please describe the inconsistency or issue you have found in
-        [our documentation](https://{{ cookiecutter.repository_org }}.github.io/{{ cookiecutter.repository_name }})
+        [our documentation](https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }})
         or indicate where you feel there is a need for improvement. Furthermore,
         explain the severity of the issue, i.e., its impact on you and potentially
         other users.
@@ -21,11 +21,11 @@ body:
     attributes:
       label: Related links
       description: >-
-        Please list all links to the sections of [our documentation](https://{{ cookiecutter.repository_org }}.github.io/{{ cookiecutter.repository_name }})
+        Please list all links to the sections of [our documentation](https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }})
         that are impacted by the issue you described above. If applicable,
         add screenshots. Additionally, list links to possibly related open
-        and closed [issues](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/issues)
-        and [discussions](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/discussions)
+        and closed [issues](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/issues)
+        and [discussions](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/discussions)
         you encountered when searching our issue tracker.
       value: |
         -

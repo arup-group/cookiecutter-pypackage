@@ -141,6 +141,6 @@ dependencies = { file = ["requirements/base.txt"] }
 dev = { file = ["requirements/dev.txt"] }
 
 [project.urls]
-repository = "https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}"
-documentation = "https://{{ cookiecutter.repository_org }}.github.io/{{ cookiecutter.repository_name }}"
-changelog = "https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/blob/main/CHANGELOG.md"
+repository = "https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}"
+documentation = "https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }}"
+changelog = "https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/blob/main/CHANGELOG.md"

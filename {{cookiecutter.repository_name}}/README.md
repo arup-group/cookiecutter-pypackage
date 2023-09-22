@@ -4,14 +4,14 @@
 
 # {{ cookiecutter.project_title }} ({{ cookiecutter.module_name }})
 
-[![Daily CI Build](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/actions/workflows/daily-scheduled-ci.yml/badge.svg)](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/actions/workflows/daily-scheduled-ci.yml)
-[![Documentation](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://{{ cookiecutter.repository_org }}.github.io/{{ cookiecutter.repository_name }})
+[![Daily CI Build](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/actions/workflows/daily-scheduled-ci.yml/badge.svg)](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/actions/workflows/daily-scheduled-ci.yml)
+[![Documentation](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }})
 
 <!--- --8<-- [end:docs] -->
 
 ## Documentation
 
-For more detailed instructions, see our [documentation](https://{{ cookiecutter.repository_org }}.github.io/{{ cookiecutter.repository_name }}/latest).
+For more detailed instructions, see our [documentation](https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }}/latest).
 
 ## Installation
 
@@ -31,7 +31,7 @@ mamba create -n {{ cookiecutter.repository_name }} -c conda-forge -c {{ cookiecu
 {% elif cookiecutter.index_package == "pypi" %}
 pip install {{ cookiecutter.package_name }}
 {% else %}
-git clone git@github.com:{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}.git
+git clone git@github.com:{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}.git
 cd {{ cookiecutter.repository_name }}
 mamba create -n {{ cookiecutter.repository_name }} -c conda-forge --file requirements/base.txt
 mamba activate {{ cookiecutter.repository_name }}
@@ -43,14 +43,14 @@ pip install --no-deps -e .
 ### As a developer
 <!--- --8<-- [start:docs-install-dev] -->
 ``` shell
-git clone git@github.com:{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}.git
+git clone git@github.com:{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}.git
 cd {{ cookiecutter.repository_name }}
 mamba create -n {{ cookiecutter.repository_name }} -c conda-forge --file requirements/base.txt --file requirements/dev.txt
 mamba activate {{ cookiecutter.repository_name }}
 pip install --no-deps -e .
 ```
 <!--- --8<-- [end:docs-install-dev] -->
-For more detailed instructions, see our [documentation](https://{{ cookiecutter.repository_org }}.github.io/{{ cookiecutter.repository_name }}/latest/installation/).
+For more detailed instructions, see our [documentation](https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }}/latest/installation/).
 
 ## Contributing
 
@@ -65,12 +65,12 @@ You can also run these checks yourself at any time to ensure staged changes are 
 - `pytest` - run the unit test suite and check test coverage.
 - `pytest -p memray -m "high_mem" --no-cov` (not available on Windows) - after installing memray (`mamba install memray pytest-memray`), test that memory and time performance does not exceed benchmarks.
 
-For more information, see our [documentation](https://{{ cookiecutter.repository_org }}.github.io/{{ cookiecutter.repository_name }}/latest/contributing/).
+For more information, see our [documentation](https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }}/latest/contributing/).
 
 ## Building the documentation
 
 If you are unable to access the online documentation, you can build the documentation locally.
-First, [install a development environment of {{ cookiecutter.repository_name }}](https://{{ cookiecutter.repository_org }}.github.io/{{ cookiecutter.repository_name }}/latest/contributing/coding/), then deploy the documentation using [mike](https://github.com/jimporter/mike):
+First, [install a development environment of {{ cookiecutter.repository_name }}](https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }}/latest/contributing/coding/), then deploy the documentation using [mike](https://github.com/jimporter/mike):
 
 ```
 mike deploy develop

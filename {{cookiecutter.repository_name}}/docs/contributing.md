@@ -8,23 +8,23 @@ to report issues, request features, or exchange with our community, just follow 
 
 __Is something not working?__
 
-[:material-bug: Report a bug](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/issues/new?template=BUG-REPORT.yml "Report a bug in {{ cookiecutter.module_name }} by creating an issue and a reproduction"){ .md-button }
+[:material-bug: Report a bug](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/issues/new?template=BUG-REPORT.yml "Report a bug in {{ cookiecutter.module_name }} by creating an issue and a reproduction"){ .md-button }
 
 __Missing information in our docs?__
 
-[:material-file-document: Report a docs issue](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/issues/new?template=DOCS.yml "Report missing information or potential inconsistencies in our documentation"){ .md-button }
+[:material-file-document: Report a docs issue](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/issues/new?template=DOCS.yml "Report missing information or potential inconsistencies in our documentation"){ .md-button }
 
 __Want to submit an idea?__
 
-[:material-lightbulb-on: Request a change](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/issues/new?template=FEATURE-REQUEST.yml "Propose a change or feature request or suggest an improvement"){ .md-button }
+[:material-lightbulb-on: Request a change](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/issues/new?template=FEATURE-REQUEST.yml "Propose a change or feature request or suggest an improvement"){ .md-button }
 
 __Have a question or need help?__
 
-[:material-chat-question: Ask a question](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/discussions "Ask questions on our discussion board and get in touch with our community"){ .md-button }
+[:material-chat-question: Ask a question](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/discussions "Ask questions on our discussion board and get in touch with our community"){ .md-button }
 
 ## Developing {{ cookiecutter.module_name }}
 
-To find beginner-friendly existing bugs and feature requests you may like to start out with, take a look at our [good first issues](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/contribute).
+To find beginner-friendly existing bugs and feature requests you may like to start out with, take a look at our [good first issues](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/contribute).
 
 ### Setting up a development environment
 
@@ -32,7 +32,7 @@ To create a development environment for {{ cookiecutter.module_name }}, with all
 
 1. Install mamba with the [Mambaforge](https://github.com/conda-forge/miniforge#mambaforge) executable for your operating system.
 2. Open the command line (or the "miniforge prompt" in Windows).
-3. Download (a.k.a., clone) the {{ cookiecutter.repository_name }} repository: `git clone git@github.com:{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}.git`
+3. Download (a.k.a., clone) the {{ cookiecutter.repository_name }} repository: `git clone git@github.com:{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}.git`
 4. Change into the `{{ cookiecutter.repository_name }}` directory: `cd {{ cookiecutter.repository_name }}`
 5. Create the {{ cookiecutter.repository_name }} mamba environment: `mamba create -n {{ cookiecutter.repository_name }} -c conda-forge --file requirements/base.txt --file requirements/dev.txt`
 6. Activate the {{ cookiecutter.repository_name }} mamba environment: `mamba activate {{ cookiecutter.repository_name }}`

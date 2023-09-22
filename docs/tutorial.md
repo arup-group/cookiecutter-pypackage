@@ -15,11 +15,11 @@ If you are new to Git and GitHub, you should probably spend a few minutes on som
 !!! note
 
     We will refer to project names, directories, github accounts, etc. in this tutorial.
-    You will be using different ones for your project, with the possible exception of `arup-group` as the `repository_org`.
+    You will be using different ones for your project, with the possible exception of `arup-group` as the `repository_owner`.
     For reference, here's the [configuration values][configuration-values] we will use that you will have the option to set when creating your project with cruft:
 
     - `github_username`: "ovearup"
-    - `repository_org`: "arup-group"
+    - `repository_owner`: "arup-group"
     - `project_title`: "Python Boilerplate"
     - `repository_name`: "python-boilerplate"
     - `package_name`: "arup_python_boilerplate" (because `python_boilerplate` is already taken on PyPI)
@@ -75,7 +75,7 @@ cd python-boilerplate
 
 ### Step 3: Create a GitHub Repository
 
-Go to the GitHub page for `[repository_org]`, e.g. `https://github.com/arup-group` or `https://github.com/ovearup`, and create a new repository with `[repository_name]` (`python-boilerplate`).
+Go to the GitHub page for `[repository_owner]`, e.g. `https://github.com/arup-group` or `https://github.com/ovearup`, and create a new repository with `[repository_name]` (`python-boilerplate`).
 
 Do not add anything to your account: no `README`, no `LICENSE`, no `.gitignore`.
 Everything will be added when you push your newly generated package.
@@ -185,7 +185,7 @@ The following variables are suitable for updating:
 - full_name
 - email
 - github_username
-- repository_org
+- repository_owner
 - project_title
 - repository_name
 - package_name

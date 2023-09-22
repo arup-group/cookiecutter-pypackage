@@ -13,7 +13,7 @@ As a `{{ cookiecutter.module_name }}` user, it is easiest to install using the [
 {% else %}
 1. Install mamba with the [Mambaforge](https://github.com/conda-forge/miniforge#mambaforge) executable for your operating system.
 2. Open the command line (or the "miniforge prompt" in Windows).
-3. Download (a.k.a., clone) the {{ cookiecutter.repository_name }} repository: `git clone git@github.com:{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}.git`
+3. Download (a.k.a., clone) the {{ cookiecutter.repository_name }} repository: `git clone git@github.com:{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}.git`
 4. Change into the `{{ cookiecutter.repository_name }}` directory: `cd {{ cookiecutter.repository_name }}`
 5. Create the {{ cookiecutter.repository_name }} mamba environment: `mamba create -n {{ cookiecutter.repository_name }} -c conda-forge -c city-modelling-lab --file requirements/base.txt`
 6. Activate the {{ cookiecutter.repository_name }} mamba environment: `mamba activate {{ cookiecutter.repository_name }}`
@@ -26,7 +26,7 @@ All together:
 
 {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
 ### Running the example notebooks
-If you have followed the non-developer installation instructions above, you will need to install `jupyter` into your `{{ cookiecutter.repository_name }}` environment to run the [example notebooks](https://github.com/{{ cookiecutter.repository_org }}/{{ cookiecutter.repository_name }}/tree/main/examples):
+If you have followed the non-developer installation instructions above, you will need to install `jupyter` into your `{{ cookiecutter.repository_name }}` environment to run the [example notebooks](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/tree/main/examples):
 
 ``` shell
 mamba install -n {{ cookiecutter.repository_name }} jupyter
