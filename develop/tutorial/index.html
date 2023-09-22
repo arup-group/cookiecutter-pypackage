@@ -555,14 +555,15 @@ If you are an Arup employee, you should sign up to the Arup <a href="https://git
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We will refer to project names, directories, github accounts, etc. in this tutorial.
-You will be using different ones for your project, with the possible exception of <code>arup-group</code> as the <code>repository_org</code>.
+You will be using different ones for your project, with the possible exception of <code>arup-group</code> as the <code>repository_owner</code>.
 For reference, here's the <a class="autorefs autorefs-internal" href="../schema/#configuration-values">configuration values</a> we will use that you will have the option to set when creating your project with cruft:</p>
 <ul>
 <li><code>github_username</code>: "ovearup"</li>
-<li><code>repository_org</code>: "arup-group"</li>
+<li><code>repository_owner</code>: "arup-group"</li>
 <li><code>project_title</code>: "Python Boilerplate"</li>
 <li><code>repository_name</code>: "python-boilerplate"</li>
-<li><code>package_name</code>: "python_boilerplate"</li>
+<li><code>package_name</code>: "arup_python_boilerplate" (because <code>python_boilerplate</code> is already taken on PyPI)</li>
+<li><code>module_name</code>: "python_boilerplate"</li>
 </ul>
 <p>Here are some of the assumptions we will make about your local system, which you will need to change as necessary:</p>
 <ul>
@@ -602,7 +603,7 @@ Change directory into this folder:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>python-boilerplate
 </span></code></pre></div>
 <h3 id="step-3-create-a-github-repository">Step 3: Create a GitHub Repository<a class="headerlink" href="#step-3-create-a-github-repository" title="Permanent link">#</a></h3>
-<p>Go to the GitHub page for <code>[repository_org]</code>, e.g. <code>https://github.com/arup-group</code> or <code>https://github.com/ovearup</code>, and create a new repository with <code>[repository_name]</code> (<code>python-boilerplate</code>).</p>
+<p>Go to the GitHub page for <code>[repository_owner]</code>, e.g. <code>https://github.com/arup-group</code> or <code>https://github.com/ovearup</code>, and create a new repository with <code>[repository_name]</code> (<code>python-boilerplate</code>).</p>
 <p>Do not add anything to your account: no <code>README</code>, no <code>LICENSE</code>, no <code>.gitignore</code>.
 Everything will be added when you push your newly generated package.</p>
 <div class="admonition note">
@@ -695,10 +696,11 @@ You will need to go through each of these manually and make the changes in the c
 <li>full_name</li>
 <li>email</li>
 <li>github_username</li>
-<li>repository_org</li>
+<li>repository_owner</li>
 <li>project_title</li>
 <li>repository_name</li>
 <li>package_name</li>
+<li>module_name</li>
 <li>project_short_description</li>
 <li>conda_channel</li>
 <li>version</li>

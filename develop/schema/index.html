@@ -366,16 +366,19 @@
 <p><strong><code>github_username</code></strong> <em>(string)</em>: Your GitHub username. Default: <code>"ovearup"</code>.</p>
 </li>
 <li>
-<p><strong><code>repository_org</code></strong> <em>(string)</em>: The organisation in which your repository will be hosted. For personal projects, this can be your GitHub username. Default: <code>"arup-group"</code>.</p>
-</li>
-<li>
 <p><strong><code>project_title</code></strong> <em>(string)</em>: The headline name of your new Python package project. This is used in documentation, so spaces and any characters are fine here. Default: <code>"Python Boilerplate"</code>.</p>
 </li>
 <li>
-<p><strong><code>repository_name</code></strong> <em>(string)</em>: Name of the github repository where you will upload your project. Typically, it is the "slugified" version of <code>project_title</code> (e.g. <code>My software package</code> -&gt; <code>my_software_package</code>). Default: <code>"Lower case equivalent of [project_title] with spaces and dashes (-) replaced with an underscore (_)"</code>.</p>
+<p><strong><code>repository_owner</code></strong> <em>(string)</em>: The owner of your GitHub repository (referring to e.g., https://github.com/arup-group). For personal projects, this can be your GitHub username. For Arup projects, this should be <code>arup-group</code>. Default: <code>"arup-group"</code>.</p>
 </li>
 <li>
-<p><strong><code>package_name</code></strong> <em>(string)</em>: The namespace of your Python package. This should be Python import-friendly. Typically, it is the same as the <code>package_name</code>, but you should be careful not to include any dashes (-) if this is the case. Default: <code>"[repository_name]"</code>.</p>
+<p><strong><code>repository_name</code></strong> <em>(string)</em>: Name of the github repository where you will host your project (i.e., https://github.com/[repository_owner]/[repository_name]). Typically, it is the "slugified" version of <code>project_title</code> (e.g. <code>My software package</code> -&gt; <code>my_software_package</code>) or an abbreviation derived from it (e.g., <code>Population Activity Modeller</code> -&gt; <code>pam</code>). Default: <code>"Lower case equivalent of [project_title] with spaces and dashes (-) replaced with an underscore (_)"</code>.</p>
+</li>
+<li>
+<p><strong><code>package_name</code></strong> <em>(string)</em>: The name given to your package. This should be available on package indexing sites (PyPI/Anaconda). Typically, it is the same as the <code>module_name</code>, but if your preferred package name is already taken online, you should rename your project entirely or prepend the package name with e.g. <code>arup-</code>. For example, our PAM package is <code>pam</code> when imported in Python, but <code>cml-pam</code> online. Default: <code>"[repository_name]"</code>.</p>
+</li>
+<li>
+<p><strong><code>module_name</code></strong> <em>(string)</em>: The name given to your module in Python. This should be available on package indexing sites (PyPI/Anaconda). Typically, it is the same as the <code>package_name</code>, assuming your preferred package name is available online. This is what users will call when importing your module in Python (e.g. <code>import pam</code>, even though the package name is <code>cml-pam</code>) or when calling your package from the command line (if you have a command line interface). Default: <code>"[repository_name]"</code>.</p>
 </li>
 <li>
 <p><strong><code>project_short_description</code></strong> <em>(string)</em>: A 1-sentence description of what your Python package does. Default: <code>"Python Boilerplate contains all the boilerplate you need to create a Python package."</code>.</p>
