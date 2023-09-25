@@ -119,9 +119,13 @@ def test_bake_without_jupyter_notebooks(cookies):
         ("GNU General Public License v3", "GNU GENERAL PUBLIC LICENSE"),
     ],
 )
-def test_bake_selecting_license(cookies, license, target_string):
-    result = cookies.bake(extra_context={"open_source_license": license})
+@pytest.mark.parametrize(
+    ["owner", "expected_copyright"], [("arup-group", "Arup"), ("Foo Bar", "Foo Bar")]
+)
+def test_bake_selecting_license(cookies, license, target_string, owner, expected_copyright):
+    result = cookies.bake(extra_context={"open_source_license": license, "repository_owner": owner})
     assert target_string in (result.project_path / "LICENSE").read_text()
+    assert f"Copyright (c) {str(datetime.datetime.now().year)} {expected_copyright}"
 
 
 @pytest.mark.parametrize(

@@ -32,7 +32,7 @@ if __name__ == "__main__":
         notebook_dir = Path("examples")
         for hidden_file in (PROJECT_DIRECTORY / notebook_dir).glob(".*"):
             hidden_file.unlink()
-        remove_file(notebook_dir / "01_intro_to_{{cookiecutter.module_name}}.ipynb")
+        remove_file(notebook_dir / "1_intro_to_{{cookiecutter.module_name}}.ipynb")
         remove_dir(notebook_dir)
 
     if "{{ cookiecutter.create_docker_file|lower }}" == "n":
