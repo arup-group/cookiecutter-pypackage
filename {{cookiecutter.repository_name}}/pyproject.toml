@@ -126,11 +126,11 @@ keywords = ["{{ cookiecutter.package_name }}", "arup"]
 {%- if cookiecutter.open_source_license in license_shortname %}
 license = { text = "{{ license_shortname[cookiecutter.open_source_license] }}" }
 {%- endif %}
-dynamic = ["dependencies", "optional-dependencies"]
-version = "{{ cookiecutter.version }}"
+dynamic = ["dependencies", "optional-dependencies", "version"]
 
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements/base.txt"] }
+version = { attr = "{{ cookiecutter.module_name }}.__version__" }
 
 {%- if cookiecutter.command_line_interface|lower == "y" %}
 [project.scripts]
