@@ -3,7 +3,8 @@
 import click
 
 
-@click.command(package_name="{{cookiecutter.package_name}}")
+@click.version_option(package_name="{{cookiecutter.package_name}}")
+@click.command()
 def cli(args=None):
     """Console script for {{cookiecutter.module_name}}."""
     click.echo(
