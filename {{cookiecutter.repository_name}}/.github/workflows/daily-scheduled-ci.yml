@@ -17,7 +17,9 @@ jobs:
     with:
       os: ubuntu-latest
       py3version: "11"
+      {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
       notebook_kernel: {{ cookiecutter.repository_name }}
+      {%- endif %}
       pytest_args: '--no-cov'  # ignore coverage
       cache_mamba_env: false
       lint: false

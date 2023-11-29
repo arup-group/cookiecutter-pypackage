@@ -18,7 +18,9 @@ jobs:
     with:
       os: ubuntu-latest
       py3version: "11"
+      {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
       notebook_kernel: {{ cookiecutter.repository_name }}
+      {%- endif %}
       lint: false
 
   aws-upload:
