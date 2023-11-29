@@ -1,8 +1,9 @@
 {% if cookiecutter.create_jupyter_notebook_directory|lower == "y" -%}
 jupyter < 2
 {% endif -%}
-mike < 2
+mike >= 2, < 3
 mkdocs < 2
+mkdocs-material >= 9.4, < 10
 {% if cookiecutter.command_line_interface|lower == "y" -%}
 mkdocs-click < 0.7
 {% endif -%}

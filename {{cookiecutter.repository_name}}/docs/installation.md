@@ -48,7 +48,7 @@ mamba create -n [my-env-name] -c conda-forge --file requirements/base.txt
 mamba activate [my-env-name]
 ipython kernel install --user --name=[my-env-name]
 ```
-{% endif -%}
+{%- endif %}
 
 ## Setting up a development environment
 

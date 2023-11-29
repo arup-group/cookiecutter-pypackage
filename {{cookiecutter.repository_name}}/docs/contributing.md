@@ -31,12 +31,12 @@ To find beginner-friendly existing bugs and feature requests you may like to sta
 To create a development environment for {{ cookiecutter.module_name }}, with all libraries required for development and quality assurance installed, it is easiest to install {{ cookiecutter.package_name }} using the [mamba](https://mamba.readthedocs.io/en/latest/index.html) package manager, as follows:
 
 1. Install mamba with the [Mambaforge](https://github.com/conda-forge/miniforge#mambaforge) executable for your operating system.
-2. Open the command line (or the "miniforge prompt" in Windows).
-3. Download (a.k.a., clone) the {{ cookiecutter.repository_name }} repository: `git clone git@github.com:{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}.git`
-4. Change into the `{{ cookiecutter.repository_name }}` directory: `cd {{ cookiecutter.repository_name }}`
-5. Create the {{ cookiecutter.repository_name }} mamba environment: `mamba create -n {{ cookiecutter.repository_name }} -c conda-forge --file requirements/base.txt --file requirements/dev.txt`
-6. Activate the {{ cookiecutter.repository_name }} mamba environment: `mamba activate {{ cookiecutter.repository_name }}`
-7. Install the {{ cookiecutter.package_name }} package into the environment, in editable mode and ignoring dependencies (we have dealt with those when creating the mamba environment): `pip install --no-deps -e .`
+1. Open the command line (or the "miniforge prompt" in Windows).
+1. Download (a.k.a., clone) the {{ cookiecutter.repository_name }} repository: `git clone git@github.com:{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}.git`
+1. Change into the `{{ cookiecutter.repository_name }}` directory: `cd {{ cookiecutter.repository_name }}`
+1. Create the {{ cookiecutter.repository_name }} mamba environment: `mamba create -n {{ cookiecutter.repository_name }} -c conda-forge --file requirements/base.txt --file requirements/dev.txt`
+1. Activate the {{ cookiecutter.repository_name }} mamba environment: `mamba activate {{ cookiecutter.repository_name }}`
+1. Install the {{ cookiecutter.package_name }} package into the environment, in editable mode and ignoring dependencies (we have dealt with those when creating the mamba environment): `pip install --no-deps -e .`
 
 All together:
 
@@ -46,7 +46,7 @@ If installing directly with pip, you can install these libraries using the `dev`
 
 {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
 Either way, you should add your environment as a jupyter kernel, so the example notebooks can run in the tests: `ipython kernel install --user --name={{ cookiecutter.repository_name }}`
-{% endif -%}
+{%- endif %}
 
 If you plan to make changes to the code then please make regular use of the following tools to verify the codebase while you work:
 
@@ -60,7 +60,7 @@ You can also run these checks yourself at any time to ensure staged changes are 
 
     If you already have an environment called `{{ cookiecutter.repository_name }}` on your system (e.g., for a stable installation of the package), you will need to [chose a different environment name][choosing-a-different-environment-name].
     You will then need to add this as a pytest argument when running the tests: `pytest --nbmake-kernel=[my-env-name]`.
-{% endif -%}
+{%- endif %}
 
 ### Rapid-fire testing
 The following options allow you to strip down the test suite to the bare essentials:
@@ -68,9 +68,9 @@ The following options allow you to strip down the test suite to the bare essenti
 {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
 1. The test suite includes unit tests and integration tests (in the form of jupyter notebooks found in the `examples` directory).
 The integration tests can be slow, so if you want to avoid them during development, you should run `pytest tests/`.
-{% endif -%}
-2. You can avoid generating coverage reports, by adding the `--no-cov` argument: `pytest --no-cov`.
-3. By default, the tests run with up to two parallel threads, to increase this to e.g. 4 threads: `pytest -n4`.
+{%- endif %}
+1. You can avoid generating coverage reports, by adding the `--no-cov` argument: `pytest --no-cov`.
+1. By default, the tests run with up to two parallel threads, to increase this to e.g. 4 threads: `pytest -n4`.
 
 All together:
 

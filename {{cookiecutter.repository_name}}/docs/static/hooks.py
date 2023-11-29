@@ -22,7 +22,7 @@ def on_files(files: list, config: dict, **kwargs):
         files.append(_new_file(file, config))
         nav_reference = [idx for idx in config["nav"] if set(idx.keys()) == {"Examples"}][0]
         nav_reference["Examples"].append(file.as_posix())
-    {% endif -%}
+    {%- endif %}
     for file in Path("./resources").glob("**/*.*"):
         files.append(_new_file(file, config))
     files.append(_new_file("./CHANGELOG.md", config))

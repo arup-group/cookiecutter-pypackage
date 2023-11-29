@@ -20,16 +20,17 @@ minversion = "6.0"
 # `-n2` - parallelise over two threads (uses pytest-xdist)
 {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
 # `--nbmake --nbmake-kernel={{ cookiecutter.repository_name }}` - test example notebooks using the "{{ cookiecutter.repository_name }}" notebook kernel (uses nbmake)
-{% endif -%}
+{%- endif %}
 # `--cov --cov-report=xml --cov-config=pyproject.toml` - generate coverage report for tests (uses pytest-cov; call `--no-cov` in CLI to switch off; `--cov-config` include to avoid bug)
 # `-m 'not high_mem'` - Do not run tests marked as consuming large amounts of memory (call `-m "high_mem"` in CLI to invert this; only `high_mem` marked tests will be run)
 # `-p no:memray` - Do not use the memray memory profiling plugin (call `-p memray` in CLI to switch on memory profiling)
 {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
 addopts = "-rav --strict-markers -n2 --nbmake --nbmake-kernel={{ cookiecutter.repository_name }} --cov --cov-report=xml --cov-config=pyproject.toml -m 'not high_mem' -p no:memray"
+testpaths = ["tests", "examples"]
 {% else %}
 addopts = "-rav --strict-markers -n2 --cov --cov-report=xml --cov-config=pyproject.toml -m 'not high_mem' -p no:memray"
-{% endif -%}
-testpaths = ["tests", "examples"]
+testpaths = ["tests"]
+{%- endif %}
 # to mark a test, decorate it with `@pytest.mark.[marker-name]`
 markers = ["high_mem", "limit_memory"]
 filterwarnings = [
@@ -85,7 +86,7 @@ max-complexity = 10
 # Ignore `E402` for all notebooks
 [tool.nbqa.addopts]
 ruff = ["--extend-ignore=E402"]
-{% endif -%}
+{%- endif %}
 
 [tool.ruff.flake8-quotes]
 docstring-quotes = "double"
