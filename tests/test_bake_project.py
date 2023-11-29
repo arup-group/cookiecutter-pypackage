@@ -95,15 +95,10 @@ def test_bake_without_jupyter_notebooks(cookies):
     assert "nbmake" not in (result.project_path / "docs" / "contributing.md").read_text()
     assert "kernel" not in (result.project_path / "docs" / "contributing.md").read_text()
     assert "kernel" not in (result.project_path / "docs" / "contributing.md").read_text()
-    assert (
-        len(
-            (result.project_path / "docs" / "overrides" / "main.html")
-            .read_text()
-            .strip()
-            .split("\n")
-        )
-        == 1
-    )
+
+    html_override = (result.project_path / "docs" / "overrides" / "main.html").read_text().strip()
+    assert '{% extends "base.html" %}' in html_override
+    assert "page.nb_url" not in html_override
 
 
 @pytest.mark.parametrize(
