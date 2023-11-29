@@ -4,13 +4,15 @@ nav:
   - Installation: installation.md
   {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
   - Examples: [] # this will be filled in automatically to include reference to all the notebooks
-  {% endif -%}
+  {%- endif %}
   - Contributing: contributing.md
   - Changelog: CHANGELOG.md
-  - Reference:
   {%- if cookiecutter.command_line_interface|lower == "y" %}
+  - Reference:
     - Command line interface: api/cli.md
-  {% endif %}
+  {%- else %}
+  - Reference: []
+  {%- endif %}
 theme:
   name: material
   custom_dir: docs/overrides
@@ -25,8 +27,8 @@ markdown_extensions:
   - mkdocs-click
   {%- endif %}
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
