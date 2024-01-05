@@ -49,7 +49,7 @@ Use your favorite method, or create an environment like this:
     Activate your environment:
 
     ``` bash
-        mamba activate cookiecutter
+    mamba activate cookiecutter
     ```
 
 === "With pip"
@@ -64,8 +64,8 @@ Now it's time to generate your Python package.
 Use cruft, pointing it at the cookiecutter-pypackage repository:
 
 ``` bash
-    cd ~/Repos # (1)!
-    cruft create https://github.com/arup-group/cookiecutter-pypackage.git
+cd ~/Repos # (1)!
+cruft create https://github.com/arup-group/cookiecutter-pypackage.git
 ```
 
 1.  Change this directory name to match where you store GitHub repositories on your device.
@@ -94,11 +94,11 @@ Everything will be added when you push your newly generated package.
 Once you have your repository created, go back to your command line where you are inside your newly created local project, then upload that code:
 
 ```bash
-    git init .
-    git add .
-    git commit -m "Initial skeleton."
-    git remote add origin git@github.com:arup-group/python-boilerplate.git # (1)!
-    git push -u origin main
+git init .
+git add .
+git commit -m "Initial skeleton."
+git remote add origin git@github.com:arup-group/python-boilerplate.git # (1)!
+git push -u origin main
 ```
 
 1.  Change `python-boilerplate` to match the name you have gave in `repository-name`.
@@ -179,18 +179,18 @@ Cruft allows you to do this, and one of your project's CI workflows will verify 
 
 Check if there are updates:
 ``` bash
-    cruft check
+cruft check
 ```
 
 View the diff between your project and the most up-to-date template:
 ``` bash
-    cruft diff
+cruft diff
 ```
 
 Apply any updates that exist:
 
 ``` bash
-    cruft update
+cruft update
 ```
 
 !!! note

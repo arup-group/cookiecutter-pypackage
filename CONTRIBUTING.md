@@ -150,4 +150,3 @@ git stash list
 
 6. Rerun your test and confirm that your test passes.
    If it passes, congratulations!
-
