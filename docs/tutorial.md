@@ -12,7 +12,7 @@ If you are new to Git and GitHub, you should probably spend a few minutes on som
 
 ## Setting up your project
 
-!!! note
+!!! note annotate
 
     We will refer to project names, directories, github accounts, etc. in this tutorial.
     You will be using different ones for your project, with the possible exception of `arup-group` as the `repository_owner`.
@@ -22,13 +22,19 @@ If you are new to Git and GitHub, you should probably spend a few minutes on som
     - `repository_owner`: "arup-group"
     - `project_title`: "Python Boilerplate"
     - `repository_name`: "python-boilerplate"
-    - `package_name`: "arup_python_boilerplate" (because `python_boilerplate` is already taken on PyPI)
-    - `module_name`: "python_boilerplate"
+    - `package_name`: "cml-python-boilerplate" (1)
+    - `module_name`: "python_boilerplate" (2)
 
     Here are some of the assumptions we will make about your local system, which you will need to change as necessary:
 
     - You have [mamba](https://mamba.readthedocs.io/en/latest/index.html) installed (conda/micromamba also work)
     - You store your projects on your device at `~/Repos` (Windows: `C:\\Users\yourusername\Repos`)
+
+1.  The package name needs to be *globally* unique, i.e., not available on [conda-forge](https://anaconda.org/conda-forge) or on [PyPI](https://pypi.org/).
+This is why it could look different to `repository_name` and `module_name`.
+Search for your preferred package name before setting it here.
+In the City Modelling Lab, we use the `cml-` prefix if we need to make our package name unique.
+2.  Repositories tend to use `-` between words while modules **must** have `_` between words as this is the name you will use to import your module in Python: `import python_boilerplate`.
 
 ### Step 1: Install Cruft
 
@@ -58,7 +64,7 @@ Now it's time to generate your Python package.
 Use cruft, pointing it at the cookiecutter-pypackage repository:
 
 ``` bash
-    cd ~/Repos # (1)
+    cd ~/Repos # (1)!
     cruft create https://github.com/arup-group/cookiecutter-pypackage.git
 ```
 
@@ -73,7 +79,7 @@ Once complete, you will find the `python-boilerplate` directory.
 Change directory into this folder:
 
 ```bash
-cd python-boilerplate # (1)
+cd python-boilerplate # (1)!
 ```
 
 1.  Change this directory name based on the name you gave in `repository_name`.
@@ -85,23 +91,21 @@ Go to the GitHub page for `[repository_owner]`, e.g. `https://github.com/arup-gr
 Do not add anything to your account: no `README`, no `LICENSE`, no `.gitignore`.
 Everything will be added when you push your newly generated package.
 
-!!! note
-
-    If the repository is in your own user account (e.g., `overarup`), you may benefit from making it a public repository to be able to host documentation using github pages.
-
 Once you have your repository created, go back to your command line where you are inside your newly created local project, then upload that code:
 
 ```bash
     git init .
     git add .
     git commit -m "Initial skeleton."
-    git remote add origin git@github.com:arup-group/python-boilerplate.git # (1)
+    git remote add origin git@github.com:arup-group/python-boilerplate.git # (1)!
     git push -u origin main
 ```
 
 1.  Change `python-boilerplate` to match the name you have gave in `repository-name`.
 
 Where `arup-group` and `python-boilerplate` are adjusted to the host group/user for your repository and the package name, respectively.
+
+### Step 4: Enable GitHub pages for your documentation
 
 Once you have uploaded your project to your repository, return to the repository and [set up GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) to host your documentation.
 You should choose the `gh-pages` branch (this will only appear a few minutes after you push your first commit) under the `Branch` dropdown.
@@ -111,14 +115,19 @@ You should choose the `gh-pages` branch (this will only appear a few minutes aft
     If `master` is the default name for your primary project branch, the documentation will not build automatically.
     You should ensure you have [renamed your primary branch to `main`](https://github.com/github/renaming).
 
-### Step 4: Define requirements
+!!! warning
+
+    If the repository is in your own user account (e.g., `overarup`), it must be a public repository to be able to host documentation using github pages.
+    If the repository is in `arup-group`, then it can be `internal` (the default) and still host documentation using github pages.
+
+### Step 5: Define requirements
 
 As well as writing the package source code, documentation, and tests, you will need to define the packages on which your project depends.
 You can find an _almost_ empty requirements file for you to complete in your new project folder: `requirements/base.txt`.
 It cannot be empty, otherwise mamba might complain.
 You can keep update this as you go along and need new packages in your project.
 
-### Step 5: Create a development environment for your project
+### Step 6: Create a development environment for your project
 
 To install the necessary packages to develop your Python package, follow the instructions automatically generated in your new project's README / online documentation (e.g., https://arup-group.github.io/python-boilerplate).
 
@@ -131,7 +140,7 @@ To install the necessary packages to develop your Python package, follow the ins
     You should run this exact same command after updating `requirements/base.txt` and say yes to overriding the existing `python-boilerplate` environment.
     This is a much better way of managing your python environments than adding the dependencies ad-hoc using `mamba install ...`.
 
-### Step 6: Tweak the generated project files to meet your specific needs / preferences
+### Step 7: Tweak the generated project files to meet your specific needs / preferences
 
 Although we recommend you stick with the default setup provided by the template, there are a few files you may like to tweak / things you'll want to add.
 This list is not exhaustive, but gives you an idea of where to look.

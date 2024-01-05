@@ -9,6 +9,9 @@ theme:
   name: material
   features:
     - navigation.indexes
+    - content.code.annotate
+  icon:
+    annotation: material/plus-circle-outline
 repo_url: https://github.com/arup-group/cookiecutter-pypackage
 site_dir: .docs
 markdown_extensions:
