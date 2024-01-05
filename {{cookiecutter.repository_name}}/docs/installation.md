@@ -25,7 +25,9 @@ All together:
 --8<-- "README.md:docs-install-user"
 
 {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
+
 ### Running the example notebooks
+
 If you have followed the non-developer installation instructions above, you will need to install `jupyter` into your `{{ cookiecutter.repository_name }}` environment to run the [example notebooks](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/tree/main/examples):
 
 ``` shell
@@ -41,6 +43,7 @@ jupyter notebook
 ```
 
 ### Choosing a different environment name
+
 If you would like to use a different name to `{{ cookiecutter.repository_name }}` for your mamba environment, the installation becomes (where `[my-env-name]` is your preferred name for the environment):
 
 ``` shell
