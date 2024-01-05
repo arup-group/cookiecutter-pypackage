@@ -38,7 +38,7 @@ Use your favorite method, or create an environment like this:
 
 === "With mamba"
     ``` bash
-        mamba create -n cookiecutter cruft
+    mamba create -n cookiecutter cruft
     ```
     Activate your environment:
 
@@ -48,7 +48,7 @@ Use your favorite method, or create an environment like this:
 
 === "With pip"
     ``` bash
-        pip install -U cruft
+    pip install -U cruft
     ```
 
 ### Step 2: Generate Your Package
@@ -58,9 +58,12 @@ Now it's time to generate your Python package.
 Use cruft, pointing it at the cookiecutter-pypackage repository:
 
 ``` bash
-    cd ~/Repos
+    cd ~/Repos # (1)
     cruft create https://github.com/arup-group/cookiecutter-pypackage.git
 ```
+
+1.  Change this directory name to match where you store GitHub repositories on your device.
+
 
 You'll be asked to enter a bunch of values to set the package up.
 If you don't know what to enter, stick with the defaults.
@@ -70,8 +73,10 @@ Once complete, you will find the `python-boilerplate` directory.
 Change directory into this folder:
 
 ```bash
-cd python-boilerplate
+cd python-boilerplate # (1)
 ```
+
+1.  Change this directory name based on the name you gave in `repository_name`.
 
 ### Step 3: Create a GitHub Repository
 
@@ -90,9 +95,11 @@ Once you have your repository created, go back to your command line where you ar
     git init .
     git add .
     git commit -m "Initial skeleton."
-    git remote add origin git@github.com:arup-group/python-boilerplate.git
+    git remote add origin git@github.com:arup-group/python-boilerplate.git # (1)
     git push -u origin main
 ```
+
+1.  Change `python-boilerplate` to match the name you have gave in `repository-name`.
 
 Where `arup-group` and `python-boilerplate` are adjusted to the host group/user for your repository and the package name, respectively.
 
@@ -149,6 +156,12 @@ We use [ruff](https://beta.ruff.rs/docs/) to ensure high code quality.
 However, it checks only for a subset of possible issues with your code.
 This is due to existing projects being very difficult to update to meet strict rules.
 If you are starting a project from scratch, you may like to add more rules for it to check from its [extensive list](https://beta.ruff.rs/docs/rules/).
+
+5. **limiting conda build architectures**.
+By default, the conda package (if you choose to have one built) will build one package for all architectures (i.e., windows, linux, macos, ...).
+Usually, your dependencies will be aligned with this: they will also be installable on any architecture.
+However, there are times when you might have a dependency that can not be installed on e.g., Windows.
+If that is the case, be sure to dive into `conda.recipe/meta.yaml` and change some lines in `build` following the comments there.
 
 ## Keeping your project up-to-date
 

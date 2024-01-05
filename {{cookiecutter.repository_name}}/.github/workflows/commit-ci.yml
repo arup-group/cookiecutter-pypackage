@@ -25,7 +25,11 @@ jobs:
 
   aws-upload:
     needs: test
-    if: needs.test.result == 'success'
+    env:
+      aws_access_key_id: {% raw %}${{ secrets.AWS_ACCESS_KEY_ID }}{% endraw %}
+      aws_secret_access_key: {% raw %}${{ secrets.AWS_SECRET_ACCESS_KEY }}{% endraw %}
+      aws_s3_code_bucket: {% raw %}${{ secrets.AWS_S3_CODE_BUCKET }}{% endraw %}
+    if: needs.test.result == 'success' && env.aws_access_key_id != '' && env.aws_secret_access_key != '' && env.aws_s3_code_bucket != ''
     uses: arup-group/actions-city-modelling-lab/.github/workflows/aws-upload.yml@main
     secrets:
       AWS_ACCESS_KEY_ID: {% raw %}${{ secrets.AWS_ACCESS_KEY_ID }}{% endraw %}
