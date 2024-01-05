@@ -29,15 +29,15 @@ To be able to keep your project up-tp-date as changes are made to the template, 
 First, install the latest version of Cruft if you haven't installed it yet.
 
 ``` bash
-    conda create -n cookiecutter cruft
-    conda activate cookiecutter
+conda create -n cookiecutter cruft
+conda activate cookiecutter
 ```
 
 Generate a local Python package project in a directory of your choice (change `my-repositories` to the relevant location on your device):
 
 ``` bash
-    cd my-repositories
-    cruft create https://github.com/arup-group/cookiecutter-pypackage
+cd my-repositories
+cruft create https://github.com/arup-group/cookiecutter-pypackage
 ```
 
 [cruft]: https://cruft.github.io/cruft/
@@ -56,12 +56,12 @@ Cruft allows you to do this, and one of your project's CI workflows will verify 
 
 To check if there are updates:
 ``` bash
-    cruft check
+cruft check
 ```
 
 To apply updates:
 ``` bash
-    cruft update
+cruft update
 ```
 
 ## Not Exactly What You Want?

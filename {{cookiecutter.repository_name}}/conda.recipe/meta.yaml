@@ -12,8 +12,8 @@ source:
 
 build:
   # Add the line
-  # "skip: True  # [not win]" to limit to Windows.
-  # "skip: True  # [py<35]" to limit python version
+  # "skip: True  # [not win]" to skip all architectures **except** Windows (also remove `noarch: python` below).
+  # "skip: True  # [win]" to skip **only** Windows (also remove `noarch: python` below).
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed -vv .
   noarch: python
 
