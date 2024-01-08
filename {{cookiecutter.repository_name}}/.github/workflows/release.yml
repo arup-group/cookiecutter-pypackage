@@ -5,6 +5,7 @@ on:
     types: [released]
 
 jobs:
+  {% if cookiecutter.upload_conda_package|lower == 'y' -%}
   conda-upload:
     uses: arup-group/actions-city-modelling-lab/.github/workflows/conda-upload.yml@main
     secrets:
@@ -12,6 +13,17 @@ jobs:
     with:
       package_name: {{ cookiecutter.package_name }}
       build_workflow: pre-release.yml
+  {% endif %}
+
+  {% if cookiecutter.upload_pypi_package|lower == 'y' -%}
+  pip-upload:
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/pip-upload.yml@main
+    secrets:
+      PYPI_API_TOKEN: {% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
+    with:
+      package_name: {{ cookiecutter.package_name }}
+      build_workflow: pre-release.yml
+  {% endif %}
 
   docs-stable:
     permissions:

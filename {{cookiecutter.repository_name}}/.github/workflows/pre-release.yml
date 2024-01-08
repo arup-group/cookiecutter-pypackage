@@ -6,9 +6,20 @@ on:
       - 'v*'
 
 jobs:
+  {% if cookiecutter.upload_conda_package|lower == 'y' -%}
   conda-build:
     uses: arup-group/actions-city-modelling-lab/.github/workflows/conda-build.yml@main
     secrets:
       ANACONDA_TOKEN: {% raw %}${{ secrets.ANACONDA_TOKEN }}{% endraw %}
     with:
       package_name: {{ cookiecutter.package_name }}
+  {% endif %}
+
+  {% if cookiecutter.upload_pypi_package|lower == 'y' -%}
+  pip-build:
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/pip-build.yml@main
+    secrets:
+      TEST_PYPI_API_TOKEN: {% raw %}${{ secrets.TEST_PYPI_API_TOKEN }}{% endraw %}
+    with:
+      package_name: {{ cookiecutter.package_name }}
+  {% endif %}

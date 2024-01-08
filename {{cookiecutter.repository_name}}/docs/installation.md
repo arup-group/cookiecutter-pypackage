@@ -6,18 +6,19 @@
 As a `{{ cookiecutter.module_name }}` user, it is easiest to install using the [mamba](https://mamba.readthedocs.io/en/latest/index.html) package manager, as follows:
 
 1. Install mamba with the [Mambaforge](https://github.com/conda-forge/miniforge#mambaforge) executable for your operating system.
-2. Open the command line (or the "miniforge prompt" in Windows).
-{% if cookiecutter.index_package == "conda" %}
-3. Create the {{ cookiecutter.repository_name }} mamba environment: `mamba create -n {{ cookiecutter.repository_name }} -c conda-forge -c {{ cookiecutter.conda_channel }} {{ cookiecutter.repository_name }}`
-4. Activate the {{ cookiecutter.repository_name }} mamba environment: `mamba activate {{ cookiecutter.repository_name }}`
+1. Open the command line (or the "miniforge prompt" in Windows).
+{% if cookiecutter.upload_conda_package == "y" %}
+1. Create the {{ cookiecutter.repository_name }} mamba environment: `mamba create -n {{ cookiecutter.repository_name }} -c conda-forge -c {{ cookiecutter.conda_channel }} {{ cookiecutter.package_name }}`
+{% elif cookiecutter.upload_pypi_package == "y" %}
+1. Create a {{ cookiecutter.repository_name }} mamba environment: `mamba create -n {{ cookiecutter.repository_name }} -c conda-forge python`
+1. Activate the {{ cookiecutter.repository_name }} mamba environment: `mamba activate {{ cookiecutter.repository_name }}`
+1. Install the {{ cookiecutter.package_name }} package into the environment: `pip install {{ cookiecutter.package_name }}`
 {% else %}
-1. Install mamba with the [Mambaforge](https://github.com/conda-forge/miniforge#mambaforge) executable for your operating system.
-2. Open the command line (or the "miniforge prompt" in Windows).
-3. Download (a.k.a., clone) the {{ cookiecutter.repository_name }} repository: `git clone git@github.com:{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}.git`
-4. Change into the `{{ cookiecutter.repository_name }}` directory: `cd {{ cookiecutter.repository_name }}`
-5. Create the {{ cookiecutter.repository_name }} mamba environment: `mamba create -n {{ cookiecutter.repository_name }} -c conda-forge -c city-modelling-lab --file requirements/base.txt`
-6. Activate the {{ cookiecutter.repository_name }} mamba environment: `mamba activate {{ cookiecutter.repository_name }}`
-7. Install the {{ cookiecutter.package_name }} package into the environment, ignoring dependencies (we have dealt with those when creating the mamba environment): `pip install --no-deps .`
+1. Download (a.k.a., clone) the {{ cookiecutter.repository_name }} repository: `git clone git@github.com:{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}.git`
+1. Change into the `{{ cookiecutter.repository_name }}` directory: `cd {{ cookiecutter.repository_name }}`
+1. Create the {{ cookiecutter.repository_name }} mamba environment: `mamba create -n {{ cookiecutter.repository_name }} -c conda-forge -c city-modelling-lab --file requirements/base.txt`
+1. Activate the {{ cookiecutter.repository_name }} mamba environment: `mamba activate {{ cookiecutter.repository_name }}`
+1. Install the {{ cookiecutter.package_name }} package into the environment, ignoring dependencies (we have dealt with those when creating the mamba environment): `pip install --no-deps .`
 {% endif %}
 
 All together:

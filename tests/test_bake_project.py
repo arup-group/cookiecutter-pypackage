@@ -101,6 +101,31 @@ def test_bake_without_jupyter_notebooks(cookies):
     assert "page.nb_url" not in html_override
 
 
+def test_bake_without_conda(cookies):
+    result = cookies.bake(extra_context={"upload_conda_package": "n"})
+
+    found_toplevel_files = [i.name for i in result.project_path.iterdir()]
+    assert "conda.recipe" not in found_toplevel_files
+
+
+@pytest.mark.parametrize("destination", ["conda", "pypi"])
+def test_bake_without_indexing_one(cookies, destination):
+    result = cookies.bake(extra_context={f"upload_{destination}_package": "n"})
+
+    for workflow in ["pre-release", "release"]:
+        github_workflow = (
+            result.project_path / ".github" / "workflows" / f"{workflow}.yml"
+        ).read_text()
+        assert f"{destination}-" not in github_workflow
+
+
+def test_bake_without_indexing_all(cookies):
+    result = cookies.bake(extra_context={"upload_pypi_package": "n", "upload_conda_package": "n"})
+
+    workflows = [i.name for i in (result.project_path / ".github" / "workflows").iterdir()]
+    assert "pre-release.yml" not in workflows
+
+
 @pytest.mark.parametrize(
     ["license", "target_string"],
     [
