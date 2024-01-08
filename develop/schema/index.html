@@ -395,9 +395,15 @@
 <p><strong><code>project_short_description</code></strong> <em>(string)</em>: A 1-sentence description of what your Python package does. Default: <code>"Python Boilerplate contains all the boilerplate you need to create a Python package."</code>.</p>
 </li>
 <li>
-<p><strong><code>index_package</code></strong> <em>(array)</em>: Where to release new packaged versions of the project to. If "none", releases will not be published beyond GitHub. Length must be at least 1.</p>
+<p><strong><code>upload_pypi_package</code></strong> <em>(array)</em>: Whether to upload the package to PyPI on each release of a new version. Length must be at least 1.</p>
 <ul>
-<li><strong>Items</strong> <em>(string)</em>: Must be one of: <code>["conda", "none"]</code>. Default: <code>"conda"</code>.</li>
+<li><strong>Items</strong> <em>(string)</em>: Must be one of: <code>["y", "n"]</code>. Default: <code>"y"</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>upload_conda_package</code></strong> <em>(array)</em>: Whether to upload the package to an Anaconda channel on each release of a new version. Length must be at least 1.</p>
+<ul>
+<li><strong>Items</strong> <em>(string)</em>: Must be one of: <code>["y", "n"]</code>. Default: <code>"y"</code>.</li>
 </ul>
 </li>
 <li>
