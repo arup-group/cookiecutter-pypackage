@@ -35,6 +35,18 @@ if __name__ == "__main__":
         remove_file(notebook_dir / "1_intro_to_{{cookiecutter.module_name}}.ipynb")
         remove_dir(notebook_dir)
 
+    if "{{ cookiecutter.upload_conda_package|lower }}" == "n":
+        recipe_dir = Path("conda.recipe")
+        remove_file(recipe_dir / "meta.yaml")
+        remove_dir(recipe_dir)
+
+    if (
+        "{{ cookiecutter.upload_conda_package|lower }}" == "n"
+        and "{{ cookiecutter.upload_pypi_package|lower }}" == "n"
+    ):
+        workflow_dir = Path(".github") / "workflows"
+        remove_file(workflow_dir / "pre-release.yml")
+
     if "{{ cookiecutter.create_docker_file|lower }}" == "n":
         for file in [".dockerignore", "Dockerfile"]:
             remove_file(file)

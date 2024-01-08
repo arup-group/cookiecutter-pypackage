@@ -26,9 +26,11 @@ To install {{ cookiecutter.module_name }}
 
 
 ``` shell
-{% if cookiecutter.index_package == "conda" %}
+{% if cookiecutter.upload_conda_package == "y" %}
 mamba create -n {{ cookiecutter.repository_name }} -c conda-forge -c {{ cookiecutter.conda_channel }} {{ cookiecutter.package_name }}
-{% elif cookiecutter.index_package == "pypi" %}
+{% elif cookiecutter.upload_pypi_package == "y" %}
+mamba create -n {{ cookiecutter.repository_name }} -c conda-forge python
+mamba activate {{ cookiecutter.repository_name }}
 pip install {{ cookiecutter.package_name }}
 {% else %}
 git clone git@github.com:{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}.git

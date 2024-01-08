@@ -4,7 +4,7 @@ minversion = "6.0"
 # `-n2` - parallelise over two threads (uses pytest-xdist)
 # `--keep-baked-projects` - keep the cookiecutter projects that are generated in the tests (they will be stored in a temporary directory)
 
-addopts = "-rav -n2 --keep-baked-projects"
+addopts = "-rav -nauto --keep-baked-projects"
 testpaths = ["tests"]
 
 [tool.black]

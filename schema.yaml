@@ -39,61 +39,62 @@ properties:
     type: string
     default: "Python Boilerplate contains all the boilerplate you need to create a Python package."
     description: A 1-sentence description of what your Python package does.
-  index_package:
+
+  upload_pypi_package:
     type: array
-    description: Where to release new packaged versions of the project to. If "none", releases will not be published beyond GitHub.
+    description: Whether to upload the package to PyPI on each release of a new version.
     uniqueItems: true
     minItems: 1
-    items:
+    items: &y_n_items
       type: string
-      default: "conda"
-      enum:
-        - conda
-        - none
+      default: "y"
+      enum: ["y", "n"]
+
+  upload_conda_package:
+    type: array
+    description: Whether to upload the package to an Anaconda channel on each release of a new version.
+    uniqueItems: true
+    minItems: 1
+    items: *y_n_items
+
   conda_channel:
     type: string
     default: "[github_username]"
     description: Your anaconda channel, if releases of your package will be uploaded to Anaconda.
+
   version:
     type: string
     default: "0.1.0"
     description: The starting version number of the package.
+
   create_jupyter_notebook_directory:
     type: array
     description: If "y", an `examples` directory will be created in which Jupyter Notebooks can be saved. These notebooks will be rendered in the documentation and will be formatted with Black and Ruff.
     uniqueItems: true
     minItems: 1
-    items:
-      type: string
-      default: "y"
-      enum: ["y", "n"]
+    items: *y_n_items
+
   command_line_interface:
     type: array
     description: If "y", a `cli.py` file will be included in the project source code based on using `Click`.
     uniqueItems: true
     minItems: 1
-    items:
-      type: string
-      default: "y"
-      enum: ["y", "n"]
+    items: *y_n_items
+
   create_author_file:
     type: array
     description: If "y", create an authors file.
     uniqueItems: true
     minItems: 1
-    items:
-      type: string
-      default: "y"
-      enum: ["y", "n"]
+    items: *y_n_items
+
   create_docker_file:
     type: array
     description: If "y", create an Dockerfile which allows a Docker image of the project to be built in a linux virtual machine with a basic Bash entry-point.
     uniqueItems: true
     minItems: 1
-    items:
-      type: string
-      default: "y"
-      enum: ["y", "n"]
+    items: *y_n_items
+
   open_source_license:
     type: array
     description: Choose a [license](https://choosealicense.com/).
