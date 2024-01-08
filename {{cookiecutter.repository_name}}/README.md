@@ -28,6 +28,7 @@ To install {{ cookiecutter.module_name }}
 ``` shell
 {% if cookiecutter.upload_conda_package == "y" %}
 mamba create -n {{ cookiecutter.repository_name }} -c conda-forge -c {{ cookiecutter.conda_channel }} {{ cookiecutter.package_name }}
+mamba activate {{ cookiecutter.repository_name }}
 {% elif cookiecutter.upload_pypi_package == "y" %}
 mamba create -n {{ cookiecutter.repository_name }} -c conda-forge python
 mamba activate {{ cookiecutter.repository_name }}
