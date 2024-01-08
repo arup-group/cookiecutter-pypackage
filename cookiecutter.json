@@ -9,12 +9,12 @@
   "module_name": "{{ cookiecutter.repository_name }}",
   "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
   "upload_pypi_package": [
-    "y",
-    "n"
+    "n",
+    "y"
   ],
   "upload_conda_package": [
-    "y",
-    "n"
+    "n",
+    "y"
   ],
   "conda_channel": "{{ cookiecutter.github_username }}",
   "version": "0.1.0",

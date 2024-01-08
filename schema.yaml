@@ -45,9 +45,9 @@ properties:
     description: Whether to upload the package to PyPI on each release of a new version.
     uniqueItems: true
     minItems: 1
-    items: &y_n_items
+    items: &n_y_items
       type: string
-      default: "y"
+      default: "n"
       enum: ["y", "n"]
 
   upload_conda_package:
@@ -55,7 +55,7 @@ properties:
     description: Whether to upload the package to an Anaconda channel on each release of a new version.
     uniqueItems: true
     minItems: 1
-    items: *y_n_items
+    items: *n_y_items
 
   conda_channel:
     type: string
@@ -72,7 +72,10 @@ properties:
     description: If "y", an `examples` directory will be created in which Jupyter Notebooks can be saved. These notebooks will be rendered in the documentation and will be formatted with Black and Ruff.
     uniqueItems: true
     minItems: 1
-    items: *y_n_items
+    items: &y_n_items
+      type: string
+      default: "y"
+      enum: ["y", "n"]
 
   command_line_interface:
     type: array
