@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [unreleased]
+## [v0.2.0] - 09-01-2024
 
 ### Fixed
 
@@ -30,6 +30,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Delete conda recipe if upload to conda is not desired.
 - `index_package` cookiecutter parameter split into `upload_conda_package` and `upload_pypi_package`.
+- Uploading to Anaconda/PyPI defaults to "n".
+- Documentation split into separate pages for setting up and updating projects.
 
 ## [v0.1.0] - 05-01-2024
 
