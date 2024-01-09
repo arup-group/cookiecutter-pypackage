@@ -102,7 +102,7 @@ def test_bake_without_jupyter_notebooks(cookies):
 
 
 def test_bake_without_conda(cookies):
-    result = cookies.bake(extra_context={"upload_conda_package": "n"})
+    result = cookies.bake(extra_context={"upload_conda_package": "n", "upload_pypi_package": "y"})
 
     found_toplevel_files = [i.name for i in result.project_path.iterdir()]
     assert "conda.recipe" not in found_toplevel_files
@@ -110,7 +110,10 @@ def test_bake_without_conda(cookies):
 
 @pytest.mark.parametrize("destination", ["conda", "pypi"])
 def test_bake_without_indexing_one(cookies, destination):
-    result = cookies.bake(extra_context={f"upload_{destination}_package": "n"})
+    other_option = set(["conda", "pypi"]).difference([destination]).pop()
+    result = cookies.bake(
+        extra_context={f"upload_{destination}_package": "n", f"upload_{other_option}_package": "y"}
+    )
 
     for workflow in ["pre-release", "release"]:
         github_workflow = (
