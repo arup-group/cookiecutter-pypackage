@@ -2,6 +2,7 @@ site_name: Arup Cookiecutter Python Package
 nav:
   - Home: README.md
   - Getting Started: tutorial.md
+  - Stay Updated: stay_updated.md
   - Input Arguments: schema.md
   - Contributing: CONTRIBUTING.md
   - Changelog: CHANGELOG.md
