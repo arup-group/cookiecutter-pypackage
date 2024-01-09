@@ -84,6 +84,14 @@ cd python-boilerplate # (1)!
 
 1.  Change this directory name based on the name you gave in `repository_name`.
 
+!!! tip
+
+    If you are generating a project which will be hosted in `arup-group`, it will default to `internal`.
+    Therefore you will need to wait until the project is made public (with a suitable open source license) before you allow uploads of your package to PyPI or an Anaconda channel.
+    This is why the parameters `upload_conda_package` and `upload_pypi_package` default to `n` (i.e. no upload).
+
+    When you're ready to take the leap to a public repository, you can [update your project input parameters][changing-input-parameters-after-project-generation] to enable uploads.
+
 ### Step 3: Create a GitHub Repository
 
 Go to the GitHub page for `[repository_owner]`, e.g. `https://github.com/arup-group` or `https://github.com/ovearup`, and create a new repository with `[repository_name]` (`python-boilerplate`).
@@ -132,11 +140,13 @@ You can keep update this as you go along and need new packages in your project.
 To install the necessary packages to develop your Python package, follow the instructions automatically generated in your new project's README / online documentation (e.g., https://arup-group.github.io/python-boilerplate).
 
 !!! note
-    As you update the requirements that [you define as dependencies][step-4-define-requirements], you should bulldoze your install and recreate it.
+    As you update the requirements that [you define as dependencies][step-5-define-requirements], you should bulldoze your install and recreate it.
     E.g., if you create your environment using mamba/conda:
+
     ```bash
     mamba create -n python-boilerplate -c conda-forge --file requirements/base.txt --file requirements/dev.txt
     ```
+
     You should run this exact same command after updating `requirements/base.txt` and say yes to overriding the existing `python-boilerplate` environment.
     This is a much better way of managing your python environments than adding the dependencies ad-hoc using `mamba install ...`.
 
@@ -171,53 +181,6 @@ By default, the conda package (if you choose to have one built) will build one p
 Usually, your dependencies will be aligned with this: they will also be installable on any architecture.
 However, there are times when you might have a dependency that can not be installed on e.g., Windows.
 If that is the case, be sure to dive into `conda.recipe/meta.yaml` and change some lines in `build` following the comments there.
-
-## Keeping your project up-to-date
-
-We may make changes to this template that you want to pull into your project after you have created it.
-Cruft allows you to do this, and one of your project's CI workflows will verify whether there are new template updates that you might like to merge in.
-
-Check if there are updates:
-``` bash
-cruft check
-```
-
-View the diff between your project and the most up-to-date template:
-``` bash
-cruft diff
-```
-
-Apply any updates that exist:
-
-``` bash
-cruft update
-```
-
-!!! note
-    There is a limit to how well cruft can apply an update.
-    More likely than not, it will produce a lot of `.rej` files explaining what updates it tried to implement, but failed to merge in.
-    You will need to go through each of these manually and make the changes in the corresponding source code file.
-
-## Changing inputs after project generation
-
-You can change your mind on *some* of the input variables you gave when initialising the project and use `cruft` to update them.
-
-The following variables are suitable for updating:
-
-- full_name
-- email
-- github_username
-- repository_owner
-- project_title
-- repository_name
-- package_name
-- module_name
-- project_short_description
-- conda_channel
-- version
-- open_source_license
-
-Even when changing one of these values, be aware that you will need to apply some manual changes based on `.rej` files that cruft will generate.
 
 ## Having problems?
 
