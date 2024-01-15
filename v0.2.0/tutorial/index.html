@@ -12,7 +12,7 @@
         <link rel="prev" href="..">
       
       
-        <link rel="next" href="../schema/">
+        <link rel="next" href="../stay_updated/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -369,24 +369,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#keeping-your-project-up-to-date" class="md-nav__link">
-    <span class="md-ellipsis">
-      Keeping your project up-to-date
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#changing-inputs-after-project-generation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Changing inputs after project generation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#having-problems" class="md-nav__link">
     <span class="md-ellipsis">
       Having problems?
@@ -399,6 +381,26 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stay_updated/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stay Updated
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -568,24 +570,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#keeping-your-project-up-to-date" class="md-nav__link">
-    <span class="md-ellipsis">
-      Keeping your project up-to-date
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#changing-inputs-after-project-generation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Changing inputs after project generation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#having-problems" class="md-nav__link">
     <span class="md-ellipsis">
       Having problems?
@@ -684,6 +668,13 @@ Change directory into this folder:</p>
 <ol>
 <li>Change this directory name based on the name you gave in <code>repository_name</code>.</li>
 </ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are generating a project which will be hosted in <code>arup-group</code>, it will default to <code>internal</code>.
+Therefore you will need to wait until the project is made public (with a suitable open source license) before you allow uploads of your package to PyPI or an Anaconda channel.
+This is why the parameters <code>upload_conda_package</code> and <code>upload_pypi_package</code> default to <code>n</code> (i.e. no upload).</p>
+<p>When you're ready to take the leap to a public repository, you can <a class="autorefs autorefs-internal" href="../stay_updated/#changing-input-parameters-after-project-generation">update your project input parameters</a> to enable uploads.</p>
+</div>
 <h3 id="step-3-create-a-github-repository">Step 3: Create a GitHub Repository<a class="headerlink" href="#step-3-create-a-github-repository" title="Permanent link">#</a></h3>
 <p>Go to the GitHub page for <code>[repository_owner]</code>, e.g. <code>https://github.com/arup-group</code> or <code>https://github.com/ovearup</code>, and create a new repository with <code>[repository_name]</code> (<code>python-boilerplate</code>).</p>
 <p>Do not add anything to your account: no <code>README</code>, no <code>LICENSE</code>, no <code>.gitignore</code>.
@@ -721,11 +712,11 @@ You can keep update this as you go along and need new packages in your project.<
 <p>To install the necessary packages to develop your Python package, follow the instructions automatically generated in your new project's README / online documentation (e.g., https://arup-group.github.io/python-boilerplate).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>As you update the requirements that [you define as dependencies][step-4-define-requirements], you should bulldoze your install and recreate it.
-E.g., if you create your environment using mamba/conda:
+<p>As you update the requirements that <a class="autorefs autorefs-internal" href="#step-5-define-requirements">you define as dependencies</a>, you should bulldoze your install and recreate it.
+E.g., if you create your environment using mamba/conda:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mamba<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>python-boilerplate<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>--file<span class="w"> </span>requirements/base.txt<span class="w"> </span>--file<span class="w"> </span>requirements/dev.txt
 </span></code></pre></div>
-You should run this exact same command after updating <code>requirements/base.txt</code> and say yes to overriding the existing <code>python-boilerplate</code> environment.
+<p>You should run this exact same command after updating <code>requirements/base.txt</code> and say yes to overriding the existing <code>python-boilerplate</code> environment.
 This is a much better way of managing your python environments than adding the dependencies ad-hoc using <code>mamba install ...</code>.</p>
 </div>
 <h3 id="step-7-tweak-the-generated-project-files-to-meet-your-specific-needs-preferences">Step 7: Tweak the generated project files to meet your specific needs / preferences<a class="headerlink" href="#step-7-tweak-the-generated-project-files-to-meet-your-specific-needs-preferences" title="Permanent link">#</a></h3>
@@ -765,42 +756,6 @@ However, there are times when you might have a dependency that can not be instal
 If that is the case, be sure to dive into <code>conda.recipe/meta.yaml</code> and change some lines in <code>build</code> following the comments there.</p>
 </li>
 </ol>
-<h2 id="keeping-your-project-up-to-date">Keeping your project up-to-date<a class="headerlink" href="#keeping-your-project-up-to-date" title="Permanent link">#</a></h2>
-<p>We may make changes to this template that you want to pull into your project after you have created it.
-Cruft allows you to do this, and one of your project's CI workflows will verify whether there are new template updates that you might like to merge in.</p>
-<p>Check if there are updates:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cruft<span class="w"> </span>check
-</span></code></pre></div></p>
-<p>View the diff between your project and the most up-to-date template:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cruft<span class="w"> </span>diff
-</span></code></pre></div></p>
-<p>Apply any updates that exist:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>cruft<span class="w"> </span>update
-</span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>There is a limit to how well cruft can apply an update.
-More likely than not, it will produce a lot of <code>.rej</code> files explaining what updates it tried to implement, but failed to merge in.
-You will need to go through each of these manually and make the changes in the corresponding source code file.</p>
-</div>
-<h2 id="changing-inputs-after-project-generation">Changing inputs after project generation<a class="headerlink" href="#changing-inputs-after-project-generation" title="Permanent link">#</a></h2>
-<p>You can change your mind on <em>some</em> of the input variables you gave when initialising the project and use <code>cruft</code> to update them.</p>
-<p>The following variables are suitable for updating:</p>
-<ul>
-<li>full_name</li>
-<li>email</li>
-<li>github_username</li>
-<li>repository_owner</li>
-<li>project_title</li>
-<li>repository_name</li>
-<li>package_name</li>
-<li>module_name</li>
-<li>project_short_description</li>
-<li>conda_channel</li>
-<li>version</li>
-<li>open_source_license</li>
-</ul>
-<p>Even when changing one of these values, be aware that you will need to apply some manual changes based on <code>.rej</code> files that cruft will generate.</p>
 <h2 id="having-problems">Having problems?<a class="headerlink" href="#having-problems" title="Permanent link">#</a></h2>
 <p><strong>Is something not working?</strong></p>
 <p><a class="md-button" href="https://github.com/arup-group/cookiecutter-pypackage/issues/new?template=BUG-REPORT.yml" title="Report a bug in the template by creating an issue and a reproduction"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 12h-4v-2h4m0 6h-4v-2h4m6-6h-2.81a5.985 5.985 0 0 0-1.82-1.96L17 4.41 15.59 3l-2.17 2.17a6.002 6.002 0 0 0-2.83 0L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8Z"/></svg></span> Report a bug</a></p>
