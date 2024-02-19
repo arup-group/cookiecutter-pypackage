@@ -40,7 +40,7 @@ filterwarnings = [
 
 [tool.coverage.run]
 branch = true
-source = ["{{ cookiecutter.module_name }}/"]
+source = ["src/"]
 
 [tool.coverage.report]
 fail_under = 89
@@ -93,6 +93,7 @@ docstring-quotes = "double"
 
 [tool.setuptools.packages.find]
 include = ["{{ cookiecutter.module_name }}*"]
+where = ["src"]
 
 [tool.setuptools.package-data]
 # Add file globs from the source code directory if they include non-py files that should be packaged
