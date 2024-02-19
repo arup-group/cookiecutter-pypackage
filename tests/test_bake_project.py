@@ -36,9 +36,12 @@ def test_bake_with_defaults(default_bake, install_baked):
 def test_bake_with_defaults_top_level_files(default_bake):
     found_toplevel_files = [i.name for i in default_bake.project_path.iterdir()]
     assert "pyproject.toml" in found_toplevel_files
-    assert "python_boilerplate" in found_toplevel_files
+    assert "src" in found_toplevel_files
     assert "mkdocs.yml" in found_toplevel_files
     assert "tests" in found_toplevel_files
+    assert list(i.stem for i in (default_bake.project_path / "src").iterdir()) == [
+        "python_boilerplate"
+    ]
 
 
 def test_bake_withspecialchars_and_run_tests(cookies, install_baked):
@@ -177,7 +180,7 @@ def test_bake_not_open_source(cookies):
 
 def test_bake_with_no_console_script(cookies):
     result = cookies.bake(extra_context={"command_line_interface": "n"})
-    assert (result.project_path / result.project_path.stem).exists()
+    assert (result.project_path / "src" / result.project_path.stem).exists()
     cli_file = result.project_path / result.project_path.stem / "cli.py"
     assert not cli_file.exists()
 
@@ -187,7 +190,7 @@ def test_bake_with_no_console_script(cookies):
 
 def test_bake_with_console_script_files(cookies):
     result = cookies.bake(extra_context={"command_line_interface": "y"})
-    cli_file = result.project_path / result.project_path.stem / "cli.py"
+    cli_file = result.project_path / "src" / result.project_path.stem / "cli.py"
     assert cli_file.exists()
 
     assert "[project.scripts]" in (result.project_path / "pyproject.toml").read_text()
@@ -197,7 +200,7 @@ def test_bake_with_console_script_cli(cookies):
     context = {"command_line_interface": "y"}
     result = cookies.bake(extra_context=context)
     package_name = result.project_path.stem
-    module_path = result.project_path / package_name / "cli.py"
+    module_path = result.project_path / "src" / package_name / "cli.py"
     module_name = ".".join([package_name, "cli"])
     spec = importlib.util.spec_from_file_location(module_name, module_path)
     cli = importlib.util.module_from_spec(spec)

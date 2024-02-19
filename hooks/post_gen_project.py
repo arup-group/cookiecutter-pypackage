@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     if "{{ cookiecutter.command_line_interface|lower }}" == "n":
         for file in [
-            Path("{{ cookiecutter.module_name }}", "cli.py"),
+            Path("src", "{{ cookiecutter.module_name }}", "cli.py"),
             Path("tests", "test_cli.py"),
             Path("docs", "api", "cli.md"),
         ]:
