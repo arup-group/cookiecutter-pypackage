@@ -64,15 +64,15 @@ plugins:
               - "!^_"
             merge_init_into_class: true
             show_if_no_docstring: true
-            show_signature_annotations: true
             signature_crossrefs: true
             show_root_toc_entry: false
             show_signature_annotations: false
+          paths: [src]
           import:
             - https://docs.python.org/3/objects.inv
   - search
 watch:
-  - {{ cookiecutter.module_name }}
+  - src/{{ cookiecutter.module_name }}
 extra_css:
   - static/extras.css
 extra:
