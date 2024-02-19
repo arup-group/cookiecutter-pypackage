@@ -21,19 +21,19 @@ jobs:
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest, macos-latest]
-        py3version: ["9", "10", "11"]
+        py3version: ["10", "11", "12"]
       fail-fast: false
     uses: arup-group/actions-city-modelling-lab/.github/workflows/python-install-lint-test.yml@main
     with:
-      os: ubuntu-latest
-      py3version: "11"
+      os: ${{ matrix.os }}
+      py3version: ${{ matrix.py3version }}
       lint: false
       upload_to_codecov: false
 
   build-template:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: mamba-org/setup-micromamba@v1
         with:
@@ -49,7 +49,7 @@ jobs:
         run: cookiecutter --no-input .
 
       - name: upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: built-package
           path: python_boilerplate/
@@ -61,7 +61,7 @@ jobs:
     needs: build-template
     steps:
       - name: Download built package
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: built-package
           path: "."

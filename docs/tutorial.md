@@ -41,7 +41,6 @@ In the City Modelling Lab, we use the `cml-` prefix if we need to make our packa
 First, you need to create and activate a conda/[mamba](https://mamba.readthedocs.io/en/latest/index.html) environment for using Cruft (a Cookiecutter-compatible tool which allows for project updating).
 Use your favorite method, or create an environment like this:
 
-
 === "With mamba"
     ``` bash
     mamba create -n cookiecutter cruft
@@ -69,7 +68,6 @@ cruft create https://github.com/arup-group/cookiecutter-pypackage.git
 ```
 
 1.  Change this directory name to match where you store GitHub repositories on your device.
-
 
 You'll be asked to enter a bunch of values to set the package up.
 If you don't know what to enter, stick with the defaults.
@@ -133,14 +131,14 @@ You should choose the `gh-pages` branch (this will only appear a few minutes aft
 As well as writing the package source code, documentation, and tests, you will need to define the packages on which your project depends.
 You can find an _almost_ empty requirements file for you to complete in your new project folder: `requirements/base.txt`.
 It cannot be empty, otherwise mamba might complain.
-You can keep update this as you go along and need new packages in your project.
+You can update this as you go along and need new packages in your project.
 
 ### Step 6: Create a development environment for your project
 
 To install the necessary packages to develop your Python package, follow the instructions automatically generated in your new project's README / online documentation (e.g., https://arup-group.github.io/python-boilerplate).
 
 !!! note
-    As you update the requirements that [you define as dependencies][step-5-define-requirements], you should bulldoze your install and recreate it.
+    As you update the requirements that [you define as dependencies](#step-5-define-requirements), you should bulldoze your install and recreate it.
     E.g., if you create your environment using mamba/conda:
 
     ```bash
