@@ -1,15 +1,18 @@
 import datetime
 import importlib
 from pathlib import Path
+from subprocess import PIPE, STDOUT, Popen
 
 import pytest
 from click.testing import CliRunner
 
 
 @pytest.fixture
-def install_baked(bash):
+def install_baked():
     def _install_baked(dirpath: Path):
-        bash.send(f"pip install --dry-run '{dirpath.as_posix()}'")
+        pop = Popen(["pip", "install", "--dry-run", dirpath.as_posix()], stderr=STDOUT, stdout=PIPE)
+        pop.wait()
+        assert pop.returncode == 0
 
     return _install_baked
 
