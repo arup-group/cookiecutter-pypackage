@@ -41,7 +41,7 @@ jobs:
           environment-name: ${{ github.event.repository.name }}-cookiecutter
           create-args: >-
             cookiecutter
-            python=3.11
+            python=3.12
           post-cleanup: all
           cache-environment: true
 
@@ -73,8 +73,8 @@ jobs:
           environment-file: requirements/base.txt
           create-args: >-
             -f requirements/dev.txt
-            ruff=0.0.286
-            python=3.11
+            ruff=0.2.2
+            python=3.12
           post-cleanup: all
           cache-environment: false
 
