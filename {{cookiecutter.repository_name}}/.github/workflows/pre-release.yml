@@ -13,8 +13,9 @@ jobs:
       ANACONDA_TOKEN: {% raw %}${{ secrets.ANACONDA_TOKEN }}{% endraw %}
     with:
       package_name: {{ cookiecutter.package_name }}
-  {% endif %}
+      environment: pre-release
 
+  {% endif %}
   {% if cookiecutter.upload_pypi_package|lower == 'y' -%}
   pip-build:
     uses: arup-group/actions-city-modelling-lab/.github/workflows/pip-build.yml@main
@@ -22,4 +23,6 @@ jobs:
       TEST_PYPI_API_TOKEN: {% raw %}${{ secrets.TEST_PYPI_API_TOKEN }}{% endraw %}
     with:
       package_name: {{ cookiecutter.package_name }}
+      environment: pre-release
+
   {% endif %}

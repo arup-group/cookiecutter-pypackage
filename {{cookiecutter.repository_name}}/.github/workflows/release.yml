@@ -13,8 +13,9 @@ jobs:
     with:
       package_name: {{ cookiecutter.package_name }}
       build_workflow: pre-release.yml
-  {% endif %}
+      environment: release
 
+  {% endif %}
   {% if cookiecutter.upload_pypi_package|lower == 'y' -%}
   pip-upload:
     uses: arup-group/actions-city-modelling-lab/.github/workflows/pip-upload.yml@main
@@ -23,8 +24,9 @@ jobs:
     with:
       package_name: {{ cookiecutter.package_name }}
       build_workflow: pre-release.yml
-  {% endif %}
+      environment: release
 
+  {% endif %}
   docs-stable:
     permissions:
       contents: write

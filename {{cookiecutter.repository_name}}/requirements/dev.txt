@@ -1,3 +1,4 @@
+cruft >= 2, < 3
 {% if cookiecutter.create_jupyter_notebook_directory|lower == "y" -%}
 jupyter < 2
 {% endif -%}

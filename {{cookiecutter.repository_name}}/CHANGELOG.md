@@ -7,6 +7,9 @@ Deprecated: for soon-to-be removed features.
 Removed: for now removed features.
 Fixed: for any bug fixes.
 Security: in case of vulnerabilities.
+
+Release headings should be of the form:
+## [X.Y.Z] - YEAR-MONTH-DAY
 -->
 
 # Changelog
@@ -25,9 +28,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 ### Removed
-
-## [v{{ cookiecutter.version }}] - {% now 'utc', '%Y-%m-%d' %}
-
-Initial release.
-
-[unreleased]: https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/compare/v{{ cookiecutter.version }}...main
