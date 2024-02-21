@@ -145,6 +145,7 @@ def _get_nav_list(nav: list[dict | str], ref: str) -> list:
     nav_ref = [idx for idx in nav if isinstance(idx, dict) and set(idx.keys()) == {ref}][0]
     return nav_ref[ref]
 
+
 @mkdocs.plugins.event_priority(-100)
 def on_post_build(**kwargs):
     """After mkdocs has finished building the docs, remove the temporary directory of markdown files.
