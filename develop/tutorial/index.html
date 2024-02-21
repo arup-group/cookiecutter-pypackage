@@ -736,6 +736,12 @@ To upload to an AWS S3 bucket you will need the secrets <code>AWS_ACCESS_KEY_ID<
 You also need secrets for initiating the Slack notification bot and uploading to an AWS S3 bucket (+ possibly some AWS terraforming).
 You can find all the secrets you need for different actions in the City Modelling Lab <a href="https://github.com/arup-group/actions-city-modelling-lab">reusable workflow repository</a>.</p>
 </li>
+</ol>
+<p>!!! note:
+    Some secrets should be stored in <a href="https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment">GitHub environments</a>.
+    Namely, releasing packages to public packages indexes should be in <code>pre-release</code> (for <code>.github/workflows/pre-release.yml</code> job secrets) and <code>release</code> (for <code>.github/workflows/release.yml</code> job secrets) environments.
+    We recommend you then place protection rules on those environments to only allow maintainers to release the workflow jobs.</p>
+<ol>
 <li>
 <p><strong>Adding logos</strong>.
 The <code>resources</code> directory includes a logo subdirectory that you can add any branding for your package.
