@@ -11,6 +11,9 @@ It can be used to update your project when fixes / features are added to the tem
     After each change, delete the corresponding `.rej` file.
     Your project will not let you commit changes if `.rej` files are still present.
 
+!!! info
+    You can run updates from within your project's [development environment](tutorial.md#step-6-create-a-development-environment-for-your-project) since `cruft` is installed into it.
+
 ## Keeping your project up-to-date
 
 We may make changes to this template that you want to pull into your project after you have generated it.
