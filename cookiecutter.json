@@ -17,7 +17,6 @@
     "y"
   ],
   "conda_channel": "{{ cookiecutter.github_username }}",
-  "version": "0.1.0",
   "command_line_interface": [
     "y",
     "n"

@@ -1,5 +1,9 @@
-$schema: http://json-schema.org/draft-07/schema#
-description: You will be prompted to fill these values when you create your Python project. If you do not know what value to provide, press _enter_ and a default value will be used.
+# yaml-language-server: $schema=https://json-schema.org/draft/2020-12/schema#
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+description: >-
+  You will be prompted to fill these values when you create your Python project.
+  If you do not know what value to provide, press _enter_ and a default value will be used.
 
 additionalProperties: false
 properties:
@@ -7,34 +11,53 @@ properties:
     type: string
     default: "Ove Arup"
     description: Your full name.
+
   email:
     type: string
     default: "ove.arup@arup.com"
     description: Your email address.
+
   github_username:
     type: string
     default: "ovearup"
     description: Your GitHub username.
+
   project_title:
     type: string
     default: "Python Boilerplate"
     description: The headline name of your new Python package project. This is used in documentation, so spaces and any characters are fine here.
+
   repository_owner:
     type: string
     default: "arup-group"
-    description: The owner of your GitHub repository (referring to e.g., https://github.com/arup-group). For personal projects, this can be your GitHub username. For Arup projects, this should be `arup-group`
+    description: >-
+      The owner of your GitHub repository (referring to e.g., https://github.com/arup-group).
+      For personal projects, this can be your GitHub username. For Arup projects, this should be `arup-group`.
+
   repository_name:
     type: string
     default: "Lower case equivalent of [project_title] with spaces and dashes (-) replaced with an underscore (_)"
-    description: Name of the github repository where you will host your project (i.e., https://github.com/[repository_owner]/[repository_name]). Typically, it is the "slugified" version of `project_title` (e.g. `My software package` -> `my_software_package`) or an abbreviation derived from it (e.g., `Population Activity Modeller` -> `pam`).
+    description: >-
+      Name of the github repository where you will host your project (i.e., https://github.com/[repository_owner]/[repository_name]).
+      Typically, it is the "slugified" version of `project_title` (e.g. `My software package` -> `my_software_package`) or an abbreviation derived from it (e.g., `Population Activity Modeller` -> `pam`).
+
   package_name:
     type: string
     default: "[repository_name]"
-    description: The name given to your package. This should be available on package indexing sites (PyPI/Anaconda). Typically, it is the same as the `module_name`, but if your preferred package name is already taken online, you should rename your project entirely or prepend the package name with e.g. `arup-`. For example, our PAM package is `pam` when imported in Python, but `cml-pam` online.
+    description: >-
+      The name given to your package. This should be available on package indexing sites (PyPI/Anaconda).
+      Typically, it is the same as the `module_name`, but if your preferred package name is already taken online, you should rename your project entirely or prepend the package name with e.g. `arup-`.
+      For example, our PAM package is `pam` when imported in Python, but `cml-pam` online.
+
   module_name:
     type: string
     default: "[repository_name]"
-    description: The name given to your module in Python. This should be available on package indexing sites (PyPI/Anaconda). Typically, it is the same as the `package_name`, assuming your preferred package name is available online. This is what users will call when importing your module in Python (e.g. `import pam`, even though the package name is `cml-pam`) or when calling your package from the command line (if you have a command line interface).
+    description: >-
+      The name given to your module in Python.
+      This should be available on package indexing sites (PyPI/Anaconda).
+      Typically, it is the same as the `package_name`, assuming your preferred package name is available online.
+      This is what users will call when importing your module in Python (e.g. `import pam`, even though the package name is `cml-pam`) or when calling your package from the command line (if you have a command line interface).
+
   project_short_description:
     type: string
     default: "Python Boilerplate contains all the boilerplate you need to create a Python package."
@@ -62,14 +85,11 @@ properties:
     default: "[github_username]"
     description: Your anaconda channel, if releases of your package will be uploaded to Anaconda.
 
-  version:
-    type: string
-    default: "0.1.0"
-    description: The starting version number of the package.
-
   create_jupyter_notebook_directory:
     type: array
-    description: If "y", an `examples` directory will be created in which Jupyter Notebooks can be saved. These notebooks will be rendered in the documentation and will be formatted with Black and Ruff.
+    description: >-
+      If "y", an `examples` directory will be created in which Jupyter Notebooks can be saved.
+      These notebooks will be rendered in the documentation and will be formatted with Black and Ruff.
     uniqueItems: true
     minItems: 1
     items: &y_n_items

@@ -18,6 +18,9 @@ theme:
   custom_dir: docs/overrides
   features:
     - navigation.indexes
+    - navigation.top
+    - content.code.copy
+    - content.code.annotate
 repo_url: https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/
 site_dir: .docs
 markdown_extensions:
@@ -36,6 +39,8 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.superfences
   - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       clickable_checkbox: true
   - toc:
@@ -44,6 +49,7 @@ markdown_extensions:
 hooks:
   - docs/static/hooks.py
 plugins:
+  - search
   - autorefs
 {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
   - mkdocs-jupyter:
@@ -70,7 +76,6 @@ plugins:
           paths: [src]
           import:
             - https://docs.python.org/3/objects.inv
-  - search
 watch:
   - src/{{ cookiecutter.module_name }}
 extra_css:
