@@ -47,6 +47,13 @@ def test_bake_with_defaults_top_level_files(default_bake):
     ]
 
 
+def test_bake_with_defaults_src_code_files(default_bake):
+    found_src_code_files = [
+        i.name for i in (default_bake.project_path / "src" / "python_boilerplate").iterdir()
+    ]
+    assert set(found_src_code_files) == {"py.typed", "__init__.py", "core.py", "cli.py"}
+
+
 def test_bake_withspecialchars_and_run_tests(cookies, install_baked):
     """Ensure that a `full_name` with double quotes does not break setup.py"""
     result = cookies.bake(extra_context={"full_name": 'name "quote" name'})
