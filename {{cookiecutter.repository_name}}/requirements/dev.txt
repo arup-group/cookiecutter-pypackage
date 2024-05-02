@@ -3,7 +3,7 @@ cruft >= 2, < 3
 jupyter < 2
 {% endif -%}
 mike >= 2, < 3
-mkdocs < 2
+mkdocs < 1.6
 mkdocs-material >= 9.4, < 10
 {% if cookiecutter.command_line_interface|lower == "y" -%}
 mkdocs-click < 0.7
