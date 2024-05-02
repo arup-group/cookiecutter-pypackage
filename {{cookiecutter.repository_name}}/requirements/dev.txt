@@ -9,7 +9,7 @@ mkdocs-material >= 9.4, < 10
 mkdocs-click < 0.7
 {% endif -%}
 {% if cookiecutter.create_jupyter_notebook_directory|lower == "y" -%}
-mkdocs-jupyter < 0.25
+mkdocs-jupyter < 0.24.7
 {% endif -%}
 mkdocstrings-python < 2
 {% if cookiecutter.create_jupyter_notebook_directory|lower == "y" -%}
