@@ -39,8 +39,8 @@ The best way to send feedback is to file an [issue](https://github.com/arup-grou
 
 If you are proposing a new feature:
 
-* Explain in detail how it would work.
-* Keep the scope as narrow as possible, to make it easier to implement.
+- Explain in detail how it would work.
+- Keep the scope as narrow as possible, to make it easier to implement.
 
 ## Setting up and working in a development environment
 
@@ -49,52 +49,51 @@ Please note this documentation assumes you already have `mamba` and `Git` instal
 
 1. Fork the `cookiecutter-pypackage` repo on GitHub.
 
-2. Clone your fork locally in a directory of your choice (i.e., change `path/to/repositories`):
+1. Clone your fork locally in a directory of your choice (i.e., change `path/to/repositories`):
 
-``` bash
-cd path/to/repositories
-git clone git@github.com:YOUR_GITHUB_USERNAME/cookiecutter-pypackage.git
-```
+   ``` shell
+   cd path/to/repositories
+   git clone git@github.com:YOUR_GITHUB_USERNAME/cookiecutter-pypackage.git
+   ```
 
-3. Assuming you have mamba installed, you can create a new environment for your local
+1. Assuming you have mamba installed, you can create a new environment for your local
    development by typing:
 
-``` bash
-mamba create -c conda-forge -n cookiecutter-pypackage-dev --file requirements/dev.txt
-mamba activate cookiecutter-pypackage-dev
-pip install --no-deps -e .
-```
+   ``` shell
+   mamba create -c conda-forge -n cookiecutter-pypackage-dev --file requirements/dev.txt
+   mamba activate cookiecutter-pypackage-dev
+   pip install --no-deps -e .
+   ```
 
-4. Install `pre-commit`, which will ensure your changes are properly formatted when you commit your code (or install extension to run Ruff and Black on save in your IDE):
+1. Install `pre-commit`, which will ensure your changes are properly formatted when you commit your code (or install extension to run Ruff and Black on save in your IDE):
 
-``` bash
-pre-commit install
-```
+   ``` shell
+   pre-commit install
+   ```
 
-4. Create a branch for local development:
+1. Create a branch for local development:
 
-``` bash
-git checkout -b name-of-your-bugfix-or-feature
-```
+   ``` shell
+   git checkout -b name-of-your-bugfix-or-feature
+   ```
 
-4. Make your changes! If your contribution is a bug fix or new feature, you may want to add a test to the existing test suite. See [Add a New Test](#add-a-new-test) below for details.
+1. Make your changes! If your contribution is a bug fix or new feature, you may want to add a test to the existing test suite. See [Add a New Test](#add-a-new-test) below for details.
 
-5. When you're done making changes on this new branch, run the tests:
+1. When you're done making changes on this new branch, run the tests:
 
-```bash
-pytest
-```
+   ``` shell
+   pytest
+   ```
 
-9. Commit your changes and push your branch to GitHub:
+1. Commit your changes and push your branch to GitHub:
 
-```bash
-git add .
-git commit -m "Your detailed description of your changes."
-git push origin name-of-your-bugfix-or-feature
-```
+   ``` shell
+   git add .
+   git commit -m "Your detailed description of your changes."
+   git push origin name-of-your-bugfix-or-feature
+   ```
 
-10. Submit a pull request through the GitHub website.
-
+1. Submit a pull request through the GitHub website.
 
 ### Pull Request (PR) Guidelines
 
@@ -129,24 +128,27 @@ To write and run your new test, follow these steps:
 1. Add the new test to `tests/test_bake_project.py`.
    Focus your test on the specific bug or a small part of the new feature.
 
-2. If you have already made changes to the code, stash your changes and confirm all your changes were stashed:
-```bash
-git stash
-git stash list
-```
+1. If you have already made changes to the code, stash your changes and confirm all your changes were stashed:
 
-3. Run your test and confirm that your test fails.
+   ``` shell
+   git stash
+   git stash list
+   ```
+
+1. Run your test and confirm that your test fails.
    If your test does not fail, rewrite the test until it fails on the original code:
-```bash
-pytest
-```
 
-5. Proceed work on your bug fix or new feature or restore your changes.
+   ``` shell
+   pytest
+   ```
+
+1. Proceed work on your bug fix or new feature or restore your changes.
    To restore your stashed changes and confirm their restoration:
-```bash
-git stash pop
-git stash list
-```
 
-6. Rerun your test and confirm that your test passes.
+   ``` shell
+   git stash pop
+   git stash list
+   ```
+
+1. Rerun your test and confirm that your test passes.
    If it passes, congratulations!

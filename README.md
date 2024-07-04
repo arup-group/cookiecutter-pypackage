@@ -9,11 +9,11 @@ This template is based on [@audreyfeldroy's original cookiecutter template](http
 It has been updated to use latest Python Package best practices and to align with [Arup's City Modelling Lab Python projects](https://github.com/search?q=topic%3Acml+org%3Aarup-group&type=repositories).
 ## Features
 
-* Testing setup with [pytest].
-* Markdown based documentation, using [mkdocs], ready for generation with [GitHub pages].
-* Project metadata and plugin configuration specified in a `pyproject.toml` file, according to the [latest standards].
-* Auto-release to your private [conda] channel when you create a new release on GitHub (optional).
-* Command line interface using [click] (optional).
+- Testing setup with [pytest].
+- Markdown based documentation, using [mkdocs], ready for generation with [GitHub pages].
+- Project metadata and plugin configuration specified in a `pyproject.toml` file, according to the [latest standards].
+- Auto-release to your private [conda] channel when you create a new release on GitHub (optional).
+- Command line interface using [click] (optional).
 
 [Cookiecutter]: https://github.com/cookiecutter/cookiecutter
 [pytest]: https://docs.pytest.org
@@ -44,8 +44,8 @@ cruft create https://github.com/arup-group/cookiecutter-pypackage
 
 Then:
 
-* Add the packages you will need for your project and their versions to `requirements/base.txt`.
-* initialise your project as a git repository and link it to an online repository.
+- Add the packages you will need for your project and their versions to `requirements/base.txt`.
+- initialise your project as a git repository and link it to an online repository.
 
 For more details, see the [tutorial](https://arup-group.github.io/cookiecutter-pypackage/latest/tutorial).
 
@@ -81,9 +81,8 @@ You can find a list of other Python project templates on the parent template rep
 If you have differences in your preferred setup, you can fork this to create your own version.
 Or you create your own; it doesn't strictly have to be a fork.
 
-* Once you have your own version working, add it to the [Other Arup Cookiecutter Templates](#other-arup-cookiecutter-templates) list above with a brief description.
-
-* It's up to you whether or not to rename your fork/own version. Do whatever you think sounds good.
+- Once you have your own version working, add it to the [Other Arup Cookiecutter Templates](#other-arup-cookiecutter-templates) list above with a brief description.
+- It's up to you whether or not to rename your fork/own version. Do whatever you think sounds good.
 
 ### Or Submit a Pull Request
 

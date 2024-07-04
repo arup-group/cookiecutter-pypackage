@@ -6,7 +6,7 @@
 {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
 <!--Add download button to all pages built from jupyter notebooks-->
 
-{% raw %}
+{%- raw %}
 {% block content %}
 {% if page.nb_url %}
 <a href="{{ page.nb_url }}" title="Download Notebook" class="md-content__button md-icon">
@@ -16,5 +16,5 @@
 
 {{ super() }}
 {% endblock content %}
-{% endraw %}
+{% endraw -%}
 {% endif -%}

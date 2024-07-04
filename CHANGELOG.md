@@ -16,6 +16,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] - TBC
+
+### Added
+
+- Documentation accessibility checking.
+- Documentation FAQ in contributing guidelines.
+
+### Fixed
+
+- Template documentation in light of accessibility issues of some features (namely, mkdocs-material annotations and task lists, and mkdocs-jupyter codeblock highlighting).
+
 ## [v0.2.0] - 09-01-2024
 
 ### Fixed
