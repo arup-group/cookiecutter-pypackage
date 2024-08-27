@@ -1,0 +1,42 @@
+name: Cache CI
+
+on:
+  push:
+    branches:
+      - "main"
+    paths-ignore:
+      - README.md
+      - CHANGELOG.md
+      - LICENSE
+      - CONTRIBUTING.md
+      - docs/**
+      - mkdocs.yml
+      - ".github/**/*"
+      - "!.github/workflows/cache-ci.yml"
+
+jobs:
+  create-test-cache:
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        py3version: ["10", "12"]
+      fail-fast: false
+    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
+    steps:
+      - uses: arup-group/actions-city-modelling-lab/.github/actions/create-mamba-env@main
+        with:
+          py3version: {% raw %}${{ matrix.py3version }}{% endraw %}
+          env_name: {% raw %}${{ matrix.os }}-3${{ matrix.py3version }}{% endraw %}
+          cache_mamba_env: "true"
+
+  create-docs-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: arup-group/actions-city-modelling-lab/.github/actions/create-mamba-env@main
+        with:
+          py3version: "11"
+          env_name: docs
+          cache_mamba_env: "true"
+
+  create-cruft-cache:
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/template-check.yml@main
