@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Docs CI run on PR to main or on main, with different jobs run in each case (#33).
 - Docs/PR CI jobs do not trigger on github workflow changes except their own definition files (#32).
+- Package test parallelisation set to automatically select the number of threads based on those available (#36).
 
 ## [v0.2.0] - 09-01-2024
 
