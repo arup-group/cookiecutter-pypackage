@@ -71,17 +71,6 @@ The following options allow you to strip down the test suite to the bare essenti
 The integration tests can be slow, so if you want to avoid them during development, you should run `pytest tests/`.
 {%- endif %}
 1. You can avoid generating coverage reports, by adding the `--no-cov` argument: `pytest --no-cov`.
-1. By default, the tests run with up to two parallel threads, to increase this to e.g. 4 threads: `pytest -n4`.
-
-All together:
-
-``` shell
-pytest tests/ --no-cov -n4
-```
-
-!!! note
-
-    You cannot debug failing tests and have your tests run in parallel, you will need to set `-n0` if using the `--pdb` flag
 
 ### Memory profiling
 
