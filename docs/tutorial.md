@@ -156,11 +156,11 @@ This list is not exhaustive, but gives you an idea of where to look.
 1. **Changing how continuous integration (CI) works**.
 The configuration files in `.github/workflows` are based on the [PAM](https://github.com/arup-group/pam) package workflows and rely on the City Modelling Lab's [reusable workflows](https://github.com/arup-group/actions-city-modelling-lab).
 They will run different levels of tests when pushing new commits and when opening pull requests.
-You may want to change some of this configuration, e.g., the python versions that tests are run on or whether to (1) notify a slack channel when CI fails/succeeds and (2) attempt to upload the package to AWS.
+You may want to change some of this configuration, e.g., the python versions that tests are run on or whether to (1) notify a slack channel when CI fails/succeeds and (2) attempt to upload the package to AWS (if the `upload_aws_image` configuration option is active).
 
 2. **Adding [repository secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository) for use in CI**.
-To upload your package to Anaconda, you will need an [API token](https://server-docs.anaconda.com/en/latest/user/auth_token.html) saved as the `ANACONDA_TOKEN` repository secret.
-To upload to an AWS S3 bucket you will need the secrets `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_S3_CODE_BUCKET` available in your repository.
+To upload your package to Anaconda (`upload_conda_package`), you will need an [API token](https://server-docs.anaconda.com/en/latest/user/auth_token.html) saved as the `ANACONDA_TOKEN` repository secret.
+To upload to an AWS S3 bucket (`upload_aws_image`) you will need the secrets `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_S3_CODE_BUCKET` available in your repository.
 You also need secrets for initiating the Slack notification bot and uploading to an AWS S3 bucket (+ possibly some AWS terraforming).
 You can find all the secrets you need for different actions in the City Modelling Lab [reusable workflow repository](https://github.com/arup-group/actions-city-modelling-lab).
 

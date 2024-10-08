@@ -35,6 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Package test parallelisation set to automatically select the number of threads based on those available (#36).
 - Move to exclusively using `ruff` for code formatting and linting; update to `ruff` version 0.6 (#43).
 - Cookiecutter config set to have no license for the repository (i.e. internal IP) by default.
+- Make upload and build of Docker image on AWS optional (#42).
 
 ## [v0.2.0] - 09-01-2024
 
