@@ -87,8 +87,11 @@ jobs:
       - name: Install jupyter kernel
         run: python -m ipykernel install --user --name python_boilerplate
 
-      - name: linting
-        run: git init . && pre-commit run --all-files
+      - name: Initialise as git repo
+        run: git init . && git add .
+
+      - name: Linting
+        uses: pre-commit/action@v3.0.1  # run code linting and formatting with ruff
 
       - name: run tests
         run: pytest

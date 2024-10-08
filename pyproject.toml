@@ -10,9 +10,9 @@ testpaths = ["tests"]
 [tool.ruff]
 line-length = 100
 preview = true # required to activate many pycodestyle errors and warnings as of 2024-03-13
+exclude = [".*.egg-info", "requirements/**", "\\{\\{cookiecutter.repository_name\\}}\\}}"]
 
 [tool.ruff.format]
-exclude = [".*.egg-info", "requirements/**"]
 skip-magic-trailing-comma = true
 quote-style = "double"
 indent-style = "space"

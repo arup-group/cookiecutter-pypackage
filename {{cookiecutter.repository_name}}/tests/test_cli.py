@@ -1,6 +1,7 @@
 """Tests for `{{ cookiecutter.module_name }}` CLI."""
 
 from click.testing import CliRunner
+
 from {{ cookiecutter.module_name }} import cli
 
 
