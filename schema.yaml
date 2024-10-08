@@ -134,7 +134,7 @@ properties:
     minItems: 1
     items:
       type: string
-      default: "MIT license"
+      default: "Not open source"
       enum:
         - MIT license
         - BSD license

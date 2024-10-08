@@ -186,8 +186,6 @@ def test_bake_not_open_source(cookies):
     assert "pyproject.toml" in found_toplevel_files
     assert "LICENSE" not in found_toplevel_files
     assert "License" not in (result.project_path / "README.md").read_text()
-    assert "- uses: pre-commit/action" in (result.project_path / ".github" / "workflows" / "pr-ci.yml").read_text()
-    assert "upload_to_codecov: true" not in (result.project_path / ".github" / "workflows" / "pr-ci.yml").read_text()
 
 
 def test_bake_with_no_console_script(cookies):

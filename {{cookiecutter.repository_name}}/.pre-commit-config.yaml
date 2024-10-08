@@ -23,8 +23,6 @@ repos:
         language: fail
         files: "\\.rej$"
 
-{% if cookiecutter.open_source_license != 'Not open source' -%}
 ci:  # https://pre-commit.ci/
   autofix_prs: false
   autoupdate_schedule: monthly
-{% endif %}

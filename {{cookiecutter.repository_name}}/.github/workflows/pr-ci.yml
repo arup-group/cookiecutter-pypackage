@@ -15,18 +15,16 @@ on:
       - "!.github/workflows/pr-ci.yml"
 
 jobs:
-  {%- if cookiecutter.open_source_license == 'Not open source' %}
   lint:
+    if: github.event.repository.private
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - uses: pre-commit/action@v3.0.1
-  {%- endif %}
 
   test:
-    {%- if cookiecutter.open_source_license == 'Not open source' %}
     needs: lint
-    {%- endif %}
+    if: always() && (needs.lint.result  == 'success' || needs.lint.result  == 'skipped')
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest, macos-latest]
@@ -44,9 +42,8 @@ jobs:
       upload_to_codecov: false
 
   test-coverage:
-    {%- if cookiecutter.open_source_license == 'Not open source' %}
     needs: lint
-    {%- endif %}
+    if: always() && (needs.lint.result  == 'success' || needs.lint.result  == 'skipped')
     uses: arup-group/actions-city-modelling-lab/.github/workflows/python-install-lint-test.yml@main
     with:
       os: ubuntu-latest
@@ -56,11 +53,7 @@ jobs:
       {%- endif %}
       lint: false
       pytest_args: 'tests/'  # ignore example notebooks
-      {%- if cookiecutter.open_source_license != 'Not open source' %}
-      upload_to_codecov: true
-      {% else %}
-      upload_to_codecov: false
-      {%- endif %}
+      upload_to_codecov: {% raw %}${{ github.event.repository.public }}{% endraw %}  # only attempt to upload if the project is public
 
   memory-profile:
     uses: arup-group/actions-city-modelling-lab/.github/workflows/python-memory-profile.yml@main
