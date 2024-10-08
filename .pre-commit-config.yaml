@@ -8,16 +8,11 @@ repos:
       - id: check-added-large-files
         args: ["--maxkb=1000"]
 
-  - repo: https://github.com/psf/black
-    rev: 24.2.0
-    hooks:
-      - id: black
-
-  - repo: https://github.com/astral-sh/ruff-pre-commit  # https://beta.ruff.rs/docs/usage/#github-action
-    rev: v0.3.0
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.8
     hooks:
       - id: ruff
-        args: [ --fix, --exit-non-zero-on-fix ]
+        args: [ --fix, --exit-non-zero-on-fix, --config, pyproject.toml ]
 
 ci:  # https://pre-commit.ci/
   autofix_prs: false
