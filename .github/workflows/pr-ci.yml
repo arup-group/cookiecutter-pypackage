@@ -57,6 +57,7 @@ jobs:
           path: python_boilerplate/
           if-no-files-found: error
           retention-days: 5
+          include-hidden-files: true
 
   test-template:
     runs-on: ubuntu-latest
