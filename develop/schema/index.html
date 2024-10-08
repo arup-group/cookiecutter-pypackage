@@ -427,6 +427,12 @@
 </ul>
 </li>
 <li>
+<p><strong><code>upload_aws_image</code></strong> <em>(array)</em>: Whether to upload the repository to AWS to build and host a Docker image of the project. NOTE: requires CodeBuild configuration to be updated separately to have the image built on AWS. Length must be at least 1.</p>
+<ul>
+<li><strong>Items</strong> <em>(string)</em>: Must be one of: <code>["y", "n"]</code>. Default: <code>"n"</code>.</li>
+</ul>
+</li>
+<li>
 <p><strong><code>conda_channel</code></strong> <em>(string)</em>: Your anaconda channel, if releases of your package will be uploaded to Anaconda. Default: <code>"[github_username]"</code>.</p>
 </li>
 <li>

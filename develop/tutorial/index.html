@@ -727,12 +727,12 @@ This list is not exhaustive, but gives you an idea of where to look.</p>
 <p><strong>Changing how continuous integration (CI) works</strong>.
 The configuration files in <code>.github/workflows</code> are based on the <a href="https://github.com/arup-group/pam">PAM</a> package workflows and rely on the City Modelling Lab's <a href="https://github.com/arup-group/actions-city-modelling-lab">reusable workflows</a>.
 They will run different levels of tests when pushing new commits and when opening pull requests.
-You may want to change some of this configuration, e.g., the python versions that tests are run on or whether to (1) notify a slack channel when CI fails/succeeds and (2) attempt to upload the package to AWS.</p>
+You may want to change some of this configuration, e.g., the python versions that tests are run on or whether to (1) notify a slack channel when CI fails/succeeds and (2) attempt to upload the package to AWS (if the <code>upload_aws_image</code> configuration option is active).</p>
 </li>
 <li>
 <p><strong>Adding <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository">repository secrets</a> for use in CI</strong>.
-To upload your package to Anaconda, you will need an <a href="https://server-docs.anaconda.com/en/latest/user/auth_token.html">API token</a> saved as the <code>ANACONDA_TOKEN</code> repository secret.
-To upload to an AWS S3 bucket you will need the secrets <code>AWS_ACCESS_KEY_ID</code>, <code>AWS_SECRET_ACCESS_KEY</code>, <code>AWS_S3_CODE_BUCKET</code> available in your repository.
+To upload your package to Anaconda (<code>upload_conda_package</code>), you will need an <a href="https://server-docs.anaconda.com/en/latest/user/auth_token.html">API token</a> saved as the <code>ANACONDA_TOKEN</code> repository secret.
+To upload to an AWS S3 bucket (<code>upload_aws_image</code>) you will need the secrets <code>AWS_ACCESS_KEY_ID</code>, <code>AWS_SECRET_ACCESS_KEY</code>, <code>AWS_S3_CODE_BUCKET</code> available in your repository.
 You also need secrets for initiating the Slack notification bot and uploading to an AWS S3 bucket (+ possibly some AWS terraforming).
 You can find all the secrets you need for different actions in the City Modelling Lab <a href="https://github.com/arup-group/actions-city-modelling-lab">reusable workflow repository</a>.</p>
 </li>
