@@ -16,6 +16,10 @@
     "n",
     "y"
   ],
+  "upload_aws_image": [
+    "n",
+    "y"
+  ],
   "conda_channel": "{{ cookiecutter.github_username }}",
   "command_line_interface": [
     "y",

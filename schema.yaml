@@ -80,6 +80,15 @@ properties:
     minItems: 1
     items: *n_y_items
 
+  upload_aws_image:
+    type: array
+    description: >-
+      Whether to upload the repository to AWS to build and host a Docker image of the project.
+      NOTE: requires CodeBuild configuration to be updated separately to have the image built on AWS.
+    uniqueItems: true
+    minItems: 1
+    items: *n_y_items
+
   conda_channel:
     type: string
     default: "[github_username]"

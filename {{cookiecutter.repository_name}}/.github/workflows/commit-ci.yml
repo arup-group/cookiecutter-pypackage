@@ -23,6 +23,7 @@ jobs:
       {%- endif %}
       lint: false
 
+  {%- if cookiecutter.upload_aws_image|lower == "y" %}
   aws-pre-check:
     runs-on: ubuntu-latest
     outputs:
@@ -44,3 +45,4 @@ jobs:
       AWS_ACCESS_KEY_ID: {% raw %}${{ secrets.AWS_ACCESS_KEY_ID }}{% endraw %}
       AWS_SECRET_ACCESS_KEY: {% raw %}${{ secrets.AWS_SECRET_ACCESS_KEY }}{% endraw %}
       AWS_S3_CODE_BUCKET: {% raw %}${{ secrets.AWS_S3_CODE_BUCKET }}{% endraw %}
+  {%- endif %}

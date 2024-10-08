@@ -246,3 +246,18 @@ def test_bake_a11y(cookies):
         "### Ensuring accessibility"
         in (result.project_path / "docs" / "contributing.md").read_text()
     )
+
+def test_aws_missing_in_default(default_bake):
+    assert not any(
+        i in (default_bake.project_path / ".github" / "workflows" / "commit-ci.yml").read_text()
+        for i in ["aws-pre-check", "aws-upload"]
+    )
+
+
+def test_activate_aws_upload(cookies):
+    result = cookies.bake(extra_context={"upload_aws_image": "y"})
+
+    assert all(
+        i in (result.project_path / ".github" / "workflows" / "commit-ci.yml").read_text()
+        for i in ["aws-pre-check", "aws-upload"]
+    )
