@@ -85,7 +85,8 @@ jobs:
       - name: Install jupyter kernel
         run: python -m ipykernel install --user --name python_boilerplate
 
-      - uses: pre-commit/action@v3.0.1  # run code linting and formatting with ruff
+      - name: linting
+        run: pre-commit run --all-files
 
       - name: run tests
         run: pytest
