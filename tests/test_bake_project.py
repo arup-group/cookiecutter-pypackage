@@ -24,7 +24,7 @@ def default_bake(cookies):
 
 
 def test_year_compute_in_license_file(cookies):
-    result = cookies.bake(extra_context={"open_source_license": "MIT"})
+    result = cookies.bake(extra_context={"open_source_license": "MIT license"})
     now = datetime.datetime.now()
     assert str(now.year) in (result.project_path / "LICENSE").read_text()
 
