@@ -97,6 +97,15 @@ properties:
       default: "y"
       enum: ["y", "n"]
 
+  check_docs_accessibility_in_CI:
+    type: array
+    description: >-
+      If "y", documentation will be checked for accessibility, according to the WCAG2AA standard, in Pull Request CI.
+    uniqueItems: true
+    minItems: 1
+    items: *n_y_items
+
+
   command_line_interface:
     type: array
     description: If "y", a `cli.py` file will be included in the project source code based on using `Click`.

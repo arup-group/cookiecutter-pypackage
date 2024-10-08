@@ -33,6 +33,10 @@
     "y",
     "n"
   ],
+  "check_docs_accessibility_in_CI": [
+    "n",
+    "y"
+  ],
   "open_source_license": [
     "MIT license",
     "BSD license",

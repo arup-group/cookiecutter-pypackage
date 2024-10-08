@@ -182,6 +182,7 @@ Here are some use-cases that you may come across in which you are considering up
 
     We recommend exploring the [MkDocs](https://www.mkdocs.org/) and the [Material](https://squidfunk.github.io/mkdocs-material/) documentation if we haven't answered your question.
 
+{%- if cookiecutter.check_docs_accessibility_in_CI|lower == "y" %}
 ### Ensuring accessibility
 
 We are committed to providing accessible documentation.
@@ -206,6 +207,7 @@ If these issues are blockers, you should raise them in the upstream [MkDocs-Mate
     The results will be printed to the console and will be available as a navigable set of HTML pages at `reports/pa11y/index.html`.
 - If you are still unsure what part of the documentation an issue is referring to since it referencing HTML classes/ids etc., rather than Markdown files, then we recommend using the inbuilt accessibility checkers available in most common browsers.
 First, serve your documentation locally, then use e.g., the [Mozilla Firefox accessibility inspector](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/) to check for issues.
+{%- endif %}
 
 ## Updating the project when the template updates
 

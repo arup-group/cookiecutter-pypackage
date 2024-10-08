@@ -223,3 +223,26 @@ def test_bake_with_console_script_cli(cookies):
     help_result = runner.invoke(cli.cli, ["--help"])
     assert help_result.exit_code == 0
     assert "Show this message" in help_result.output
+
+
+def test_bake_no_a11y_default(default_bake):
+    assert (
+        "docs-accessibility"
+        not in (default_bake.project_path / ".github" / "workflows" / "docs.yml").read_text()
+    )
+    assert (
+        "### Ensuring accessibility"
+        not in (default_bake.project_path / "docs" / "contributing.md").read_text()
+    )
+
+
+def test_bake_a11y(cookies):
+    result = cookies.bake(extra_context={"check_docs_accessibility_in_CI": "y"})
+    assert (
+        "docs-accessibility"
+        in (result.project_path / ".github" / "workflows" / "docs.yml").read_text()
+    )
+    assert (
+        "### Ensuring accessibility"
+        in (result.project_path / "docs" / "contributing.md").read_text()
+    )
