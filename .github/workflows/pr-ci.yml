@@ -75,6 +75,7 @@ jobs:
           environment-file: requirements/base.txt
           create-args: >-
             -f requirements/dev.txt
+            git
             python=3.12
           post-cleanup: all
           cache-environment: false
@@ -86,7 +87,7 @@ jobs:
         run: python -m ipykernel install --user --name python_boilerplate
 
       - name: linting
-        run: pre-commit run --all-files
+        run: git init . && pre-commit run --all-files
 
       - name: run tests
         run: pytest
