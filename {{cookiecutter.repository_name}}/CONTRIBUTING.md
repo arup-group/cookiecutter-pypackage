@@ -4,8 +4,8 @@ We're really glad you're reading this, because we need volunteer developers to h
 
 Some of the resources to look at if you're interested in contributing:
 
-* Look at open issues tagged with ["help wanted"](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) and ["good first issue"](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
-* Look at the [contributing guide in our documentation](https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }}/contributing)
+- Look at open issues tagged with ["help wanted"](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) and ["good first issue"](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+- Look at the [contributing guide in our documentation](https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }}/contributing)
 
 ## Licensing
 
@@ -15,6 +15,7 @@ You will need explicit permission from the repository owner to redistribute or m
 {%- else %}
 By contributing to {{ cookiecutter.repository_name }}, i.e. through opening a pull request, you represent that your contributions are your own original work and that you have the right to license them, and you agree that your contributions are licensed under the {{ cookiecutter.open_source_license }}.
 {%- endif %}
+
 ## Reporting bugs and requesting features
 
 You can open an issue on GitHub to report bugs or request new {{ cookiecutter.repository_name }} features.
@@ -39,19 +40,19 @@ Look at the [development guide in our documentation](https://{{ cookiecutter.rep
 To contribute changes:
 
 1. Fork the project on GitHub.
-2. Create a feature branch to work on in your fork (`git checkout -b new-fix-or-feature`).
-3. Test your changes using `pytest`.
-4. Commit your changes to the feature branch (you should have `pre-commit` installed to ensure your code is correctly formatted when you commit changes).
-5. Push the branch to GitHub (`git push origin new-fix-or-feature`).
-6. On GitHub, create a new [pull request](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/pull/new/main) from the feature branch.
+1. Create a feature branch to work on in your fork (`git checkout -b new-fix-or-feature`).
+1. Test your changes using `pytest`.
+1. Commit your changes to the feature branch (you should have `pre-commit` installed to ensure your code is correctly formatted when you commit changes).
+1. Push the branch to GitHub (`git push origin new-fix-or-feature`).
+1. On GitHub, create a new [pull request](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/pull/new/main) from the feature branch.
 
 ### Pull requests
 
 Before submitting a pull request, check whether you have:
 
-* Added your changes to `CHANGELOG.md`.
-* Added or updated documentation for your changes.
-* Added tests if you implemented new functionality.
+- Added your changes to `CHANGELOG.md`.
+- Added or updated documentation for your changes.
+- Added tests if you implemented new functionality.
 
 When opening a pull request, please provide a clear summary of your changes!
 
@@ -85,24 +86,23 @@ When adding docstrings, we request you use the [Google docstring style](https://
 
 ### Pre-release
 
-- [ ] Make sure all unit and integration tests pass (This is best done by creating a pre-release pull request).
-- [ ] Re-run tutorial Jupyter notebooks (`pytest examples/ --overwrite`).
-- [ ] Make sure documentation builds without errors (`mike deploy [version]`, where `[version]` is the current minor release of the form `X.Y`).
-- [ ] Make sure the [changelog][changelog] is up-to-date, especially that new features and backward incompatible changes are clearly marked.
+- Make sure all unit and integration tests pass (This is best done by creating a pre-release pull request).
+- Re-run tutorial Jupyter notebooks (`pytest examples/ --overwrite`).
+- Make sure documentation builds without errors (`mike deploy [version]`, where `[version]` is the current minor release of the form `X.Y`).
+- Make sure the [changelog][changelog] is up-to-date, especially that new features and backward incompatible changes are clearly marked.
 
 ### Create release
 
-- [ ] Bump the version number in `src/{{ cookiecutter.module_name }}/__init__.py`
-- [ ] Update the [changelog][changelog] with final version number of the form `vX.Y.Z`, release date, and [github `compare` link](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits) (at the bottom of the page).
-- [ ] Commit with message `Release vX.Y.Z`, then add a `vX.Y.Z` tag.
-- [ ] Create a release pull request to verify that the conda package builds successfully.
-- [ ] Once the PR is approved and merged, create a release through the GitHub web interface, using the same tag, titling it `Release vX.Y.Z` and include all the changelog elements that are *not* flagged as **internal**.
+- Bump the version number in `src/{{ cookiecutter.module_name }}/__init__.py`
+- Update the [changelog][changelog] with final version number of the form `vX.Y.Z`, release date, and [github `compare` link](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits) (at the bottom of the page).
+- Commit with message `Release vX.Y.Z`, then add a `vX.Y.Z` tag.
+- Create a release pull request to verify that the conda package builds successfully.
+- Once the PR is approved and merged, create a release through the GitHub web interface, using the same tag, titling it `Release vX.Y.Z` and include all the changelog elements that are *not- flagged as **internal**.
 
 ### Post-release
 
-- [ ] Update the changelog, adding a new `[Unreleased]` heading.
-- [ ] Update `src/{{ cookiecutter.module_name }}/__init__.py` to the next version appended with `.dev0`, in preparation for the next main commit.
-
+- Update the changelog, adding a new `[Unreleased]` heading.
+- Update `src/{{ cookiecutter.module_name }}/__init__.py` to the next version appended with `.dev0`, in preparation for the next main commit.
 
 <!--- --8<-- [end:docs] -->
 

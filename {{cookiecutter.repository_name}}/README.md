@@ -24,7 +24,6 @@ To install {{ cookiecutter.module_name }}
 ### As a user
 <!--- --8<-- [start:docs-install-user] -->
 
-
 ``` shell
 {% if cookiecutter.upload_conda_package == "y" %}
 mamba create -n {{ cookiecutter.repository_name }} -c conda-forge -c {{ cookiecutter.conda_channel }} {{ cookiecutter.package_name }}
@@ -73,14 +72,13 @@ For more information, see our [documentation](https://{{ cookiecutter.repository
 ## Building the documentation
 
 If you are unable to access the online documentation, you can build the documentation locally.
-First, [install a development environment of {{ cookiecutter.repository_name }}](https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }}/latest/contributing/coding/), then deploy the documentation using [mike](https://github.com/jimporter/mike):
+First, [install a development environment of {{ cookiecutter.repository_name }}](https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }}/latest/contributing/coding/), then deploy the documentation using [MkDocs](https://www.mkdocs.org/):
 
-```
-mike deploy develop
-mike serve
+``` shell
+mkdocs serve
 ```
 
-Then you can view the documentation in a browser at http://localhost:8000/.
+Then you can view the documentation in a browser at <http://localhost:8000/>.
 
 ## Credits
 

@@ -34,3 +34,19 @@ jobs:
       {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
       notebook_kernel: {{ cookiecutter.repository_name }}
       {%- endif %}
+
+  {%- if cookiecutter.check_docs_accessibility_in_CI|lower == "y" %}
+  docs-accessibility:
+    needs: [docs-test]
+    if: always() && needs.docs-test.result == 'success' && github.event_name == 'pull_request'
+    permissions:
+      contents: read
+      pull-requests: write
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-a11y.yml@main
+    with:
+      upload_report: true
+      allow_pr_comment: true
+      {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
+      notebook_kernel: {{ cookiecutter.repository_name }}
+      {%- endif %}
+  {%- endif %}

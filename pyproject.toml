@@ -52,7 +52,7 @@ authors = [{ name = "Bryn Pickering", email = "bryn.pickering@arup.com" }]
 maintainers = []
 description = 'Cookiecutter template for a Python package'
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = { text = "MIT" }
 classifiers = [
     'Development Status :: 3 - Alpha',

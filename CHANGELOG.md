@@ -18,6 +18,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - TBC
 
+### Added
+
+- Documentation accessibility checking (#41).
+- Documentation FAQ in contributing guidelines (#41).
+
+### Fixed
+
+- Template documentation in light of accessibility issues of some features (namely, mkdocs-material annotations and task lists, and mkdocs-jupyter codeblock highlighting) (#41).
+
 ### Changed
 
 - Docs CI run on PR to main or on main, with different jobs run in each case (#33).
