@@ -714,12 +714,15 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">#</a></h3>
 <ul>
 <li>Template documentation in light of accessibility issues of some features (namely, mkdocs-material annotations and task lists, and mkdocs-jupyter codeblock highlighting) (#41).</li>
+<li>Triggering of CI linting and codecov upload for internal (i.e. not open-source) projects (#44).</li>
 </ul>
 <h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">#</a></h3>
 <ul>
 <li>Docs CI run on PR to main or on main, with different jobs run in each case (#33).</li>
 <li>Docs/PR CI jobs do not trigger on github workflow changes except their own definition files (#32).</li>
 <li>Package test parallelisation set to automatically select the number of threads based on those available (#36).</li>
+<li>Move to exclusively using <code>ruff</code> for code formatting and linting; update to <code>ruff</code> version 0.6 (#43).</li>
+<li>Cookiecutter config set to have no license for the repository (i.e. internal IP) by default.</li>
 <li>Make upload and build of Docker image on AWS optional (#42).</li>
 </ul>
 <h2 id="v020-09-01-2024">[v0.2.0] - 09-01-2024<a class="headerlink" href="#v020-09-01-2024" title="Permanent link">#</a></h2>
