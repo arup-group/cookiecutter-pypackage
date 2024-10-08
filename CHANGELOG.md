@@ -26,12 +26,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Template documentation in light of accessibility issues of some features (namely, mkdocs-material annotations and task lists, and mkdocs-jupyter codeblock highlighting) (#41).
+- Triggering of CI linting and codecov upload for internal (i.e. not open-source) projects (#44).
 
 ### Changed
 
 - Docs CI run on PR to main or on main, with different jobs run in each case (#33).
 - Docs/PR CI jobs do not trigger on github workflow changes except their own definition files (#32).
 - Package test parallelisation set to automatically select the number of threads based on those available (#36).
+- Move to exclusively using `ruff` for code formatting and linting; update to `ruff` version 0.6 (#43).
 
 ## [v0.2.0] - 09-01-2024
 

@@ -75,7 +75,6 @@ jobs:
           environment-file: requirements/base.txt
           create-args: >-
             -f requirements/dev.txt
-            ruff=0.2.2
             python=3.12
           post-cleanup: all
           cache-environment: false
@@ -86,8 +85,7 @@ jobs:
       - name: Install jupyter kernel
         run: python -m ipykernel install --user --name python_boilerplate
 
-      - name: Lint with Ruff
-        run: ruff check .
+      - uses: pre-commit/action@v3.0.1  # run code linting and formatting with ruff
 
       - name: run tests
         run: pytest
