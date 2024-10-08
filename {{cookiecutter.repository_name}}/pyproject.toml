@@ -17,7 +17,7 @@
 minversion = "6.0"
 # opts:
 # `--strict-markers` - Raise error on unexpected pytest markers being used (add new markers to `markers` config)
-# `-n2` - parallelise over two threads (uses pytest-xdist)
+# `-nauto` - parallelise over as many threads are available (uses pytest-xdist). This auto-selects 1 thread when using the `--pdb` debugging flag.
 {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
 # `--nbmake --nbmake-kernel={{ cookiecutter.repository_name }}` - test example notebooks using the "{{ cookiecutter.repository_name }}" notebook kernel (uses nbmake)
 {%- endif %}
