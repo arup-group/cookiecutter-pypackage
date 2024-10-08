@@ -247,6 +247,7 @@ def test_bake_a11y(cookies):
         in (result.project_path / "docs" / "contributing.md").read_text()
     )
 
+
 def test_aws_missing_in_default(default_bake):
     assert not any(
         i in (default_bake.project_path / ".github" / "workflows" / "commit-ci.yml").read_text()
