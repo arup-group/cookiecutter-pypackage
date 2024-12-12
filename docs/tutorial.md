@@ -103,6 +103,7 @@ Once you have your repository created, go back to your command line where you ar
 git init .
 git add .
 git commit -m "Initial skeleton."
+git branch -M main
 git remote add origin git@github.com:arup-group/python-boilerplate.git # (1)!
 git push -u origin main
 ```
