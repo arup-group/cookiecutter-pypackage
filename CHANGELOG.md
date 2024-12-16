@@ -20,11 +20,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- EditorConfig file within template (#50).
 - Documentation accessibility checking (#41).
 - Documentation FAQ in contributing guidelines (#41).
 
 ### Fixed
 
+- Missing Ruff formatting step in pre-commit config (#51).
 - Template documentation in light of accessibility issues of some features (namely, mkdocs-material annotations and task lists, and mkdocs-jupyter codeblock highlighting) (#41).
 - Triggering of CI linting and codecov upload for internal (i.e. not open-source) projects (#44).
 
