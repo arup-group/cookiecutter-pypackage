@@ -16,6 +16,5 @@ def test_command_line_interface():
     assert (
         "Console script for {{ cookiecutter.module_name }}.\n\nOptions:\n  "
         "--version  Show the version and exit.\n  "
-        "--help     Show this message and exit.\n"
-        in help_result.output
+        "--help     Show this message and exit.\n" in help_result.output
     )
