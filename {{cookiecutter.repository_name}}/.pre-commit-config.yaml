@@ -24,6 +24,12 @@ repos:
         language: fail
         files: "\\.rej$"
 
+      - id: version-without-v
+        name: Don't commit if package version is prepended with a `v`
+        entry: __version__ = "v*
+        language: pygrep
+        types: [text]
+
 ci:  # https://pre-commit.ci/
   autofix_prs: false
   autoupdate_schedule: monthly
