@@ -28,15 +28,16 @@ To find beginner-friendly existing bugs and feature requests you may like to sta
 
 ### Setting up a development environment
 
-To create a development environment for {{ cookiecutter.module_name }}, with all libraries required for development and quality assurance installed, it is easiest to install {{ cookiecutter.package_name }} using the [mamba](https://mamba.readthedocs.io/en/latest/index.html) package manager, as follows:
+To create a development environment for {{ cookiecutter.module_name }}, with all libraries required for development and quality assurance installed, it is easiest to install {{ cookiecutter.package_name }} using the [conda](https://docs.conda.io/en/latest/) package manager, as follows:
 
-1. Install mamba with the [Mambaforge](https://github.com/conda-forge/miniforge#mambaforge) executable for your operating system.
-1. Open the command line (or the "miniforge prompt" in Windows).
+1. Install conda with the [miniforge](https://github.com/conda-forge/miniforge?tab=readme-ov-file#download) executable for your operating system.
+Arup users on Windows can install `miniforge` from the Arup software shop by downloading "VS Code for Python".
+1. Open the command line (or the VSCode "integrated terminal" in Windows).
 1. Download (a.k.a., clone) the {{ cookiecutter.repository_name }} repository: `git clone git@github.com:{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}.git`
 1. Change into the `{{ cookiecutter.repository_name }}` directory: `cd {{ cookiecutter.repository_name }}`
-1. Create the {{ cookiecutter.repository_name }} mamba environment: `mamba create -n {{ cookiecutter.repository_name }} -c conda-forge --file requirements/base.txt --file requirements/dev.txt`
-1. Activate the {{ cookiecutter.repository_name }} mamba environment: `mamba activate {{ cookiecutter.repository_name }}`
-1. Install the {{ cookiecutter.package_name }} package into the environment, in editable mode and ignoring dependencies (we have dealt with those when creating the mamba environment): `pip install --no-deps -e .`
+1. Create the {{ cookiecutter.repository_name }} conda environment: `conda create -n {{ cookiecutter.repository_name }} -c conda-forge --file requirements/base.txt --file requirements/dev.txt`
+1. Activate the {{ cookiecutter.repository_name }} conda environment: `conda activate {{ cookiecutter.repository_name }}`
+1. Install the {{ cookiecutter.package_name }} package into the environment, in editable mode and ignoring dependencies (we have dealt with those when creating the conda environment): `pip install --no-deps -e .`
 
 All together:
 
@@ -82,7 +83,7 @@ The integration tests can be slow, so if you want to avoid them during developme
 {{ cookiecutter.module_name }} can be memory intensive; we like to ensure that any development to the core code does not exacerbate this.
 If you are running on a UNIX device (i.e., **not*- on Windows), you can test whether any changes you have made adversely impact memory and time performance as follows:
 
-1. Install [memray](https://bloomberg.github.io/memray/index.html) in your `{{ cookiecutter.repository_name }}` mamba environment: `mamba install memray pytest-memray`.
+1. Install [memray](https://bloomberg.github.io/memray/index.html) in your `{{ cookiecutter.repository_name }}` conda environment: `conda install memray pytest-memray`.
 2. Run the memory profiling integration test: `pytest -p memray -m "high_mem" --no-cov`.
 3. Optionally, to visualise the memory allocation, run `pytest -p memray -m "high_mem" --no-cov --memray-bin-path=[my_path] --memray-bin-prefix=[my_prefix]` - where you must define `[my_path]` and `[my_prefix]` - followed by `memray flamegraph [my_path]/[my_prefix]-tests-test_100_memory_profiling.py-test_mem.bin`.
 You will then find the HTML report at `[my_path]/memray-flamegraph-[my_prefix]-tests-test_100_memory_profiling.py-test_mem.html`.
@@ -90,7 +91,7 @@ You will then find the HTML report at `[my_path]/memray-flamegraph-[my_prefix]-t
 All together:
 
 ``` shell
-mamba install memray pytest-memray
+conda install memray pytest-memray
 pytest -p memray -m "high_mem" --no-cov --memray-bin-path=[my_path] --memray-bin-prefix=[my_prefix]
 memray flamegraph [my_path]/[my_prefix]-tests-test_100_memory_profiling.py-test_mem.bin
 ```
@@ -212,7 +213,7 @@ First, serve your documentation locally, then use e.g., the [Mozilla Firefox acc
 ## Updating the project when the template updates
 
 This project has been built with [cruft](https://cruft.github.io/cruft/) based on the [Arup Cookiecutter template](https://github.com/arup-group/cookiecutter-pypackage).
-When changes are made to the base template, they can be merged into this project by running `cruft update` from the  `{{ cookiecutter.repository_name }}` mamba environment.
+When changes are made to the base template, they can be merged into this project by running `cruft update` from the  `{{ cookiecutter.repository_name }}` conda environment.
 
 You may be prompted to do this when you open a Pull Request, if our automated checks identify that the template is newer than that used in the project.
 
