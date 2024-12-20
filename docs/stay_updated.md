@@ -53,7 +53,7 @@ If you are finding it difficult to make a change, you can try generating a _new_
     To update your project to upload the package to both an Anaconda channel and to PyPI:
 
     ``` bash
-    cruft update --variables-to-update '{ "upload_conda_package" : "y" , "upload_pypi_package": "y"}'
+    cruft update --variables-to-update '{ "upload_conda_package" : "y" , "upload_pip_package": "y"}'
     ```
 
 !!! info

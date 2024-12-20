@@ -3,6 +3,11 @@
 
 ## Setting up a user environment
 
+{% if cookiecutter.project_visibility == "internal" and (cookiecutter.upload_conda_package == "y"  or cookiecutter.upload_pip_package == "y") -%}
+!!! note
+    You must be on the Arup network to install {{ cookiecutter.module_name }}, either by connecting in an office or via the Arup VPN.
+{% endif -%}
+
 As a `{{ cookiecutter.module_name }}` user, it is easiest to install using the [mamba](https://mamba.readthedocs.io/en/latest/index.html) package manager, as follows:
 
 1. Install mamba with the [Mambaforge](https://github.com/conda-forge/miniforge#mambaforge) executable for your operating system.
@@ -10,7 +15,7 @@ As a `{{ cookiecutter.module_name }}` user, it is easiest to install using the [
 {%- if cookiecutter.upload_conda_package == "y" %}
 1. Create the {{ cookiecutter.repository_name }} mamba environment: `mamba create -n {{ cookiecutter.repository_name }} -c conda-forge -c {{ cookiecutter.conda_channel }} {{ cookiecutter.package_name }}`
 1. Activate the {{ cookiecutter.repository_name }} mamba environment: `mamba activate {{ cookiecutter.repository_name }}`
-{%- elif cookiecutter.upload_pypi_package == "y" %}
+{%- elif cookiecutter.upload_pip_package == "y" %}
 1. Create a {{ cookiecutter.repository_name }} mamba environment: `mamba create -n {{ cookiecutter.repository_name }} -c conda-forge python`
 1. Activate the {{ cookiecutter.repository_name }} mamba environment: `mamba activate {{ cookiecutter.repository_name }}`
 1. Install the {{ cookiecutter.package_name }} package into the environment: `pip install {{ cookiecutter.package_name }}`
