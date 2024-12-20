@@ -1,4 +1,5 @@
 """Hooks for creating docs pages on-the-fly."""
+
 import tempfile
 from pathlib import Path
 
@@ -75,7 +76,7 @@ def _schema2md(config: dict) -> File:
     parser = jsonschema2md.Parser()
     parser.tab_size = 4
     schema = yaml.safe_load(path_to_schema.read_text())
-    schema.pop("__prompts__")
+    schema["properties"].pop("__prompts__")
     lines = parser.parse_schema(schema)
     lines = _customise_markdown(lines)
 
