@@ -1,3 +1,5 @@
+"""Hooks to run before baking the project from the template."""
+
 import re
 import sys
 
