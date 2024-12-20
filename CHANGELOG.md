@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Human-readable prompts when baking a project (#56).
 - EditorConfig file within template (#50).
 - Documentation accessibility checking (#41).
 - Documentation FAQ in contributing guidelines (#41).

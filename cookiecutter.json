@@ -48,5 +48,59 @@
     "ISC license",
     "Apache Software License 2.0",
     "GNU General Public License v3"
-  ]
+  ],
+
+  "__prompts__": {
+    "full_name": "[bold yellow](full_name)[/bold yellow] Your full name.",
+    "email": "[bold yellow](email)[/bold yellow] Your email address. Use the same one as you use on GitHub.",
+    "github_username": "[bold yellow](github_username)[/bold yellow] Your GitHub username.",
+    "project_title": "[bold yellow](project_title)[/bold yellow] The headline name of your new Python package project. [italic red]NOTE:[/italic red] this is used in documentation, so spaces and any characters are fine here.",
+    "repository_owner": "[bold yellow](repository_owner)[/bold yellow] The owner of your GitHub repository (i.e., https://github.com/[repository_owner]). [italic red]NOTE:[/italic red] for personal projects, this can be your GitHub username. For Arup projects, this should be `arup-group`.",
+    "repository_name": "[bold yellow](repository_name)[/bold yellow] Name of the github repository where you will host your project (i.e., https://github.com/[repository_owner]/[repository_name]). [italic red]NOTE:[/italic red] typically, it is the 'slugified' version of `project_title` (e.g. `My software package` -> `my_software_package`) or an abbreviation derived from it (e.g., `Population Activity Modeller` -> `pam`).",
+    "package_name": "[bold yellow](package_name)[/bold yellow] The name given to your package. This should be available on package indexing sites (PyPI/Anaconda). [italic red]NOTE:[/italic red] typically, it is the same as the `module_name`, but if your preferred package name is already taken online, you should rename your project entirely or prepend the package name with e.g. `arup-`. For example, our PAM package is `pam` when imported in Python, but `cml-pam` online.",
+    "module_name": "[bold yellow](module_name)[/bold yellow] The name given to your module in Python. This should be available on package indexing sites (PyPI/Anaconda). [italic red]NOTE:[/italic red] typically, it is the same as the `package_name`, assuming your preferred package name is available online. This is what users will call when importing your module in Python (e.g. `import pam`, even though the package name is `cml-pam`) or when calling your package from the command line (if you have a command line interface).",
+    "project_short_description": "[bold yellow](project_short_description)[/bold yellow] A 1-sentence description of what your Python package does.",
+    "upload_pypi_package": {
+        "__prompt__": "[bold yellow](upload_pypi_package)[/bold yellow] Upload pip package to PyPI (public projects) or the Arup package index (internal projects) on each release of each new version?",
+        "y": "Yes",
+        "n": "No"
+    },
+    "upload_conda_package":  {
+        "__prompt__": "[bold yellow](upload_conda_package)[/bold yellow] Upload conda package to an Anaconda channel on each release of a new version?",
+        "y": "Yes",
+        "n": "No"
+    },
+    "upload_aws_image": {
+        "__prompt__": "[bold yellow](upload_aws_image)[/bold yellow] Upload the repository to AWS to build and host a Docker image of the project on each commit? [italic red]NOTE:[/italic red] requires CodeBuild configuration to be updated separately to have the image built on AWS.",
+        "y": "Yes",
+        "n": "No"
+    },
+    "conda_channel": "[bold yellow](conda_channel)[/bold yellow] Your channel for conda uploads. [italic red]NOTE:[/italic red] if releases of your package will be uploaded to Anaconda it should link to https://anaconda.org/[conda_channel]. If the project visibility is 'internal' this parameter must be https://packages.arup.com/conda",
+    "create_jupyter_notebook_directory": {
+        "__prompt__": "[bold yellow](create_jupyter_notebook_directory)[/bold yellow] Add an `examples` directory in which Jupyter Notebooks can be saved? These notebooks will be rendered in the documentation and will be formatted with Ruff.",
+        "y": "Yes",
+        "n": "No"
+    },
+    "check_docs_accessibility_in_CI": {
+        "__prompt__": "[bold yellow](check_docs_accessibility_in_CI)[/bold yellow] Check documentation for accessibility, according to the WCAG2AA standard, in Pull Request CI?",
+        "y": "Yes",
+        "n": "No"
+    },
+    "command_line_interface":{
+        "__prompt__": "[bold yellow](command_line_interface)[/bold yellow] Provide a Command Line Interface for your module?",
+        "y": "Yes",
+        "n": "No"
+    },
+    "create_author_file": {
+        "__prompt__": "[bold yellow](create_author_file)[/bold yellow] Create an AUTHORS file to log multiple project authors?",
+        "y": "Yes",
+        "n": "No"
+    },
+    "create_docker_file":{
+        "__prompt__": "[bold yellow](create_docker_file)[/bold yellow] Create a Dockerfile which allows a Docker image of the project to be built in a linux virtual machine with a basic Bash entry-point?",
+        "y": "Yes",
+        "n": "No"
+    },
+    "open_source_license": "[bold yellow](open_source_license)[/bold yellow] Choose a license for your project."
+  }
 }
