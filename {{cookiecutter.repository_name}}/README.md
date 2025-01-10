@@ -31,7 +31,7 @@ Arup users on Windows can install `miniforge` from the Arup software shop by dow
 {% if cookiecutter.upload_conda_package == "y" %}
 conda create -n {{ cookiecutter.repository_name }} -c conda-forge -c {{ cookiecutter.conda_channel }} {{ cookiecutter.package_name }}
 conda activate {{ cookiecutter.repository_name }}
-{% elif cookiecutter.upload_pypi_package == "y" %}
+{% elif cookiecutter.upload_pip_package == "y" %}
 conda create -n {{ cookiecutter.repository_name }} -c conda-forge python
 conda activate {{ cookiecutter.repository_name }}
 pip install {{ cookiecutter.package_name }}
