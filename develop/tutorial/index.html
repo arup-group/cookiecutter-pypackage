@@ -620,7 +620,8 @@ For reference, here's the <a class="autorefs autorefs-internal" href="../schema/
 </ul>
 <p>Here are some of the assumptions we will make about your local system, which you will need to change as necessary:</p>
 <ul>
-<li>You have <a href="https://mamba.readthedocs.io/en/latest/index.html">mamba</a> installed (conda/micromamba also work)</li>
+<li>You have <a href="https://github.com/conda-forge/miniforge?tab=readme-ov-file#download">miniforge</a> installed to give you access to <code>conda</code> in the terminal.
+Arup users on Windows can install <code>miniforge</code> from the Arup software shop by downloading "VS Code for Python".</li>
 <li>You store your projects on your device at <code>~/Repos</code> (Windows: <code>C:\\Users\yourusername\Repos</code>)</li>
 </ul>
 </div>
@@ -632,15 +633,15 @@ In the City Modelling Lab, we use the <code>cml-</code> prefix if we need to mak
 <li>Repositories tend to use <code>-</code> between words while modules <strong>must</strong> have <code>_</code> between words as this is the name you will use to import your module in Python: <code>import python_boilerplate</code>.</li>
 </ol>
 <h3 id="step-1-install-cruft">Step 1: Install Cruft<a class="headerlink" href="#step-1-install-cruft" title="Permanent link">#</a></h3>
-<p>First, you need to create and activate a conda/<a href="https://mamba.readthedocs.io/en/latest/index.html">mamba</a> environment for using Cruft (a Cookiecutter-compatible tool which allows for project updating).
-Use your favorite method, or create an environment like this:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">With mamba</label><label for="__tabbed_1_2">With pip</label></div>
+<p>First, you need to create and activate a <a href="https://docs.conda.io/en/latest/">conda</a> environment for using Cruft (a Cookiecutter-compatible tool which allows for updating projects).</p>
+<p>Use your favorite method, or create an environment like this:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">With conda</label><label for="__tabbed_1_2">With pip</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mamba<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>cookiecutter<span class="w"> </span>cruft
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>cookiecutter<span class="w"> </span>cruft
 </span></code></pre></div>
 Activate your environment:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mamba<span class="w"> </span>activate<span class="w"> </span>cookiecutter
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>cookiecutter
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -707,18 +708,18 @@ If the repository is in <code>arup-group</code>, then it can be <code>internal</
 <h3 id="step-5-define-requirements">Step 5: Define requirements<a class="headerlink" href="#step-5-define-requirements" title="Permanent link">#</a></h3>
 <p>As well as writing the package source code, documentation, and tests, you will need to define the packages on which your project depends.
 You can find an <em>almost</em> empty requirements file for you to complete in your new project folder: <code>requirements/base.txt</code>.
-It cannot be empty, otherwise mamba might complain.
+It cannot be empty, otherwise <code>conda</code> might complain.
 You can update this as you go along and need new packages in your project.</p>
 <h3 id="step-6-create-a-development-environment-for-your-project">Step 6: Create a development environment for your project<a class="headerlink" href="#step-6-create-a-development-environment-for-your-project" title="Permanent link">#</a></h3>
 <p>To install the necessary packages to develop your Python package, follow the instructions automatically generated in your new project's README / online documentation (e.g., https://arup-group.github.io/python-boilerplate).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>As you update the requirements that <a href="#step-5-define-requirements">you define as dependencies</a>, you should bulldoze your install and recreate it.
-E.g., if you create your environment using mamba/conda:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mamba<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>python-boilerplate<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>--file<span class="w"> </span>requirements/base.txt<span class="w"> </span>--file<span class="w"> </span>requirements/dev.txt
+E.g., if you create your environment using conda:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>python-boilerplate<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>--file<span class="w"> </span>requirements/base.txt<span class="w"> </span>--file<span class="w"> </span>requirements/dev.txt
 </span></code></pre></div>
 <p>You should run this exact same command after updating <code>requirements/base.txt</code> and say yes to overriding the existing <code>python-boilerplate</code> environment.
-This is a much better way of managing your python environments than adding the dependencies ad-hoc using <code>mamba install ...</code>.</p>
+This is a much better way of managing your python environments than adding the dependencies ad-hoc using <code>conda install ...</code>.</p>
 </div>
 <h3 id="step-7-tweak-the-generated-project-files-to-meet-your-specific-needs-preferences">Step 7: Tweak the generated project files to meet your specific needs / preferences<a class="headerlink" href="#step-7-tweak-the-generated-project-files-to-meet-your-specific-needs-preferences" title="Permanent link">#</a></h3>
 <p>Although we recommend you stick with the default setup provided by the template, there are a few files you may like to tweak / things you'll want to add.
