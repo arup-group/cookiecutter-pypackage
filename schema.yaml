@@ -151,3 +151,7 @@ properties:
         - Apache Software License 2.0
         - GNU General Public License v3
         - Not open source
+
+  __prompts__:
+    type: object
+    description: Long descriptions for all properties.

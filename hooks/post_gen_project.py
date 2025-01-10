@@ -1,15 +1,26 @@
-#!/usr/bin/env python
+"""Hooks to run after baking the project."""
+
 from pathlib import Path
 
 PROJECT_DIRECTORY = Path.cwd()
 
 
 def remove_file(filepath: Path | str):
+    """Remove a file from the baked project.
+
+    Args:
+        filepath (Path | str): Path to file relative to project directory. File must exist.
+    """
     assert (PROJECT_DIRECTORY / filepath).exists()
     (PROJECT_DIRECTORY / filepath).unlink()
 
 
 def remove_dir(dirpath: Path | str):
+    """Remove a directory from the baked project.
+
+    Args:
+        dirpath (Path | str): Path to directory relative to project directory. Directory must exist.
+    """
     (PROJECT_DIRECTORY / dirpath).rmdir()
 
 
