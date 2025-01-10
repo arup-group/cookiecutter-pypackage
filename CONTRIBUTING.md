@@ -45,7 +45,7 @@ If you are proposing a new feature:
 ## Setting up and working in a development environment
 
 Ready to contribute? Here's how to set up `cookiecutter-pypackage` for local development.
-Please note this documentation assumes you already have `mamba` and `Git` installed and ready to go.
+Please note this documentation assumes you already have `conda` and `Git` installed and ready to go.
 
 1. Fork the `cookiecutter-pypackage` repo on GitHub.
 
@@ -56,12 +56,12 @@ Please note this documentation assumes you already have `mamba` and `Git` instal
    git clone git@github.com:YOUR_GITHUB_USERNAME/cookiecutter-pypackage.git
    ```
 
-1. Assuming you have mamba installed, you can create a new environment for your local
+1. Assuming you have conda installed, you can create a new environment for your local
    development by typing:
 
    ``` shell
-   mamba create -c conda-forge -n cookiecutter-pypackage-dev --file requirements/dev.txt
-   mamba activate cookiecutter-pypackage-dev
+   conda create -c conda-forge -n cookiecutter-pypackage-dev --file requirements/dev.txt
+   conda activate cookiecutter-pypackage-dev
    pip install --no-deps -e .
    ```
 

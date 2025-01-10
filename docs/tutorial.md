@@ -27,7 +27,8 @@ If you are new to Git and GitHub, you should probably spend a few minutes on som
 
     Here are some of the assumptions we will make about your local system, which you will need to change as necessary:
 
-    - You have [mamba](https://mamba.readthedocs.io/en/latest/index.html) installed (conda/micromamba also work)
+    - You have [miniforge](https://github.com/conda-forge/miniforge?tab=readme-ov-file#download) installed to give you access to `conda` in the terminal.
+    Arup users on Windows can install `miniforge` from the Arup software shop by downloading "VS Code for Python".
     - You store your projects on your device at `~/Repos` (Windows: `C:\\Users\yourusername\Repos`)
 
 1.  The package name needs to be *globally* unique, i.e., not available on [conda-forge](https://anaconda.org/conda-forge) or on [PyPI](https://pypi.org/).
@@ -38,17 +39,18 @@ In the City Modelling Lab, we use the `cml-` prefix if we need to make our packa
 
 ### Step 1: Install Cruft
 
-First, you need to create and activate a conda/[mamba](https://mamba.readthedocs.io/en/latest/index.html) environment for using Cruft (a Cookiecutter-compatible tool which allows for project updating).
+First, you need to create and activate a [conda](https://docs.conda.io/en/latest/) environment for using Cruft (a Cookiecutter-compatible tool which allows for updating projects).
+
 Use your favorite method, or create an environment like this:
 
-=== "With mamba"
+=== "With conda"
     ``` bash
-    mamba create -n cookiecutter cruft
+    conda create -n cookiecutter cruft
     ```
     Activate your environment:
 
     ``` bash
-    mamba activate cookiecutter
+    conda activate cookiecutter
     ```
 
 === "With pip"
@@ -133,8 +135,8 @@ You should choose the `gh-pages` branch (this will only appear a few minutes aft
 ### Step 5: Define requirements
 
 As well as writing the package source code, documentation, and tests, you will need to define the packages on which your project depends.
-You can find an _almost_ empty requirements file for you to complete in your new project folder: `requirements/base.txt`.
-It cannot be empty, otherwise mamba might complain.
+You can find an *almost* empty requirements file for you to complete in your new project folder: `requirements/base.txt`.
+It cannot be empty, otherwise `conda` might complain.
 You can update this as you go along and need new packages in your project.
 
 ### Step 6: Create a development environment for your project
@@ -143,14 +145,14 @@ To install the necessary packages to develop your Python package, follow the ins
 
 !!! note
     As you update the requirements that [you define as dependencies](#step-5-define-requirements), you should bulldoze your install and recreate it.
-    E.g., if you create your environment using mamba/conda:
+    E.g., if you create your environment using conda:
 
     ```bash
-    mamba create -n python-boilerplate -c conda-forge --file requirements/base.txt --file requirements/dev.txt
+    conda create -n python-boilerplate -c conda-forge --file requirements/base.txt --file requirements/dev.txt
     ```
 
     You should run this exact same command after updating `requirements/base.txt` and say yes to overriding the existing `python-boilerplate` environment.
-    This is a much better way of managing your python environments than adding the dependencies ad-hoc using `mamba install ...`.
+    This is a much better way of managing your python environments than adding the dependencies ad-hoc using `conda install ...`.
 
 ### Step 7: Tweak the generated project files to meet your specific needs / preferences
 

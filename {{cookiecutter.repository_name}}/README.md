@@ -21,24 +21,25 @@ To install {{ cookiecutter.module_name }}
 {%- if cookiecutter.package_name != cookiecutter.module_name %}
  (indexed online as {{ cookiecutter.package_name }})
 {%- endif -%}
-, we recommend using the [mamba](https://mamba.readthedocs.io/en/latest/index.html) package manager:
+, we recommend using the [conda](https://docs.conda.io/en/latest/) package manager, accessible from the terminal by installing [miniforge](https://github.com/conda-forge/miniforge?tab=readme-ov-file#download).
+Arup users on Windows can install `miniforge` from the Arup software shop by downloading "VS Code for Python" and then access `conda` from the VSCode integrated terminal.
 
 ### As a user
 <!--- --8<-- [start:docs-install-user] -->
 
 ``` shell
 {% if cookiecutter.upload_conda_package == "y" %}
-mamba create -n {{ cookiecutter.repository_name }} -c conda-forge -c {{ cookiecutter.conda_channel }} {{ cookiecutter.package_name }}
-mamba activate {{ cookiecutter.repository_name }}
-{% elif cookiecutter.upload_pip_package == "y" %}
-mamba create -n {{ cookiecutter.repository_name }} -c conda-forge python
-mamba activate {{ cookiecutter.repository_name }}
+conda create -n {{ cookiecutter.repository_name }} -c conda-forge -c {{ cookiecutter.conda_channel }} {{ cookiecutter.package_name }}
+conda activate {{ cookiecutter.repository_name }}
+{% elif cookiecutter.upload_pypi_package == "y" %}
+conda create -n {{ cookiecutter.repository_name }} -c conda-forge python
+conda activate {{ cookiecutter.repository_name }}
 pip install {{ cookiecutter.package_name }}
 {% else %}
 git clone git@github.com:{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}.git
 cd {{ cookiecutter.repository_name }}
-mamba create -n {{ cookiecutter.repository_name }} -c conda-forge --file requirements/base.txt
-mamba activate {{ cookiecutter.repository_name }}
+conda create -n {{ cookiecutter.repository_name }} -c conda-forge --file requirements/base.txt
+conda activate {{ cookiecutter.repository_name }}
 pip install --no-deps -e .
 {%- endif %}
 ```
@@ -49,8 +50,8 @@ pip install --no-deps -e .
 ``` shell
 git clone git@github.com:{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}.git
 cd {{ cookiecutter.repository_name }}
-mamba create -n {{ cookiecutter.repository_name }} -c conda-forge --file requirements/base.txt --file requirements/dev.txt
-mamba activate {{ cookiecutter.repository_name }}
+conda create -n {{ cookiecutter.repository_name }} -c conda-forge --file requirements/base.txt --file requirements/dev.txt
+conda activate {{ cookiecutter.repository_name }}
 pip install --no-deps -e .
 ```
 <!--- --8<-- [end:docs-install-dev] -->
@@ -67,7 +68,7 @@ If you plan to make changes to the code then please make regular use of the foll
 The checks are: 1. check no large files have been staged, 2. lint python files for major errors, 3. format python files to conform with the [pep8 standard](https://peps.python.org/pep-0008/).
 You can also run these checks yourself at any time to ensure staged changes are clean by simple calling `pre-commit`.
 - `pytest` - run the unit test suite and check test coverage.
-- `pytest -p memray -m "high_mem" --no-cov` (not available on Windows) - after installing memray (`mamba install memray pytest-memray`), test that memory and time performance does not exceed benchmarks.
+- `pytest -p memray -m "high_mem" --no-cov` (not available on Windows) - after installing memray (`conda install memray pytest-memray`), test that memory and time performance does not exceed benchmarks.
 
 For more information, see our [documentation](https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }}/latest/contributing/).
 

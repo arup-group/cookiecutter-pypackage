@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - internal project upload option, to index packages on <https://packages.arup.com/>.
 - `project_visibility` option to allow internal projects to be explicitly defined.
+- Human-readable prompts when baking a project (#56).
 - EditorConfig file within template (#50).
 - Documentation accessibility checking (#41).
 - Documentation FAQ in contributing guidelines (#41).
@@ -36,8 +37,8 @@ This is now captured by a pre-commit hook.
 
 ### Changed
 
-- Project creation prompts, to use long descriptions for each prompt.
 - `upload_pypi_package` -> `upload_pip_package`.
+- Recommend `conda` instead of `mamba` for project creation and package installation (#53).
 - Docs CI run on PR to main or on main, with different jobs run in each case (#33).
 - Docs/PR CI jobs do not trigger on github workflow changes except their own definition files (#32).
 - Package test parallelisation set to automatically select the number of threads based on those available (#36).
