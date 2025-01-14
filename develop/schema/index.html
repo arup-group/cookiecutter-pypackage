@@ -415,7 +415,7 @@
 <p><strong><code>project_short_description</code></strong> <em>(string)</em>: A 1-sentence description of what your Python package does. Default: <code>"Python Boilerplate contains all the boilerplate you need to create a Python package."</code>.</p>
 </li>
 <li>
-<p><strong><code>upload_pypi_package</code></strong> <em>(array)</em>: Whether to upload the package to PyPI on each release of a new version. Length must be at least 1.</p>
+<p><strong><code>upload_pip_package</code></strong> <em>(array)</em>: Whether to upload the package to PyPI on each release of a new version. Length must be at least 1.</p>
 <ul>
 <li><strong>Items</strong> <em>(string)</em>: Must be one of: <code>["y", "n"]</code>. Default: <code>"n"</code>.</li>
 </ul>
@@ -463,6 +463,12 @@
 <p><strong><code>create_docker_file</code></strong> <em>(array)</em>: If "y", create an Dockerfile which allows a Docker image of the project to be built in a linux virtual machine with a basic Bash entry-point. Length must be at least 1.</p>
 <ul>
 <li><strong>Items</strong> <em>(string)</em>: Must be one of: <code>["y", "n"]</code>. Default: <code>"y"</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>project_visibility</code></strong> <em>(array)</em>: Set the project visibility on GitHub. Length must be at least 1.</p>
+<ul>
+<li><strong>Items</strong> <em>(string)</em>: Must be one of: <code>["internal", "public"]</code>. Default: <code>"internal"</code>.</li>
 </ul>
 </li>
 <li>

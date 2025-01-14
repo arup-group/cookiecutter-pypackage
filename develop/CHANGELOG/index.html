@@ -708,6 +708,8 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <h2 id="unreleased-tbc">[Unreleased] - TBC<a class="headerlink" href="#unreleased-tbc" title="Permanent link">#</a></h2>
 <h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">#</a></h3>
 <ul>
+<li>internal project upload option, to index packages on <a href="https://packages.arup.com/">https://packages.arup.com/</a>.</li>
+<li><code>project_visibility</code> option to allow internal projects to be explicitly defined.</li>
 <li>Human-readable prompts when baking a project (#56).</li>
 <li>EditorConfig file within template (#50).</li>
 <li>Documentation accessibility checking (#41).</li>
@@ -715,12 +717,15 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 </ul>
 <h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">#</a></h3>
 <ul>
+<li>Silently allowing versions to be prepended with a <code>v</code> in <code>__init__.py</code>.
+This is now captured by a pre-commit hook.</li>
 <li>Missing Ruff formatting step in pre-commit config (#51).</li>
 <li>Template documentation in light of accessibility issues of some features (namely, mkdocs-material annotations and task lists, and mkdocs-jupyter codeblock highlighting) (#41).</li>
 <li>Triggering of CI linting and codecov upload for internal (i.e. not open-source) projects (#44).</li>
 </ul>
 <h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">#</a></h3>
 <ul>
+<li><code>upload_pypi_package</code> -&gt; <code>upload_pip_package</code>.</li>
 <li>Recommend <code>conda</code> instead of <code>mamba</code> for project creation and package installation (#53).</li>
 <li>Docs CI run on PR to main or on main, with different jobs run in each case (#33).</li>
 <li>Docs/PR CI jobs do not trigger on github workflow changes except their own definition files (#32).</li>
