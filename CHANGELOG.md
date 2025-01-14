@@ -27,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Pass test result status correctly to slack notification CI action.
 - Missing Ruff formatting step in pre-commit config (#51).
 - Template documentation in light of accessibility issues of some features (namely, mkdocs-material annotations and task lists, and mkdocs-jupyter codeblock highlighting) (#41).
 - Triggering of CI linting and codecov upload for internal (i.e. not open-source) projects (#44).
