@@ -166,6 +166,28 @@ def test_bake_indexing_internal_destination(cookies, extras, conda_channel):
         assert "destination: public" not in github_workflow
 
 
+@pytest.mark.parametrize(
+    ["extras", "expected"],
+    [
+        (
+            {"project_visibility": "internal"},
+            "pip install https://packages.arup.com/python_boilerplate.tar.gz",
+        ),
+        (
+            {"project_visibility": "public", "open_source_license": "MIT license"},
+            "pip install python_boilerplate",
+        ),
+    ],
+)
+def test_bake_indexing_internal_pip_destination(cookies, extras, expected):
+    result = cookies.bake(extra_context={"upload_pip_package": "y", **extras})
+
+    for file in ["README.md", "docs/installation.md"]:
+        install_instructions = (result.project_path / file).read_text()
+
+        assert expected in install_instructions
+
+
 def test_bake_indexing_internal_fail_on_default_channel(cookies, capfd):
     cookies.bake(extra_context={"upload_conda_package": "y", "conda_channel": "foobar"})
     captured = capfd.readouterr()

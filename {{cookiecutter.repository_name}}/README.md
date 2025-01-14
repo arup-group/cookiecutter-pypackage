@@ -34,7 +34,11 @@ conda activate {{ cookiecutter.repository_name }}
 {% elif cookiecutter.upload_pip_package == "y" %}
 conda create -n {{ cookiecutter.repository_name }} -c conda-forge python
 conda activate {{ cookiecutter.repository_name }}
+{%- if cookiecutter.project_visibility == "internal" %}
+pip install https://packages.arup.com/{{ cookiecutter.package_name }}.tar.gz
+{%- else %}
 pip install {{ cookiecutter.package_name }}
+{%- endif %}
 {% else %}
 git clone git@github.com:{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}.git
 cd {{ cookiecutter.repository_name }}

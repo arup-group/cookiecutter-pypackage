@@ -89,7 +89,7 @@ cd python-boilerplate # (1)!
     If you are generating a project which will be hosted in `arup-group`, it will default to `internal`.
     This is why we set the `project_visibility` parameter to `internal` by default.
 
-    The parameters `upload_conda_package` and `upload_pip_package` default to `n` (i.e. no upload of packages), but you can set these to `y` to upload `internal` projects the Arup package index (<https://packages.arup.com/>) so long as you make a service-now request to allow access to the `packages` self-hosted runner for your repository.
+    The parameters `upload_conda_package` and `upload_pip_package` default to `n` (i.e. no upload of packages), but you can set these to `y` to upload `internal` projects to the Arup package index (<https://packages.arup.com/>) so long as you make a service-now request to allow access to the `packages` self-hosted runner for your repository.
 
     You will need to wait until the project is made public (with a suitable open source license) before you allow uploads of your package to PyPI or an Anaconda channel.
     When you're ready to take the leap to a public repository, you can [update your project input parameters][changing-input-parameters-after-project-generation] to set the project visibility to `public`.

@@ -8,6 +8,7 @@
   "package_name": "{{ cookiecutter.repository_name }}",
   "module_name": "{{ cookiecutter.repository_name }}",
   "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
+  "project_visibility": ["internal", "public"],
   "upload_pip_package": [
     "n",
     "y"
@@ -41,7 +42,6 @@
     "n",
     "y"
   ],
-  "project_visibility": ["internal", "public"],
   "open_source_license": [
     "Not open source",
     "MIT license",
