@@ -20,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- internal project upload option, to index packages on <https://packages.arup.com/>.
+- `project_visibility` option to allow internal projects to be explicitly defined.
 - Human-readable prompts when baking a project (#56).
 - EditorConfig file within template (#50).
 - Documentation accessibility checking (#41).
@@ -27,12 +29,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Silently allowing versions to be prepended with a `v` in `__init__.py`.
+This is now captured by a pre-commit hook.
 - Missing Ruff formatting step in pre-commit config (#51).
 - Template documentation in light of accessibility issues of some features (namely, mkdocs-material annotations and task lists, and mkdocs-jupyter codeblock highlighting) (#41).
 - Triggering of CI linting and codecov upload for internal (i.e. not open-source) projects (#44).
 
 ### Changed
 
+- `upload_pypi_package` -> `upload_pip_package`.
 - Recommend `conda` instead of `mamba` for project creation and package installation (#53).
 - Docs CI run on PR to main or on main, with different jobs run in each case (#33).
 - Docs/PR CI jobs do not trigger on github workflow changes except their own definition files (#32).

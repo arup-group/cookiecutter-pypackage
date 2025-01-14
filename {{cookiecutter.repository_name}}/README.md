@@ -4,10 +4,12 @@
 
 # {{ cookiecutter.project_title }} ({{ cookiecutter.module_name }})
 
+{% if cookiecutter.project_visibility == 'internal' %}<!--- --8<-- [end:docs] -->{% endif -%}
+
 [![Daily CI Build](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/actions/workflows/daily-scheduled-ci.yml/badge.svg)](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/actions/workflows/daily-scheduled-ci.yml)
 [![Documentation](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }})
 
-<!--- --8<-- [end:docs] -->
+{% if cookiecutter.project_visibility == 'public' %}<!--- --8<-- [end:docs] -->{% endif -%}
 
 ## Documentation
 
@@ -29,10 +31,14 @@ Arup users on Windows can install `miniforge` from the Arup software shop by dow
 {% if cookiecutter.upload_conda_package == "y" %}
 conda create -n {{ cookiecutter.repository_name }} -c conda-forge -c {{ cookiecutter.conda_channel }} {{ cookiecutter.package_name }}
 conda activate {{ cookiecutter.repository_name }}
-{% elif cookiecutter.upload_pypi_package == "y" %}
+{% elif cookiecutter.upload_pip_package == "y" %}
 conda create -n {{ cookiecutter.repository_name }} -c conda-forge python
 conda activate {{ cookiecutter.repository_name }}
+{%- if cookiecutter.project_visibility == "internal" %}
+pip install https://packages.arup.com/{{ cookiecutter.package_name }}.tar.gz
+{%- else %}
 pip install {{ cookiecutter.package_name }}
+{%- endif %}
 {% else %}
 git clone git@github.com:{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}.git
 cd {{ cookiecutter.repository_name }}

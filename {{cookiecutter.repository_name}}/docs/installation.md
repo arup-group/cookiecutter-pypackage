@@ -3,6 +3,11 @@
 
 ## Setting up a user environment
 
+{% if cookiecutter.project_visibility == "internal" and (cookiecutter.upload_conda_package == "y"  or cookiecutter.upload_pip_package == "y") -%}
+!!! note
+    You must be on the Arup network to install {{ cookiecutter.module_name }}, either by connecting in an office or via the Arup VPN.
+{% endif -%}
+
 As a `{{ cookiecutter.module_name }}` user, it is easiest to install using the [conda](https://docs.conda.io/en/latest/) package manager, as follows:
 
 1. Install conda with the [miniforge](https://github.com/conda-forge/miniforge?tab=readme-ov-file#download) executable for your operating system.
@@ -11,10 +16,14 @@ Arup users on Windows can install `miniforge` from the Arup software shop by dow
 {%- if cookiecutter.upload_conda_package == "y" %}
 1. Create the {{ cookiecutter.repository_name }} conda environment: `conda create -n {{ cookiecutter.repository_name }} -c conda-forge -c {{ cookiecutter.conda_channel }} {{ cookiecutter.package_name }}`
 1. Activate the {{ cookiecutter.repository_name }} conda environment: `conda activate {{ cookiecutter.repository_name }}`
-{%- elif cookiecutter.upload_pypi_package == "y" %}
+{%- elif cookiecutter.upload_pip_package == "y" %}
 1. Create a {{ cookiecutter.repository_name }} conda environment: `conda create -n {{ cookiecutter.repository_name }} -c conda-forge python`
 1. Activate the {{ cookiecutter.repository_name }} conda environment: `conda activate {{ cookiecutter.repository_name }}`
+{%- if cookiecutter.project_visibility == "internal" %}
+1. Install the {{ cookiecutter.package_name }} package into the environment: `pip install https://packages.arup.com/{{ cookiecutter.package_name }}.tar.gz`
+{%- else %}
 1. Install the {{ cookiecutter.package_name }} package into the environment: `pip install {{ cookiecutter.package_name }}`
+{%- endif %}
 {%- else %}
 1. Download (a.k.a., clone) the {{ cookiecutter.repository_name }} repository: `git clone git@github.com:{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}.git`
 1. Change into the `{{ cookiecutter.repository_name }}` directory: `cd {{ cookiecutter.repository_name }}`

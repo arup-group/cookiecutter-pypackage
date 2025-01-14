@@ -68,14 +68,14 @@ def test_bake_with_apostrophe_and_run_tests(cookies, install_baked):
 
 @pytest.mark.parametrize("project_title", ["Foo Bar", "Foo-Bar"])
 def test_bake_with_slugify_project_title(cookies, install_baked, project_title):
-    """Ensure that a `full_name` with apostrophes does not break setup.py"""
+    """Ensure that project titles with spaces or dashes are slugified by default for the repo name."""
     result = cookies.bake(extra_context={"project_title": project_title})
     assert result.project_path.stem == "foo_bar"
     install_baked(result.project_path)
 
 
 def test_bake_explicit_repository_name(cookies, install_baked):
-    """Ensure that a `full_name` with apostrophes does not break setup.py"""
+    """Ensure that a non-default repo name overrides the cookiecutter-generated default one."""
     result = cookies.bake(extra_context={"project_title": "Foo's-Bar", "repository_name": "foobar"})
     assert result.project_path.stem == "foobar"
     install_baked(result.project_path)
@@ -115,31 +115,111 @@ def test_bake_without_jupyter_notebooks(cookies):
 
 
 def test_bake_without_conda(cookies):
-    result = cookies.bake(extra_context={"upload_conda_package": "n", "upload_pypi_package": "y"})
+    result = cookies.bake(extra_context={"upload_conda_package": "n", "upload_pip_package": "y"})
 
     found_toplevel_files = [i.name for i in result.project_path.iterdir()]
     assert "conda.recipe" not in found_toplevel_files
 
 
-@pytest.mark.parametrize("destination", ["conda", "pypi"])
+@pytest.mark.parametrize("destination", ["conda", "pip"])
 def test_bake_without_indexing_one(cookies, destination):
-    other_option = set(["conda", "pypi"]).difference([destination]).pop()
+    other_option = set(["conda", "pip"]).difference([destination]).pop()
     result = cookies.bake(
-        extra_context={f"upload_{destination}_package": "n", f"upload_{other_option}_package": "y"}
+        extra_context={f"upload_{destination}_package": "y", f"upload_{other_option}_package": "n"}
     )
 
     for workflow in ["pre-release", "release"]:
         github_workflow = (
             result.project_path / ".github" / "workflows" / f"{workflow}.yml"
         ).read_text()
-        assert f"{destination}-" not in github_workflow
+        assert f"{destination}-" in github_workflow
+        assert f"{other_option}-" not in github_workflow
 
 
 def test_bake_without_indexing_all(cookies):
-    result = cookies.bake(extra_context={"upload_pypi_package": "n", "upload_conda_package": "n"})
+    result = cookies.bake(extra_context={"upload_pip_package": "n", "upload_conda_package": "n"})
 
     workflows = [i.name for i in (result.project_path / ".github" / "workflows").iterdir()]
     assert "pre-release.yml" not in workflows
+
+
+@pytest.mark.parametrize(
+    "extras",
+    [
+        {"upload_conda_package": "y"},
+        {"upload_pip_package": "y"},
+        {"upload_conda_package": "y", "upload_pip_package": "y"},
+    ],
+)
+# Test handling conda channel with/without trailing forward slash
+@pytest.mark.parametrize(
+    "conda_channel", ["https://packages.arup.com/conda", "https://packages.arup.com/conda/"]
+)
+def test_bake_indexing_internal_destination(cookies, extras, conda_channel):
+    result = cookies.bake(extra_context={"conda_channel": conda_channel, **extras})
+
+    for workflow in ["pre-release", "release"]:
+        github_workflow = (
+            result.project_path / ".github" / "workflows" / f"{workflow}.yml"
+        ).read_text()
+        assert "destination: internal" in github_workflow
+        assert "destination: public" not in github_workflow
+
+
+@pytest.mark.parametrize(
+    ["extras", "expected"],
+    [
+        (
+            {"project_visibility": "internal"},
+            "pip install https://packages.arup.com/python_boilerplate.tar.gz",
+        ),
+        (
+            {"project_visibility": "public", "open_source_license": "MIT license"},
+            "pip install python_boilerplate",
+        ),
+    ],
+)
+def test_bake_indexing_internal_pip_destination(cookies, extras, expected):
+    result = cookies.bake(extra_context={"upload_pip_package": "y", **extras})
+
+    for file in ["README.md", "docs/installation.md"]:
+        install_instructions = (result.project_path / file).read_text()
+
+        assert expected in install_instructions
+
+
+def test_bake_indexing_internal_fail_on_default_channel(cookies, capfd):
+    cookies.bake(extra_context={"upload_conda_package": "y", "conda_channel": "foobar"})
+    captured = capfd.readouterr()
+    assert (
+        "ERROR: 'internal' projects must set the `conda_channel` to: https://packages.arup.com/conda."
+        in captured.out
+    )
+
+
+@pytest.mark.parametrize(
+    "extras",
+    [
+        {"upload_conda_package": "y"},
+        {"upload_pip_package": "y"},
+        {"upload_conda_package": "y", "upload_pip_package": "y"},
+    ],
+)
+def test_bake_indexing_internal_destination_packages_warning(cookies, capfd, extras):
+    cookies.bake(extra_context={"conda_channel": "https://packages.arup.com/conda", **extras})
+    captured = capfd.readouterr()
+    assert (
+        "NOTE: You must request access to the `packages` GitHub self-hosted runner for 'internal' projects"
+        in captured.out
+    )
+
+
+def test_bake_public_and_no_license(cookies, capfd):
+    cookies.bake(
+        extra_context={"project_visibility": "public", "open_source_license": "Not open source"}
+    )
+    captured = capfd.readouterr()
+    assert "ERROR: 'public' projects must have a license." in captured.out
 
 
 @pytest.mark.parametrize(

@@ -63,7 +63,7 @@ properties:
     default: "Python Boilerplate contains all the boilerplate you need to create a Python package."
     description: A 1-sentence description of what your Python package does.
 
-  upload_pypi_package:
+  upload_pip_package:
     type: array
     description: Whether to upload the package to PyPI on each release of a new version.
     uniqueItems: true
@@ -135,6 +135,19 @@ properties:
     uniqueItems: true
     minItems: 1
     items: *y_n_items
+
+  project_visibility:
+    type: array
+    description: Set the project visibility on GitHub.
+    uniqueItems: true
+    minItems: 1
+    items:
+      type: string
+      default: "internal"
+      enum:
+        - internal
+        - public
+
 
   open_source_license:
     type: array
