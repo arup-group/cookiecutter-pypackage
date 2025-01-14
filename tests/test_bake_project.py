@@ -151,6 +151,7 @@ def test_bake_without_indexing_all(cookies):
         {"upload_conda_package": "y", "upload_pip_package": "y"},
     ],
 )
+# Test handling conda channel with/without trailing forward slash
 @pytest.mark.parametrize(
     "conda_channel", ["https://packages.arup.com/conda", "https://packages.arup.com/conda/"]
 )

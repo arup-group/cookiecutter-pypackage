@@ -29,7 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Silently allowing versions to be prepending with a `v` in `__init__.py`.
+- Silently allowing versions to be prepended with a `v` in `__init__.py`.
 This is now captured by a pre-commit hook.
 - Missing Ruff formatting step in pre-commit config (#51).
 - Template documentation in light of accessibility issues of some features (namely, mkdocs-material annotations and task lists, and mkdocs-jupyter codeblock highlighting) (#41).
