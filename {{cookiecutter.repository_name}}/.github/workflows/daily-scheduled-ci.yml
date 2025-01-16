@@ -32,6 +32,6 @@ jobs:
     secrets:
       SLACK_WEBHOOK: {% raw %}${{ secrets.SLACK_WEBHOOK }}{% endraw %}
     with:
-      result: needs.test.result
+      result: {% raw %}${{ needs.test.result }}{% endraw %}
       channel: {{ cookiecutter.repository_name }}-feed
       message: Daily CI action

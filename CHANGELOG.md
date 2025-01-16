@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Pass test result status correctly to slack notification CI action (#59).
 - Silently allowing versions to be prepended with a `v` in `__init__.py`.
 This is now captured by a pre-commit hook.
 - Missing Ruff formatting step in pre-commit config (#51).
