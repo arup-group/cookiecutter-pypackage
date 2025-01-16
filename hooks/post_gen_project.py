@@ -53,7 +53,7 @@ if __name__ == "__main__":
 
     if (
         "{{ cookiecutter.upload_conda_package|lower }}" == "n"
-        and "{{ cookiecutter.upload_pypi_package|lower }}" == "n"
+        and "{{ cookiecutter.upload_pip_package|lower }}" == "n"
     ):
         workflow_dir = Path(".github") / "workflows"
         remove_file(workflow_dir / "pre-release.yml")

@@ -10,19 +10,21 @@ jobs:
   conda-build:
     uses: arup-group/actions-city-modelling-lab/.github/workflows/conda-build.yml@main
     secrets:
-      ANACONDA_TOKEN: {% raw %}${{ secrets.ANACONDA_TOKEN }}{% endraw %}
+      ANACONDA_TOKEN: {% if cookiecutter.project_visibility == 'public' %}{% raw %}${{ secrets.ANACONDA_TOKEN }}{% endraw %}{% else %}NA{% endif %}
     with:
       package_name: {{ cookiecutter.package_name }}
       environment: pre-release
+      destination: {% if cookiecutter.project_visibility == 'public' %}pypi{% else %}internal{% endif %}
 
   {% endif %}
-  {% if cookiecutter.upload_pypi_package|lower == 'y' -%}
+  {% if cookiecutter.upload_pip_package|lower == 'y' -%}
   pip-build:
     uses: arup-group/actions-city-modelling-lab/.github/workflows/pip-build.yml@main
     secrets:
-      TEST_PYPI_API_TOKEN: {% raw %}${{ secrets.TEST_PYPI_API_TOKEN }}{% endraw %}
+      TEST_PYPI_API_TOKEN:  {% if cookiecutter.project_visibility == 'public' %}{% raw %}${{ secrets.TEST_PYPI_API_TOKEN }}{% endraw %}{% else %}NA{% endif %}
     with:
       package_name: {{ cookiecutter.package_name }}
       environment: pre-release
+      destination: {% if cookiecutter.project_visibility == 'public' %}pypi{% else %}internal{% endif %}
 
   {% endif %}

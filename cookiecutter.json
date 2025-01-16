@@ -8,7 +8,8 @@
   "package_name": "{{ cookiecutter.repository_name }}",
   "module_name": "{{ cookiecutter.repository_name }}",
   "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
-  "upload_pypi_package": [
+  "project_visibility": ["internal", "public"],
+  "upload_pip_package": [
     "n",
     "y"
   ],
@@ -20,7 +21,7 @@
     "n",
     "y"
   ],
-  "conda_channel": "{{ cookiecutter.github_username }}",
+  "conda_channel": "https://packages.arup.com/conda",
   "command_line_interface": [
     "y",
     "n"
@@ -60,8 +61,8 @@
     "package_name": "[bold yellow](package_name)[/bold yellow] The name given to your package. This should be available on package indexing sites (PyPI/Anaconda). [italic red]NOTE:[/italic red] typically, it is the same as the `module_name`, but if your preferred package name is already taken online, you should rename your project entirely or prepend the package name with e.g. `arup-`. For example, our PAM package is `pam` when imported in Python, but `cml-pam` online.",
     "module_name": "[bold yellow](module_name)[/bold yellow] The name given to your module in Python. This should be available on package indexing sites (PyPI/Anaconda). [italic red]NOTE:[/italic red] typically, it is the same as the `package_name`, assuming your preferred package name is available online. This is what users will call when importing your module in Python (e.g. `import pam`, even though the package name is `cml-pam`) or when calling your package from the command line (if you have a command line interface).",
     "project_short_description": "[bold yellow](project_short_description)[/bold yellow] A 1-sentence description of what your Python package does.",
-    "upload_pypi_package": {
-        "__prompt__": "[bold yellow](upload_pypi_package)[/bold yellow] Upload pip package to PyPI (public projects) or the Arup package index (internal projects) on each release of each new version?",
+    "upload_pip_package": {
+        "__prompt__": "[bold yellow](upload_pip_package)[/bold yellow] Upload pip package to PyPI (public projects) or the Arup package index (internal projects) on each release of each new version?",
         "y": "Yes",
         "n": "No"
     },
