@@ -29,7 +29,7 @@ if __name__ == "__main__":
         file_to_delete.unlink()
 
     if "{{ cookiecutter.create_author_file|lower }}" == "n":
-        remove_file("AUTHORS")
+        remove_file("AUTHORS.md")
 
     if "{{ cookiecutter.command_line_interface|lower }}" == "n":
         for file in [

@@ -9,6 +9,7 @@ Some of the resources to look at if you're interested in contributing:
 
 ## Licensing
 
+Copyright (c) {% now 'local', '%Y' %} {% if cookiecutter.repository_owner == "arup-group" %}Arup{% elif cookiecutter.create_author_file == "y" %}{{ cookiecutter.package_name }} developers & contributors listed in AUTHORS.md{% else %}{{ cookiecutter.full_name }}{% endif %}.
 {%- if cookiecutter.open_source_license == "Not open source" %}
 This repository is not open source.
 You will need explicit permission from the repository owner to redistribute or make any modifications to this code.
@@ -46,6 +47,10 @@ To contribute changes:
 1. Push the branch to GitHub (`git push origin new-fix-or-feature`).
 1. On GitHub, create a new [pull request](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/pull/new/main) from the feature branch.
 
+{%- if cookiecutter.create_author_file == "y" %}
+When you contribute for the first time, ensure you add your name to the contributors list in `AUTHORS.md`!
+
+{%- endif %}
 ### Pull requests
 
 Before submitting a pull request, check whether you have:
