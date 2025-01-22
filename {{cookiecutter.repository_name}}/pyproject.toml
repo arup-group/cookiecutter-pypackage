@@ -113,6 +113,13 @@ convention = "google"
 max-doc-length = 200
 ignore-overlong-task-comments = true
 
+[tool.codespell]
+skip = "tests/*.py,AUTHORS.md"
+count = ""
+quiet-level = 3
+# Uncomment and add words that are false flags as a comma delimited string
+# ignore-words-list = ""
+
 [tool.setuptools.packages.find]
 include = ["{{ cookiecutter.module_name }}*"]
 where = ["src"]

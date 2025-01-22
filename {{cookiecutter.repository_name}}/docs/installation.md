@@ -1,7 +1,7 @@
 
 # Installation
 
-## Setting up a user environment
+## Installing a user environment
 
 {% if cookiecutter.project_visibility == "internal" and (cookiecutter.upload_conda_package == "y"  or cookiecutter.upload_pip_package == "y") -%}
 !!! note
@@ -11,7 +11,7 @@
 As a `{{ cookiecutter.module_name }}` user, it is easiest to install using the [conda](https://docs.conda.io/en/latest/) package manager, as follows:
 
 1. Install conda with the [miniforge](https://github.com/conda-forge/miniforge?tab=readme-ov-file#download) executable for your operating system.
-Arup users on Windows can install `miniforge` from the Arup software shop by downloading "VS Code for Python".
+   Arup users on Windows can install `miniforge` from the Arup software shop by downloading "VS Code for Python".
 1. Open the command line (or the VSCode "integrated terminal" in Windows).
 {%- if cookiecutter.upload_conda_package == "y" %}
 1. Create the {{ cookiecutter.repository_name }} conda environment: `conda create -n {{ cookiecutter.repository_name }} -c conda-forge -c {{ cookiecutter.conda_channel }} {{ cookiecutter.package_name }}`
@@ -30,7 +30,7 @@ Arup users on Windows can install `miniforge` from the Arup software shop by dow
 1. Create the {{ cookiecutter.repository_name }} conda environment: `conda create -n {{ cookiecutter.repository_name }} -c conda-forge -c city-modelling-lab --file requirements/base.txt`
 1. Activate the {{ cookiecutter.repository_name }} conda environment: `conda activate {{ cookiecutter.repository_name }}`
 1. Install the {{ cookiecutter.package_name }} package into the environment, ignoring dependencies (we have dealt with those when creating the conda environment): `pip install --no-deps .`
-{% endif %}
+{%- endif %}
 
 All together:
 
@@ -71,7 +71,7 @@ ipython kernel install --user --name=[my-env-name]
 ```
 {%- endif %}
 
-## Setting up a development environment
+## Installing a development environment
 
 The install instructions are slightly different to create a development environment compared to a user environment:
 

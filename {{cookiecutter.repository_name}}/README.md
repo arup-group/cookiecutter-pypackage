@@ -4,13 +4,17 @@
 
 # {{ cookiecutter.project_title }} ({{ cookiecutter.module_name }})
 
-{% if cookiecutter.project_visibility == 'internal' %}<!--- --8<-- [end:docs] -->{% endif -%}
+{% if cookiecutter.project_visibility == 'internal' -%}
+<!--- --8<-- [end:docs] -->
 
+{% endif -%}
 [![Daily CI Build](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/actions/workflows/daily-scheduled-ci.yml/badge.svg)](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/actions/workflows/daily-scheduled-ci.yml)
 [![Documentation](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }})
 
-{% if cookiecutter.project_visibility == 'public' %}<!--- --8<-- [end:docs] -->{% endif -%}
+{% if cookiecutter.project_visibility == 'public' -%}
+<!--- --8<-- [end:docs] -->
 
+{% endif -%}
 ## Documentation
 
 For more detailed instructions, see our [documentation](https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }}/latest).
@@ -25,10 +29,11 @@ To install {{ cookiecutter.module_name }}
 Arup users on Windows can install `miniforge` from the Arup software shop by downloading "VS Code for Python" and then access `conda` from the VSCode integrated terminal.
 
 ### As a user
+
 <!--- --8<-- [start:docs-install-user] -->
 
 ``` shell
-{% if cookiecutter.upload_conda_package == "y" %}
+{% if cookiecutter.upload_conda_package == "y" -%}
 conda create -n {{ cookiecutter.repository_name }} -c conda-forge -c {{ cookiecutter.conda_channel }} {{ cookiecutter.package_name }}
 conda activate {{ cookiecutter.repository_name }}
 {% elif cookiecutter.upload_pip_package == "y" %}
@@ -47,10 +52,13 @@ conda activate {{ cookiecutter.repository_name }}
 pip install --no-deps -e .
 {%- endif %}
 ```
+
 <!--- --8<-- [end:docs-install-user] -->
 
 ### As a developer
+
 <!--- --8<-- [start:docs-install-dev] -->
+
 ``` shell
 git clone git@github.com:{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}.git
 cd {{ cookiecutter.repository_name }}
@@ -58,7 +66,9 @@ conda create -n {{ cookiecutter.repository_name }} -c conda-forge --file require
 conda activate {{ cookiecutter.repository_name }}
 pip install --no-deps -e .
 ```
+
 <!--- --8<-- [end:docs-install-dev] -->
+
 For more detailed instructions, see our [documentation](https://{{ cookiecutter.repository_owner }}.github.io/{{ cookiecutter.repository_name }}/latest/installation/).
 
 ## Contributing
@@ -69,8 +79,8 @@ Before making contributions to the {{ cookiecutter.module_name }} source code, s
 If you plan to make changes to the code then please make regular use of the following tools to verify the codebase while you work:
 
 - `pre-commit`: run `pre-commit install` in your command line to load inbuilt checks that will run every time you commit your changes.
-The checks are: 1. check no large files have been staged, 2. lint python files for major errors, 3. format python files to conform with the [pep8 standard](https://peps.python.org/pep-0008/).
-You can also run these checks yourself at any time to ensure staged changes are clean by simple calling `pre-commit`.
+  The checks are: 1. check no large files have been staged, 2. lint python files for major errors, 3. format python files to conform with the [pep8 standard](https://peps.python.org/pep-0008/).
+  You can also run these checks yourself at any time to ensure staged changes are clean by simple calling `pre-commit`.
 - `pytest` - run the unit test suite and check test coverage.
 - `pytest -p memray -m "high_mem" --no-cov` (not available on Windows) - after installing memray (`conda install memray pytest-memray`), test that memory and time performance does not exceed benchmarks.
 

@@ -9,7 +9,7 @@ Some of the resources to look at if you're interested in contributing:
 
 ## Licensing
 
-{%- if cookiecutter.open_source_license == "Not open source" %}
+{% if cookiecutter.open_source_license == "Not open source" -%}
 This repository is not open source.
 You will need explicit permission from the repository owner to redistribute or make any modifications to this code.
 {%- else %}
@@ -22,7 +22,7 @@ You can open an issue on GitHub to report bugs or request new {{ cookiecutter.re
 Follow these links to submit your issue:
 
 - [Report bugs or other problems while running {{ cookiecutter.repository_name }}](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/issues/new?template=BUG-REPORT.yml).
-If reporting an error, please include a full traceback in your issue.
+  If reporting an error, please include a full traceback in your issue.
 
 - [Request features that {{ cookiecutter.repository_name }} does not already include](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/issues/new?template=FEATURE-REQUEST.yml).
 
@@ -60,10 +60,12 @@ When opening a pull request, please provide a clear summary of your changes!
 
 Please try to write clear commit messages. One-line messages are fine for small changes, but bigger changes should look like this:
 
-    A brief summary of the commit (max 50 characters)
+```text
+A brief summary of the commit (max 50 characters)
 
-    A paragraph or bullet-point list describing what changed and its impact,
-    covering as many lines as needed.
+A paragraph or bullet-point list describing what changed and its impact,
+covering as many lines as needed.
+```
 
 ### Code conventions
 

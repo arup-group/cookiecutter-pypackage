@@ -15,7 +15,24 @@ on:
 
 
 jobs:
+  docs-link-check:
+    if: github.ref != 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: markdown-link-check
+      uses: gaurav-nelson/github-action-markdown-link-check@v1
+      with:
+        config-file: linkcheck.json
+    - if: github.event.repository.private
+      uses: pre-commit/action@v3.0.1
+      extra_args: markdownlint
+    - if: github.event.repository.private
+      uses: pre-commit/action@v3.0.1
+      extra_args: codespell
+
   docs-test:
+    needs: [docs-link-check]
     if: github.ref != 'refs/heads/main'
     uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@main
     with:
