@@ -15,7 +15,7 @@ on:
 
 
 jobs:
-  docs-link-check:
+  docs-lint:
     if: github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
@@ -32,7 +32,7 @@ jobs:
       extra_args: codespell
 
   docs-test:
-    needs: [docs-link-check]
+    needs: [docs-lint]
     if: github.ref != 'refs/heads/main'
     uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@main
     with:
