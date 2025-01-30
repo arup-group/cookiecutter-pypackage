@@ -81,11 +81,98 @@ def test_bake_explicit_repository_name(cookies, install_baked):
     install_baked(result.project_path)
 
 
-def test_bake_without_author_file(cookies):
-    result = cookies.bake(extra_context={"create_author_file": "n"})
+@pytest.mark.parametrize(("create_author_file", "expected"), [("y", True), ("n", False)])
+def test_bake_with_or_without_author_file(cookies, create_author_file, expected):
+    result = cookies.bake(extra_context={"create_author_file": create_author_file})
 
     found_toplevel_files = [i.name for i in result.project_path.iterdir()]
-    assert "AUTHORS" not in found_toplevel_files
+    assert ("AUTHORS.md" in found_toplevel_files) is expected
+    assert (
+        "When you contribute for the first time, ensure you add your name to the contributors list in `AUTHORS.md`!"
+        in (result.project_path / "CONTRIBUTING.md").read_text()
+    ) is expected
+
+
+@pytest.mark.parametrize(
+    "license_name",
+    [
+        "MIT license",
+        "BSD license",
+        "ISC license",
+        "Apache Software License 2.0",
+        "GNU General Public License v3",
+    ],
+)
+@pytest.mark.parametrize(
+    ["org_name", "copyright_name"], [("arup-group", "Arup"), ("foobar", "Ove Arup")]
+)
+def test_bake_license_without_author_file(cookies, license_name, org_name, copyright_name):
+    result = cookies.bake(
+        extra_context={
+            "create_author_file": "n",
+            "open_source_license": license_name,
+            "repository_owner": org_name,
+        }
+    )
+
+    for file in ["LICENSE", "README.md", "CONTRIBUTING.md"]:
+        assert (
+            f"Copyright (c) {datetime.datetime.now().year} {copyright_name}."
+            in (result.project_path / file).read_text()
+        )
+
+
+@pytest.mark.parametrize(
+    "license_name",
+    [
+        "MIT license",
+        "BSD license",
+        "ISC license",
+        "Apache Software License 2.0",
+        "GNU General Public License v3",
+    ],
+)
+@pytest.mark.parametrize("create_author_file", ["y", "n"])  # should make no difference
+def test_bake_license_with_author_file_and_arup_org(cookies, license_name, create_author_file):
+    result = cookies.bake(
+        extra_context={
+            "create_author_file": create_author_file,
+            "open_source_license": license_name,
+            "repository_owner": "arup-group",
+        }
+    )
+
+    for file in ["LICENSE", "README.md", "CONTRIBUTING.md"]:
+        assert (
+            f"Copyright (c) {datetime.datetime.now().year} Arup."
+            in (result.project_path / file).read_text()
+        )
+
+
+@pytest.mark.parametrize(
+    "license_name",
+    [
+        "MIT license",
+        "BSD license",
+        "ISC license",
+        "Apache Software License 2.0",
+        "GNU General Public License v3",
+    ],
+)
+def test_bake_license_with_author_file(cookies, license_name):
+    result = cookies.bake(
+        extra_context={
+            "create_author_file": "y",
+            "open_source_license": license_name,
+            "repository_owner": "foobar",
+        }
+    )
+
+    for file in ["LICENSE", "README.md", "CONTRIBUTING.md"]:
+        assert (
+            f"Copyright (c) {datetime.datetime.now().year} python_boilerplate developers & contributors listed in AUTHORS."
+            in (result.project_path / file).read_text()
+        )
 
 
 def test_bake_without_docker_file(cookies):
@@ -265,7 +352,6 @@ def test_bake_not_open_source(cookies):
     found_toplevel_files = [i.name for i in result.project_path.iterdir()]
     assert "pyproject.toml" in found_toplevel_files
     assert "LICENSE" not in found_toplevel_files
-    assert "License" not in (result.project_path / "README.md").read_text()
 
 
 def test_bake_with_no_console_script(cookies):

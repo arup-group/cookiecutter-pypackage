@@ -127,7 +127,7 @@ properties:
     description: If "y", create an authors file.
     uniqueItems: true
     minItems: 1
-    items: *y_n_items
+    items: *n_y_items
 
   create_docker_file:
     type: array

@@ -14,6 +14,7 @@ repos:
       - id: ruff
         args: [ --fix, --exit-non-zero-on-fix, --config, pyproject.toml ]
       - id: ruff-format
+        args: [ --config, pyproject.toml ]
 
 ci:  # https://pre-commit.ci/
   autofix_prs: false
