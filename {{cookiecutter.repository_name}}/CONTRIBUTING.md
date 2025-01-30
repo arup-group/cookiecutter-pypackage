@@ -46,11 +46,11 @@ To contribute changes:
 1. Commit your changes to the feature branch (you should have `pre-commit` installed to ensure your code is correctly formatted when you commit changes).
 1. Push the branch to GitHub (`git push origin new-fix-or-feature`).
 1. On GitHub, create a new [pull request](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/pull/new/main) from the feature branch.
-
 {%- if cookiecutter.create_author_file == "y" %}
-When you contribute for the first time, ensure you add your name to the contributors list in `AUTHORS.md`!
 
+When you contribute for the first time, ensure you add your name to the contributors list in `AUTHORS.md`!
 {%- endif %}
+
 ### Pull requests
 
 Before submitting a pull request, check whether you have:
