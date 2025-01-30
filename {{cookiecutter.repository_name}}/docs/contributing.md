@@ -31,7 +31,7 @@ To find beginner-friendly existing bugs and feature requests you may like to sta
 To create a development environment for {{ cookiecutter.module_name }}, with all libraries required for development and quality assurance installed, it is easiest to install {{ cookiecutter.package_name }} using the [conda](https://docs.conda.io/en/latest/) package manager, as follows:
 
 1. Install conda with the [miniforge](https://github.com/conda-forge/miniforge?tab=readme-ov-file#download) executable for your operating system.
-Arup users on Windows can install `miniforge` from the Arup software shop by downloading "VS Code for Python".
+   Arup users on Windows can install `miniforge` from the Arup software shop by downloading "VS Code for Python".
 1. Open the command line (or the VSCode "integrated terminal" in Windows).
 1. Download (a.k.a., clone) the {{ cookiecutter.repository_name }} repository: `git clone git@github.com:{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}.git`
 1. Change into the `{{ cookiecutter.repository_name }}` directory: `cd {{ cookiecutter.repository_name }}`
@@ -52,11 +52,11 @@ Either way, you should add your environment as a jupyter kernel, so the example 
 If you plan to make changes to the code then please make regular use of the following tools to verify the codebase while you work:
 
 - `pre-commit`: run `pre-commit install` in your command line to load inbuilt checks that will run every time you commit your changes.
-The checks are: 1. check no large files have been staged, 2. lint python files for major errors, 3. format python files to conform with the [PEP8 standard](https://peps.python.org/pep-0008/).
-You can also run these checks yourself at any time to ensure staged changes are clean by calling `pre-commit`.
+  The checks are: 1. check no large files have been staged, 2. lint python files for major errors, 3. format python files to conform with the [PEP8 standard](https://peps.python.org/pep-0008/).
+  You can also run these checks yourself at any time to ensure staged changes are clean by calling `pre-commit`.
 - `pytest` - run the unit test suite and check test coverage.
 
-{%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
+{% if cookiecutter.create_jupyter_notebook_directory|lower == "y" -%}
 !!! note
 
     If you already have an environment called `{{ cookiecutter.repository_name }}` on your system (e.g., for a stable installation of the package), you will need to [chose a different environment name][choosing-a-different-environment-name].
@@ -67,9 +67,9 @@ You can also run these checks yourself at any time to ensure staged changes are 
 
 The following options allow you to strip down the test suite to the bare essentials:
 
-{%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}
+{% if cookiecutter.create_jupyter_notebook_directory|lower == "y" -%}
 1. The test suite includes unit tests and integration tests (in the form of jupyter notebooks found in the `examples` directory).
-The integration tests can be slow, so if you want to avoid them during development, you should run `pytest tests/`.
+   The integration tests can be slow, so if you want to avoid them during development, you should run `pytest tests/`.
 {%- endif %}
 1. You can avoid generating coverage reports, by adding the `--no-cov` argument: `pytest --no-cov`.
 
@@ -84,9 +84,9 @@ The integration tests can be slow, so if you want to avoid them during developme
 If you are running on a UNIX device (i.e., **not*- on Windows), you can test whether any changes you have made adversely impact memory and time performance as follows:
 
 1. Install [memray](https://bloomberg.github.io/memray/index.html) in your `{{ cookiecutter.repository_name }}` conda environment: `conda install memray pytest-memray`.
-2. Run the memory profiling integration test: `pytest -p memray -m "high_mem" --no-cov`.
-3. Optionally, to visualise the memory allocation, run `pytest -p memray -m "high_mem" --no-cov --memray-bin-path=[my_path] --memray-bin-prefix=[my_prefix]` - where you must define `[my_path]` and `[my_prefix]` - followed by `memray flamegraph [my_path]/[my_prefix]-tests-test_100_memory_profiling.py-test_mem.bin`.
-You will then find the HTML report at `[my_path]/memray-flamegraph-[my_prefix]-tests-test_100_memory_profiling.py-test_mem.html`.
+1. Run the memory profiling integration test: `pytest -p memray -m "high_mem" --no-cov`.
+1. Optionally, to visualise the memory allocation, run `pytest -p memray -m "high_mem" --no-cov --memray-bin-path=[my_path] --memray-bin-prefix=[my_prefix]` - where you must define `[my_path]` and `[my_prefix]` - followed by `memray flamegraph [my_path]/[my_prefix]-tests-test_100_memory_profiling.py-test_mem.bin`.
+   You will then find the HTML report at `[my_path]/memray-flamegraph-[my_prefix]-tests-test_100_memory_profiling.py-test_mem.html`.
 
 All together:
 
@@ -114,8 +114,8 @@ Here are some use-cases that you may come across in which you are considering up
 
     Add a Markdown file to the top-level in `docs`, e.g. `docs/my-page.md`.
     Then, add a reference to that file within the `nav` key in `mkdocs.yml`, e.g.:
-    ```yaml
 
+    ```yaml
     nav:
     - Home: index.md
     - Installation: installation.md
@@ -125,11 +125,14 @@ Here are some use-cases that you may come across in which you are considering up
 
     You can also just rely on your document header to define the name in the navigation:
     `my-page.md`
+
     ```md
     # My Page
     ...
     ```
+
     `mkdocs.yml`
+
     ```yaml
     nav:
     ...
@@ -195,7 +198,7 @@ It uses [Pa11y](https://pa11y.org/) to test each page, providing a report where 
 If you find that your documentation has issues, here are some possible ways to resolve them:
 
 - Many issues come from the translation of markdown files to HTML.
-If these issues are blockers, you should raise them in the upstream [MkDocs-Material](https://github.com/squidfunk/mkdocs-material/issues) repository.
+  If these issues are blockers, you should raise them in the upstream [MkDocs-Material](https://github.com/squidfunk/mkdocs-material/issues) repository.
 - If issues are not blockers (e.g. an unlabelled hyperlink that is not available to any user, irrespective of their accessibility constraints), then you can add them to the `.pallyci` configuration file [`ignore` list](https://github.com/pa11y/pa11y?tab=readme-ov-file#ignore-array) or [`hideElements` string](https://github.com/pa11y/pa11y?tab=readme-ov-file#hideelements-string).
 - If you can solve the issue by updating the documentation configuration (e.g. colour scheme contrast levels, font sizes), then you can test using Pa11y locally before you push online as follows (A local [Node.js installation](https://nodejs.org/en/download/package-manager) is required):
 
@@ -207,7 +210,7 @@ If these issues are blockers, you should raise them in the upstream [MkDocs-Mate
 
     The results will be printed to the console and will be available as a navigable set of HTML pages at `reports/pa11y/index.html`.
 - If you are still unsure what part of the documentation an issue is referring to since it referencing HTML classes/ids etc., rather than Markdown files, then we recommend using the inbuilt accessibility checkers available in most common browsers.
-First, serve your documentation locally, then use e.g., the [Mozilla Firefox accessibility inspector](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/) to check for issues.
+  First, serve your documentation locally, then use e.g., the [Mozilla Firefox accessibility inspector](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/) to check for issues.
 {%- endif %}
 
 ## Updating the project when the template updates

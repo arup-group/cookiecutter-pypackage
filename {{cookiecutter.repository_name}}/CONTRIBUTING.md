@@ -23,7 +23,7 @@ You can open an issue on GitHub to report bugs or request new {{ cookiecutter.re
 Follow these links to submit your issue:
 
 - [Report bugs or other problems while running {{ cookiecutter.repository_name }}](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/issues/new?template=BUG-REPORT.yml).
-If reporting an error, please include a full traceback in your issue.
+  If reporting an error, please include a full traceback in your issue.
 
 - [Request features that {{ cookiecutter.repository_name }} does not already include](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/issues/new?template=FEATURE-REQUEST.yml).
 
@@ -46,11 +46,11 @@ To contribute changes:
 1. Commit your changes to the feature branch (you should have `pre-commit` installed to ensure your code is correctly formatted when you commit changes).
 1. Push the branch to GitHub (`git push origin new-fix-or-feature`).
 1. On GitHub, create a new [pull request](https://github.com/{{ cookiecutter.repository_owner }}/{{ cookiecutter.repository_name }}/pull/new/main) from the feature branch.
-
 {%- if cookiecutter.create_author_file == "y" %}
-When you contribute for the first time, ensure you add your name to the contributors list in `AUTHORS.md`!
 
+When you contribute for the first time, ensure you add your name to the contributors list in `AUTHORS.md`!
 {%- endif %}
+
 ### Pull requests
 
 Before submitting a pull request, check whether you have:
@@ -65,10 +65,12 @@ When opening a pull request, please provide a clear summary of your changes!
 
 Please try to write clear commit messages. One-line messages are fine for small changes, but bigger changes should look like this:
 
-    A brief summary of the commit (max 50 characters)
+```text
+A brief summary of the commit (max 50 characters)
 
-    A paragraph or bullet-point list describing what changed and its impact,
-    covering as many lines as needed.
+A paragraph or bullet-point list describing what changed and its impact,
+covering as many lines as needed.
+```
 
 ### Code conventions
 
