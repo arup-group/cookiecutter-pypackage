@@ -38,6 +38,8 @@ This is now captured by a pre-commit hook.
 
 ### Changed
 
+- Reference to authors in license files/sections.
+- `AUTHORS.md` defaults to _not_ being created when baking a project.
 - `upload_pypi_package` -> `upload_pip_package`.
 - Recommend `conda` instead of `mamba` for project creation and package installation (#53).
 - Docs CI run on PR to main or on main, with different jobs run in each case (#33).
@@ -46,6 +48,10 @@ This is now captured by a pre-commit hook.
 - Move to exclusively using `ruff` for code formatting and linting; update to `ruff` version 0.6 (#43).
 - Cookiecutter config set to have no license for the repository (i.e. internal IP) by default.
 - Make upload and build of Docker image on AWS optional (#42).
+
+### Removed
+
+- Reference to authors removed from `src/<module-name>/__init__.py`. Authors now limited to `pyproject.toml` and - optionally - `AUTHORS.md`.
 
 ## [v0.2.0] - 09-01-2024
 

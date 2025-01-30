@@ -97,6 +97,17 @@ mkdocs serve
 
 Then you can view the documentation in a browser at <http://localhost:8000/>.
 
+## License
+
+Copyright (c) {% now 'local', '%Y' %} {% if cookiecutter.repository_owner == "arup-group" %}Arup{% elif cookiecutter.create_author_file == "y" %}{{ cookiecutter.package_name }} developers & contributors listed in AUTHORS.md{% else %}{{ cookiecutter.full_name }}{% endif %}.
+
+{%- if cookiecutter.open_source_license == "Not open source" %}
+This repository is not open source.
+You will need explicit permission from the repository owner to redistribute or make any modifications to this code.
+{%- else %}
+Licensed under the {{ cookiecutter.open_source_license }}.
+{%- endif %}
+
 ## Credits
 
 This package was created with [Cookiecutter](https://github.com/audreyr/cookiecutter) and the [arup-group/cookiecutter-pypackage](https://github.com/arup-group/cookiecutter-pypackage) project template.
