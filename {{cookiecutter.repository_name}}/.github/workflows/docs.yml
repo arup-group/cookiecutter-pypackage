@@ -27,11 +27,11 @@ jobs:
     - if: github.event.repository.private
       uses: pre-commit/action@v3.0.1
       with:
-        extra_args: markdownlint
+        extra_args: pymarkdown --all-files
     - if: github.event.repository.private
       uses: pre-commit/action@v3.0.1
       with:
-        extra_args: codespell
+        extra_args: codespell --all-files
 
   docs-test:
     needs: [docs-lint]
