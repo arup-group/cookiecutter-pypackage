@@ -61,7 +61,11 @@ jobs:
           include-hidden-files: true
 
   test-template:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
     needs: build-template
     steps:
       - name: Download built package

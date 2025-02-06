@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - EditorConfig file within template (#50).
 - Documentation accessibility checking (#41).
 - Documentation FAQ in contributing guidelines (#41).
+- Markdown linting as part of CI checks (#61, #62).
 
 ### Fixed
 
