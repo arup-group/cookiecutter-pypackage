@@ -61,7 +61,7 @@ jobs:
           include-hidden-files: true
 
   test-template:
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest, windows-latest]
     needs: build-template
     steps:
       - name: Download built package
