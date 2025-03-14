@@ -57,7 +57,7 @@ module_name:
     [italic red]NOTE:[/italic red] typically, it is the same as the `package_name`, assuming your preferred package name is available online.
     This is what users will call when importing your module in Python (e.g. `import pam`, even though the package name is `cml-pam`)
     or when calling your package from the command line (if you have a command line interface).
-  validator: "{% if not (module_name | regex_search('^[_a-zA-Z][_a-zA-Z0-9]+$')) %} module name can only contain alphanumeric characters and underscores and cannot begin with a number. {% endif %}""
+  validator: "{% if not (module_name | regex_search('^[_a-zA-Z][_a-zA-Z0-9]+$')) %} module name can only contain alphanumeric characters and underscores and cannot begin with a number. {% endif %}"
 
 project_short_description:
   type: str
