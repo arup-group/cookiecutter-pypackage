@@ -7,13 +7,13 @@ email:
   type: str
   placeholder: "ove.arup@arup.com"
   help: Your email address. Use the same one as you use on GitHub.
-  validator: {% if not (email | regex_search('^.*@.*$')) %} Invalid email {% endif %}
+  validator: "{% if not (email | regex_search('^.*@.*$')) %} Invalid email {% endif %}"
 
 github_username:
   type: str
   placeholder: "ovearup"
   help: Your GitHub username.
-  validator: {% if not (github_username | regex_search('^[^\s]+$')) %} GitHub username cannot contain spaces {% endif %}
+  validator: "{% if not (github_username | regex_search('^[^\s]+$')) %} GitHub username cannot contain spaces {% endif %}"
 
 repository_owner:
   type: str
@@ -22,7 +22,7 @@ repository_owner:
     The owner of your GitHub repository (i.e., https://github.com/[repository_owner]).
     [italic red]NOTE:[/italic red] for personal projects, this can be your GitHub username.
     For Arup projects, this should be `arup-group`.
-  validator: {% if not (repository_owner | regex_search('^[^\s]+$')) %} Repository owner cannot contain spaces {% endif %}
+  validator: "{% if not (repository_owner | regex_search('^[^\s]+$')) %} Repository owner cannot contain spaces {% endif %}"
 
 project_title:
   type: str
@@ -36,7 +36,7 @@ repository_name:
     Name of the github repository where you will host your project (i.e., https://github.com/[repository_owner]/[repository_name]).
     [italic red]NOTE:[/italic red] typically, it is the 'slugified' version of `project_title` (e.g. `My software package` -> `my_software_package`)
     or an abbreviation derived from it (e.g., `Population Activity Modeller` -> `pam`).
-  validator: {% if not (repository_name | regex_search('^[^\s]+$')) %} Repository name cannot contain spaces {% endif %}
+  validator: "{% if not (repository_name | regex_search('^[^\s]+$')) %} Repository name cannot contain spaces {% endif %}"
 
 package_name:
   type: str
@@ -46,7 +46,7 @@ package_name:
     This should be available on package indexing sites (PyPI/Anaconda).
     [italic red]NOTE:[/italic red] typically, it is the same as the `module_name`, but if your preferred package name is already taken online, you should rename your project entirely or prepend the package name with e.g. `arup-`.
     For example, our PAM package is `pam` when imported in Python, but `cml-pam` online.
-  validator: {% if not (package_name | regex_search('^[^\s]+$')) %} Package name cannot contain spaces {% endif %}
+  validator: "{% if not (package_name | regex_search('^[^\s]+$')) %} Package name cannot contain spaces {% endif %}"
 
 module_name:
   type: str
@@ -71,7 +71,7 @@ project_visibility:
   choices:
     Internal:
       value: internal
-      validator: {% if repository_owner != 'arup-group' %} Internal projects must have the `arup-group` repository owner {% endif %}
+      validator: "{% if repository_owner != 'arup-group' %} Internal projects must have the `arup-group` repository owner {% endif %}"
     Public:
       value: public
 

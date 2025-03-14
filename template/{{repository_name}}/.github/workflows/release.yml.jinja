@@ -5,7 +5,7 @@ on:
     types: [released]
 
 jobs:
-  {% if upload_conda_package|lower == 'y' -%}
+  {% if upload_conda_package -%}
   conda-upload:
     uses: arup-group/actions-city-modelling-lab/.github/workflows/conda-upload.yml@main
     secrets:
@@ -17,7 +17,7 @@ jobs:
       destination: {% if project_visibility == 'public' %}anaconda{% else %}internal{% endif %}
 
   {% endif %}
-  {% if upload_pip_package|lower == 'y' -%}
+  {% if upload_pip_package -%}
   pip-upload:
     uses: arup-group/actions-city-modelling-lab/.github/workflows/pip-upload.yml@main
     secrets:
@@ -35,6 +35,6 @@ jobs:
     uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@main
     with:
       deploy_type: update_stable
-      {%- if create_jupyter_notebook_directory|lower == "y" %}
+      {%- if create_jupyter_notebook_directory %}
       notebook_kernel: {{ repository_name }}
       {%- endif %}
