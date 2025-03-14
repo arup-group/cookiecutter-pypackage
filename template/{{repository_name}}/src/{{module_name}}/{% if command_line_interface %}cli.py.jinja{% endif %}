@@ -1,0 +1,12 @@
+"""Console script for {{module_name}}."""
+
+import click
+
+
+@click.version_option(package_name="{{package_name}}")
+@click.command()
+def cli(args=None):
+    """Console script for {{module_name}}."""
+    click.echo("Replace this message by putting your code into {{module_name}}.cli.cli")
+    click.echo("See click documentation at https://click.palletsprojects.com/")
+    return 0

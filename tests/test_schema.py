@@ -15,7 +15,7 @@ def schema():
 
 @pytest.fixture
 def config():
-    config_path = Path(__file__).parent / ".." / "cookiecutter.json"
+    config_path = Path(__file__).parent / ".." / "json"
     config_with_jinja_elements = json.loads(config_path.read_text())
     env = jinja2.Environment(
         loader=jinja2.FileSystemLoader(config_path.parent),

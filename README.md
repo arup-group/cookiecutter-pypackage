@@ -25,7 +25,7 @@ It has been updated to use latest Python Package best practices and to align wit
 
 ## Quickstart
 
-To be able to keep your project up-tp-date as changes are made to the template, we recommend you use [Cruft], which is fully compatible with Cookiecutter.
+To be able to keep your project up-tp-date as changes are made to the template, we recommend you use [Cruft], which is fully compatible with
 First, install the latest version of Cruft if you haven't installed it yet.
 
 ``` bash

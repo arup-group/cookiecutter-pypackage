@@ -1,0 +1,142 @@
+full_name:
+  type: str
+  placeholder: "Ove Arup"
+  help: "Your full name."
+
+email:
+  type: str
+  placeholder: "ove.arup@arup.com"
+  help: Your email address. Use the same one as you use on GitHub.
+  validator: {% if not (email | regex_search('^.*@.*$')) %} Invalid email {% endif %}
+
+github_username:
+  type: str
+  placeholder: "ovearup"
+  help: Your GitHub username.
+  validator: {% if not (github_username | regex_search('^[^\s]+$')) %} GitHub username cannot contain spaces {% endif %}
+
+repository_owner:
+  type: str
+  default: "arup-group"
+  help: >-
+    The owner of your GitHub repository (i.e., https://github.com/[repository_owner]).
+    [italic red]NOTE:[/italic red] for personal projects, this can be your GitHub username.
+    For Arup projects, this should be `arup-group`.
+  validator: {% if not (repository_owner | regex_search('^[^\s]+$')) %} Repository owner cannot contain spaces {% endif %}
+
+project_title:
+  type: str
+  placeholder: "Python Boilerplate"
+  help: The headline name of your new Python package project. [italic red]NOTE:[/italic red] this is used in documentation, so spaces and any characters are fine here.
+
+repository_name:
+  type: str
+  default: "{{ project_title.lower().replace(' ', '_').replace('-', '_') }}"
+  help: >-
+    Name of the github repository where you will host your project (i.e., https://github.com/[repository_owner]/[repository_name]).
+    [italic red]NOTE:[/italic red] typically, it is the 'slugified' version of `project_title` (e.g. `My software package` -> `my_software_package`)
+    or an abbreviation derived from it (e.g., `Population Activity Modeller` -> `pam`).
+  validator: {% if not (repository_name | regex_search('^[^\s]+$')) %} Repository name cannot contain spaces {% endif %}
+
+package_name:
+  type: str
+  default: "{{ repository_name }}"
+  help: >-
+    The name given to your package.
+    This should be available on package indexing sites (PyPI/Anaconda).
+    [italic red]NOTE:[/italic red] typically, it is the same as the `module_name`, but if your preferred package name is already taken online, you should rename your project entirely or prepend the package name with e.g. `arup-`.
+    For example, our PAM package is `pam` when imported in Python, but `cml-pam` online.
+  validator: {% if not (package_name | regex_search('^[^\s]+$')) %} Package name cannot contain spaces {% endif %}
+
+module_name:
+  type: str
+  default: "{{ repository_name }}"
+  help: >-
+    The name given to your module in Python.
+    This should be available on package indexing sites (PyPI/Anaconda).
+    [italic red]NOTE:[/italic red] typically, it is the same as the `package_name`, assuming your preferred package name is available online.
+    This is what users will call when importing your module in Python (e.g. `import pam`, even though the package name is `cml-pam`)
+    or when calling your package from the command line (if you have a command line interface).
+  validator: "{% if not (module_name | regex_search(r'^[_a-zA-Z][_a-zA-Z0-9]+$')) %} module name can only contain alphanumeric characters and underscores and cannot begin with a number. {% endif %}""
+
+project_short_description:
+  type: str
+  placeholder: "Python Boilerplate contains all the boilerplate you need to create a Python package."
+  help: A 1-sentence description of what your Python package does.
+
+project_visibility:
+  type: str
+  help: Repository visibility. Arup projects should be internal by default and can be considered for public release later.
+  default: internal
+  choices:
+    Internal:
+      value: internal
+      validator: {% if repository_owner != 'arup-group' %} Internal projects must have the `arup-group` repository owner {% endif %}
+    Public:
+      value: public
+
+upload_pip_package:
+  help: Upload pip package to PyPI (public projects) or the Arup package index (internal projects) on each release of each new version?
+  type: bool
+  default: no
+
+upload_conda_package:
+  help: Upload conda package to an Anaconda channel (public projects) or the Arup package index (internal projects) on each release of a new version?
+  type: bool
+  default: no
+
+upload_aws_image:
+  help: >-
+    Upload the repository to AWS to build and host a Docker image of the project on each commit?
+    [italic red]NOTE:[/italic red] requires CodeBuild configuration to be updated separately to have the image built on AWS.
+  type: bool
+  default: no
+
+conda_channel:
+  help: >-
+    Your channel for conda uploads.
+    [italic red]NOTE:[/italic red] if releases of your package will be uploaded to Anaconda it should link to https://anaconda.org/[conda_channel].
+  default: "https://packages.arup.com/conda"
+  when: {{ upload_conda_package and project_visibility == 'public' }}
+
+command_line_interface:
+  help: Provide a Command Line Interface for your module?
+  type: bool
+  default: yes
+
+create_docker_file:
+  help: Create a Dockerfile which allows a Docker image of the project to be built in a linux virtual machine with a basic Bash entry-point?
+  type: bool
+  default: yes
+
+create_author_file:
+  help: Create an AUTHORS file to log multiple project authors / contributors?
+  type: bool
+  default: yes
+
+create_jupyter_notebook_directory:
+  help: Add an `examples` directory in which Jupyter Notebooks can be saved? These notebooks will be rendered in the documentation and will be formatted with Ruff.
+  type: bool
+  default: no
+
+check_docs_accessibility_in_CI:
+  type: bool
+  default: no
+
+open_source_license:
+  help: Choose a license for your project.
+  default: not_open_source
+  choices:
+    "Not open source":
+      value: not_open_source
+    "MIT license":
+      value: MIT
+    "BSD license":
+      value: BSD
+    "Apache Software License 2.0":
+      value: Apache-2.0
+    "GNU General Public License v3":
+      value: GPL-v3
+  when: {{ project_visibility == 'public' }}
+
+_subdirectory: template
