@@ -39,7 +39,7 @@ jobs:
     uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@main
     with:
       deploy_type: test
-      {%- if create_jupyter_notebook_directory|lower == "y" %}
+      {%- if create_jupyter_notebook_directory %}
       notebook_kernel: {{ repository_name }}
       {%- endif %}
 
@@ -50,11 +50,11 @@ jobs:
     uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@main
     with:
       deploy_type: update_latest
-      {%- if create_jupyter_notebook_directory|lower == "y" %}
+      {%- if create_jupyter_notebook_directory %}
       notebook_kernel: {{ repository_name }}
       {%- endif %}
 
-  {%- if check_docs_accessibility_in_CI|lower == "y" %}
+  {%- if check_docs_accessibility_in_CI %}
   docs-accessibility:
     needs: [docs-test]
     if: always() && needs.docs-test.result == 'success' && github.event_name == 'pull_request'
@@ -65,7 +65,7 @@ jobs:
     with:
       upload_report: true
       allow_pr_comment: true
-      {%- if create_jupyter_notebook_directory|lower == "y" %}
+      {%- if create_jupyter_notebook_directory %}
       notebook_kernel: {{ repository_name }}
       {%- endif %}
   {%- endif %}

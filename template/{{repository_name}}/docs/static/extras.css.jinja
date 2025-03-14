@@ -9,7 +9,7 @@ div.doc-contents:not(.first) {
   overflow-x: auto;
 }
 
-{%- if create_jupyter_notebook_directory|lower == "y" %}
+{%- if create_jupyter_notebook_directory %}
 /* Improve contrast of text in rendered Jupyter notebook codeblocks. */
 .jp-Notebook {
   --jp-cell-prompt-not-active-opacity: 1;

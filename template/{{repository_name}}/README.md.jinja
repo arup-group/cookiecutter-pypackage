@@ -99,7 +99,7 @@ Then you can view the documentation in a browser at <http://localhost:8000/>.
 
 ## License
 
-Copyright (c) {% now 'local', '%Y' %} {% if repository_owner == "arup-group" %}Arup{% elif create_author_file == "y" %}{{ package_name }} developers & contributors listed in AUTHORS.md{% else %}{{ full_name }}{% endif %}.
+Copyright (c) {% now 'local', '%Y' %} {% if repository_owner == "arup-group" %}Arup{% elif create_author_file%}{{ package_name }} developers & contributors listed in AUTHORS.md{% else %}{{ full_name }}{% endif %}.
 
 {%- if open_source_license == "Not open source" %}
 This repository is not open source.

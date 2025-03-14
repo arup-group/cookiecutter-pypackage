@@ -2,7 +2,7 @@
                       Version 3, 29 June 2007
 
     {{ project_short_description }}
-    Copyright (c) {% now 'local', '%Y' %} {% if repository_owner == "arup-group" %}Arup{% elif create_author_file == "y" %}{{ package_name }} developers & contributors listed in AUTHORS.md{% else %}{{ full_name }}{% endif %}.
+    Copyright (c) {% now 'local', '%Y' %} {% if repository_owner == "arup-group" %}Arup{% elif create_author_file%}{{ package_name }} developers & contributors listed in AUTHORS.md{% else %}{{ full_name }}{% endif %}.
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

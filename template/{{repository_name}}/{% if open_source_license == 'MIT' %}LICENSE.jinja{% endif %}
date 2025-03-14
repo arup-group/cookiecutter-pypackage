@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) {% now 'local', '%Y' %} {% if repository_owner == "arup-group" %}Arup{% elif create_author_file == "y" %}{{ package_name }} developers & contributors listed in AUTHORS.md{% else %}{{ full_name }}{% endif %}.
+Copyright (c) {% now 'local', '%Y' %} {% if repository_owner == "arup-group" %}Arup{% elif create_author_file%}{{ package_name }} developers & contributors listed in AUTHORS.md{% else %}{{ full_name }}{% endif %}.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

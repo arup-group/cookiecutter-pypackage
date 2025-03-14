@@ -18,12 +18,12 @@ jobs:
     with:
       os: ubuntu-latest
       py3version: "12"
-      {%- if create_jupyter_notebook_directory|lower == "y" %}
+      {%- if create_jupyter_notebook_directory %}
       notebook_kernel: {{ repository_name }}
       {%- endif %}
       lint: false
 
-  {%- if upload_aws_image|lower == "y" %}
+  {%- if upload_aws_image %}
   aws-pre-check:
     runs-on: ubuntu-latest
     outputs:

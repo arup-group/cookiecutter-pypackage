@@ -1,18 +1,18 @@
 cruft >= 2, < 3
-{% if create_jupyter_notebook_directory|lower == "y" -%}
+{% if create_jupyter_notebook_directory -%}
 jupyter < 2
 {% endif -%}
 mike >= 2, < 3
 mkdocs >= 1.6, < 2
 mkdocs-material >= 9.4, < 10
-{% if command_line_interface|lower == "y" -%}
+{% if command_line_interface -%}
 mkdocs-click < 0.7
 {% endif -%}
-{% if create_jupyter_notebook_directory|lower == "y" -%}
+{% if create_jupyter_notebook_directory -%}
 mkdocs-jupyter >= 0.24.8, < 0.25
 {% endif -%}
 mkdocstrings-python < 2
-{% if create_jupyter_notebook_directory|lower == "y" -%}
+{% if create_jupyter_notebook_directory -%}
 nbmake >= 1.5.1, < 2
 {% endif -%}
 pre-commit < 4

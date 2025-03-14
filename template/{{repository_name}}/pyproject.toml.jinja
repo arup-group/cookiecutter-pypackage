@@ -18,13 +18,13 @@ minversion = "6.0"
 # opts:
 # `--strict-markers` - Raise error on unexpected pytest markers being used (add new markers to `markers` config)
 # `-nauto` - parallelise over as many threads are available (uses pytest-xdist). This auto-selects 1 thread when using the `--pdb` debugging flag.
-{%- if create_jupyter_notebook_directory|lower == "y" %}
+{%- if create_jupyter_notebook_directory %}
 # `--nbmake --nbmake-kernel={{ repository_name }}` - test example notebooks using the "{{ repository_name }}" notebook kernel (uses nbmake)
 {%- endif %}
 # `--cov --cov-report=xml --cov-config=pyproject.toml` - generate coverage report for tests (uses pytest-cov; call `--no-cov` in CLI to switch off; `--cov-config` include to avoid bug)
 # `-m 'not high_mem'` - Do not run tests marked as consuming large amounts of memory (call `-m "high_mem"` in CLI to invert this; only `high_mem` marked tests will be run)
 # `-p no:memray` - Do not use the memray memory profiling plugin (call `-p memray` in CLI to switch on memory profiling)
-{%- if create_jupyter_notebook_directory|lower == "y" %}
+{%- if create_jupyter_notebook_directory %}
 addopts = "-rav --strict-markers -nauto --nbmake --nbmake-kernel={{ repository_name }} --cov --cov-report=xml --cov-config=pyproject.toml -m 'not high_mem' -p no:memray"
 testpaths = ["tests", "examples"]
 {% else %}
@@ -164,7 +164,7 @@ dynamic = ["dependencies", "optional-dependencies", "version"]
 dependencies = { file = ["requirements/base.txt"] }
 version = { attr = "{{ module_name }}.__version__" }
 
-{%- if command_line_interface|lower == "y" %}
+{%- if command_line_interface %}
 [project.scripts]
 {{ module_name }}="{{ module_name }}.cli:cli"
 {%- endif %}

@@ -9,7 +9,7 @@ Some of the resources to look at if you're interested in contributing:
 
 ## Licensing
 
-Copyright (c) {% now 'local', '%Y' %} {% if repository_owner == "arup-group" %}Arup{% elif create_author_file == "y" %}{{ package_name }} developers & contributors listed in AUTHORS.md{% else %}{{ full_name }}{% endif %}.
+Copyright (c) {% now 'local', '%Y' %} {% if repository_owner == "arup-group" %}Arup{% elif create_author_file%}{{ package_name }} developers & contributors listed in AUTHORS.md{% else %}{{ full_name }}{% endif %}.
 {%- if open_source_license == "Not open source" %}
 This repository is not open source.
 You will need explicit permission from the repository owner to redistribute or make any modifications to this code.
@@ -46,7 +46,7 @@ To contribute changes:
 1. Commit your changes to the feature branch (you should have `pre-commit` installed to ensure your code is correctly formatted when you commit changes).
 1. Push the branch to GitHub (`git push origin new-fix-or-feature`).
 1. On GitHub, create a new [pull request](https://github.com/{{ repository_owner }}/{{ repository_name }}/pull/new/main) from the feature branch.
-{%- if create_author_file == "y" %}
+{%- if create_author_file%}
 
 When you contribute for the first time, ensure you add your name to the contributors list in `AUTHORS.md`!
 {%- endif %}

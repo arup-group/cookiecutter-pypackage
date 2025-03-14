@@ -17,7 +17,7 @@ jobs:
     with:
       os: ubuntu-latest
       py3version: "12"
-      {%- if create_jupyter_notebook_directory|lower == "y" %}
+      {%- if create_jupyter_notebook_directory %}
       notebook_kernel: {{ repository_name }}
       {%- endif %}
       pytest_args: '--no-cov'  # ignore coverage

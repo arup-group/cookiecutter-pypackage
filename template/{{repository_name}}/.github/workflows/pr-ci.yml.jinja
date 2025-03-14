@@ -34,7 +34,7 @@ jobs:
     with:
       os: {% raw %}${{ matrix.os }}{% endraw %}
       py3version: {% raw %}${{ matrix.py3version }}{% endraw %}
-      {%- if create_jupyter_notebook_directory|lower == "y" %}
+      {%- if create_jupyter_notebook_directory %}
       notebook_kernel: {{ repository_name }}
       {%- endif %}
       lint: false
@@ -48,7 +48,7 @@ jobs:
     with:
       os: ubuntu-latest
       py3version: "12"
-      {%- if create_jupyter_notebook_directory|lower == "y" %}
+      {%- if create_jupyter_notebook_directory %}
       notebook_kernel: {{ repository_name }}
       {%- endif %}
       lint: false

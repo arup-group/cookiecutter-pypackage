@@ -6,7 +6,7 @@ on:
       - 'v*'
 
 jobs:
-  {% if upload_conda_package|lower == 'y' -%}
+  {% if upload_conda_package -%}
   conda-build:
     uses: arup-group/actions-city-modelling-lab/.github/workflows/conda-build.yml@main
     secrets:
@@ -17,7 +17,7 @@ jobs:
       destination: {% if project_visibility == 'public' %}pypi{% else %}internal{% endif %}
 
   {% endif %}
-  {% if upload_pip_package|lower == 'y' -%}
+  {% if upload_pip_package -%}
   pip-build:
     uses: arup-group/actions-city-modelling-lab/.github/workflows/pip-build.yml@main
     secrets:
