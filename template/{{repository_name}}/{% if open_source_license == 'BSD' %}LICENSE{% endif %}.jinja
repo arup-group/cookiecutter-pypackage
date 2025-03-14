@@ -1,6 +1,6 @@
 BSD License
 
-Copyright (c) {% now 'local', '%Y' %} {% if repository_owner == "arup-group" %}Arup{% elif create_author_file%}{{ package_name }} developers & contributors listed in AUTHORS.md{% else %}{{ full_name }}{% endif %}.
+Copyright (c) {{ '%Y' | strftime }} {% if repository_owner == "arup-group" %}Arup{% elif create_author_file%}{{ package_name }} developers & contributors listed in AUTHORS.md{% else %}{{ full_name }}{% endif %}.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
