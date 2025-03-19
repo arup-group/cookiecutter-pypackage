@@ -11,15 +11,15 @@ You can contribute in many ways:
 
 __Is something not working?__
 
-[:material-bug: Report a bug](https://github.com/arup-group/cookiecutter-pypackage/issues/new?template=BUG-REPORT.yml "Report a bug in the template by creating an issue and a reproduction"){ .md-button }
+[:material-bug: Report a bug](https://github.com/arup-group/pypackage-template/issues/new?template=BUG-REPORT.yml "Report a bug in the template by creating an issue and a reproduction"){ .md-button }
 
 __Missing information in our docs?__
 
-[:material-file-document: Report a docs issue](https://github.com/arup-group/cookiecutter-pypackage/issues/new?template=DOCS.yml "Report missing information or potential inconsistencies in our documentation"){ .md-button }
+[:material-file-document: Report a docs issue](https://github.com/arup-group/pypackage-template/issues/new?template=DOCS.yml "Report missing information or potential inconsistencies in our documentation"){ .md-button }
 
 __Want to submit an idea?__
 
-[:material-lightbulb-on: Request a change](https://github.com/arup-group/cookiecutter-pypackage/issues/new?template=FEATURE-REQUEST.yml "Propose a change or feature request or suggest an improvement"){ .md-button }
+[:material-lightbulb-on: Request a change](https://github.com/arup-group/pypackage-template/issues/new?template=FEATURE-REQUEST.yml "Propose a change or feature request or suggest an improvement"){ .md-button }
 
 ### Fix Bugs
 
@@ -31,11 +31,11 @@ Look through the GitHub issues for features. Anything tagged with "enhancement" 
 
 ### Write Documentation
 
-Cookiecutter PyPackage could always use more documentation, whether as part of the official docs, in docstrings, or even on the web in blog posts, articles, and such.
+The PyPackage template could always use more documentation, whether as part of the official docs, in docstrings, or even on the web in blog posts, articles, and such.
 
 ### Submit Feedback
 
-The best way to send feedback is to file an [issue](https://github.com/arup-group/cookiecutter-pypackage/issues) or [start a discussion](https://github.com/arup-group/cookiecutter-pypackage/discussions).
+The best way to send feedback is to file an [issue](https://github.com/arup-group/pypackage-template/issues) or [start a discussion](https://github.com/arup-group/pypackage-template/discussions).
 
 If you are proposing a new feature:
 
@@ -44,24 +44,24 @@ If you are proposing a new feature:
 
 ## Setting up and working in a development environment
 
-Ready to contribute? Here's how to set up `cookiecutter-pypackage` for local development.
+Ready to contribute? Here's how to set up `pypackage-template` for local development.
 Please note this documentation assumes you already have `conda` and `Git` installed and ready to go.
 
-1. Fork the `cookiecutter-pypackage` repo on GitHub.
+1. Fork the `pypackage-template` repo on GitHub.
 
 1. Clone your fork locally in a directory of your choice (i.e., change `path/to/repositories`):
 
    ``` shell
    cd path/to/repositories
-   git clone git@github.com:YOUR_GITHUB_USERNAME/cookiecutter-pypackage.git
+   git clone git@github.com:YOUR_GITHUB_USERNAME/pypackage-template.git
    ```
 
 1. Assuming you have conda installed, you can create a new environment for your local
    development by typing:
 
    ``` shell
-   conda create -c conda-forge -n cookiecutter-pypackage-dev --file requirements/dev.txt
-   conda activate cookiecutter-pypackage-dev
+   conda create -c conda-forge -n pypackage-template-dev --file requirements/dev.txt
+   conda activate pypackage-template-dev
    pip install --no-deps -e .
    ```
 
@@ -108,15 +108,15 @@ Before you submit a PR, check that it meets these guidelines:
    Continuous integration tests will run in your PR and will fail if your changes break anything.
 
 ### Add to the template
-Cookiecutter templates use [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) templating syntax.
+
+Copier templates use [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) templating syntax.
 For example, `{{ module_name }}` -> `python_boilerplate` on running
 You can get a good feel for this by looking at the current implementation.
 
-The GitHub CI workflows also use the `{{}}` syntax, requiring anything that should be left behind after cookiecutter works its magic to be wrapped in {% raw %} and {% endraw %} commands.
+The GitHub CI workflows also use the `{{}}` syntax, requiring anything that should be left behind after copier works its magic to be wrapped in {% raw %} and {% endraw %} commands.
 
 If you want to add an empty directory, you should add a `.ignore` file into it (e.g., see `resources/logos`).
-This will ensure that cruft actually builds the directories.
-In a post-generation hook, this `.ignore` file will be deleted and you will be left with the empty directory.
+This will ensure that copier actually builds the directories.
 
 ### Add a New Test
 
@@ -125,7 +125,7 @@ These tests should focus on one tiny bit of functionality and prove changes are 
 
 To write and run your new test, follow these steps:
 
-1. Add the new test to `tests/test_bake_project.py`.
+1. Add the new test to `tests/test_copy_project.py`.
    Focus your test on the specific bug or a small part of the new feature.
 
 1. If you have already made changes to the code, stash your changes and confirm all your changes were stashed:

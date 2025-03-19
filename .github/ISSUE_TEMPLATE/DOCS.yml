@@ -9,7 +9,7 @@ body:
       label: Description
       description: >-
         Please describe the inconsistency or issue you have found in
-        [our documentation](https://arup-group.github.io/cookiecutter-pypackage)
+        [our documentation](https://arup-group.github.io/pypackage-template)
         or indicate where you feel there is a need for improvement. Furthermore,
         explain the severity of the issue, i.e., its impact on you and potentially
         other users.
@@ -21,11 +21,11 @@ body:
     attributes:
       label: Related links
       description: >-
-        Please list all links to the sections of [our documentation](https://arup-group.github.io/cookiecutter-pypackage)
+        Please list all links to the sections of [our documentation](https://arup-group.github.io/pypackage-template)
         that are impacted by the issue you described above. If applicable,
         add screenshots. Additionally, list links to possibly related open
-        and closed [issues](https://github.com/arup-group/cookiecutter-pypackage/issues)
-        and [discussions](https://github.com/arup-group/cookiecutter-pypackage/discussions)
+        and closed [issues](https://github.com/arup-group/pypackage-template/issues)
+        and [discussions](https://github.com/arup-group/pypackage-template/discussions)
         you encountered when searching our issue tracker.
       value: |
         -

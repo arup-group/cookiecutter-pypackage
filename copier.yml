@@ -1,3 +1,4 @@
+# --8<-- [start:docs]
 full_name:
   type: str
   default: "Ove Arup"
@@ -17,7 +18,7 @@ github_username:
   default: "ovearup"
   help: Your GitHub username.
   validator: >-
-    {% if not (github_username | regex_search('^[^\s]+$')) %}
+    {% if not (github_username | regex_search('^[^\\s]+$')) %}
     GitHub username cannot contain spaces
     {% endif %}
 
@@ -29,7 +30,7 @@ repository_owner:
     ❗️NOTE❗️ for personal projects, this can be your GitHub username.
     For Arup projects, this should be `arup-group`.
   validator: >-
-    {% if not (repository_owner | regex_search('^[^\s]+$')) %}
+    {% if not (repository_owner | regex_search('^[^\\s]+$')) %}
     Repository owner cannot contain spaces
     {% endif %}
 
@@ -46,7 +47,7 @@ repository_name:
     ❗️NOTE❗️ typically, it is the 'slugified' version of `project_title` (e.g. `My software package` -> `my_software_package`)
     or an abbreviation derived from it (e.g., `Population Activity Modeller` -> `pam`).
   validator: >-
-    {% if not (repository_name | regex_search('^[^\s]+$')) %}
+    {% if not (repository_name | regex_search('^[^\\s]+$')) %}
     Repository name cannot contain spaces
     {% endif %}
 
@@ -59,7 +60,7 @@ package_name:
     ❗️NOTE❗️ typically, it is the same as the `module_name`, but if your preferred package name is already taken online, you should rename your project entirely or prepend the package name with e.g. `arup-`.
     For example, our PAM package is `pam` when imported in Python, but `cml-pam` online.
   validator: >-
-    {% if not (package_name | regex_search('^[^\s]+$')) %}
+    {% if not (package_name | regex_search('^[^\\s]+$')) %}
     Package name cannot contain spaces
     {% endif %}
 
@@ -97,12 +98,12 @@ project_visibility:
       value: public
 
 upload_pip_package:
-  help: Upload pip package to PyPI (public projects) or the Arup package index (internal projects) on each release of each new version?
+  help: Upload pip package to {% if project_visibility == 'public' %}PyPI{% elif project_visibility == 'internal' %}the Arup package index{% endif %} on each release of each new version?
   type: bool
   default: no
 
 upload_conda_package:
-  help: Upload conda package to an Anaconda channel (public projects) or the Arup package index (internal projects) on each release of a new version?
+  help: Upload conda package to an {% if project_visibility == 'public' %}Anaconda channel{% elif project_visibility == 'internal' %}the Arup package index{% endif %} on each release of a new version?
   type: bool
   default: no
 
@@ -115,10 +116,14 @@ upload_aws_image:
 
 conda_channel:
   help: >-
-    Your channel for conda uploads.
-    ❗️NOTE❗️ if releases of your package will be uploaded to Anaconda it should link to https://anaconda.org/[conda_channel].
+    Your channel for conda uploads, i.e. `https://anaconda.org/[conda_channel]`.
+    ❗️NOTE❗️ You will need write access to the channel to upload.
   default: "https://packages.arup.com/conda"
   when: "{{ upload_conda_package and project_visibility == 'public' }}"
+  validator: >-
+    {% if project_visibility == 'internal' and conda_channel != "https://packages.arup.com/conda" %}
+    Internal projects must set the `conda_channel` to: https://packages.arup.com/conda.
+    {% endif %}
 
 command_line_interface:
   help: Provide a Command Line Interface for your module?
@@ -159,5 +164,30 @@ open_source_license:
     "GNU General Public License v3":
       value: GPL-v3
   when: "{{ project_visibility == 'public' }}"
-
+  validator: >-
+    {% if project_visibility == 'public' and open_source_license == 'not_open_source' %}
+    'public' projects must have a license.
+    {% endif %}
+# --8<-- [end:docs]
 _subdirectory: template
+
+_message_after_copy: |
+  🎉 Your project has been created successfully! 🎉
+
+  The next step is to run `git init` and link your project to a repository on GitHub.
+
+  Some things to note:
+
+  - If you want to update anything related to these questions, run `copier update` and change your answers
+  {% if project_visibility == 'internal' and (upload_pip_package or upload_conda_package) %}
+  - You must request access to the `packages` GitHub self-hosted runner for 'internal' projects
+  {% endif -%}
+  {% if project_visibility == 'public' and upload_conda_package %}
+  -  You must set the ANACONDA_TOKEN GitHub secret using your Anaconda channel API token.
+  {% endif -%}
+  {% if project_visibility == 'public' and upload_pypi_package %}
+  -  You must set the PYPI_API_TOKEN and TEST_PYPI_API_TOKEN GitHub secrets using your test-pypi and pypi channel API tokens.
+  {% endif -%}
+  {% if upload_aws_image %}
+  -  You must set the AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and AWS_S3_CODE_BUCKET GitHub secrets using your AWS API tokens.
+  {% endif -%}

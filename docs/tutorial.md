@@ -3,7 +3,7 @@
 !!! note
     Did you find any of these instructions confusing? [Edit this file] and submit a pull request with your improvements!
 
-[Edit this file]: https://github.com/arup-group/cookiecutter-pypackage/blob/main/docs/tutorial.md
+[Edit this file]: https://github.com/arup-group/pypackage-template/blob/main/docs/tutorial.md
 
 To start with, you will need a [GitHub account](https://github.com/).
 If you are an Arup employee, you should sign up to the Arup [GitHub group](https://github.arup.com/signup).
@@ -16,7 +16,7 @@ If you are new to Git and GitHub, you should probably spend a few minutes on som
 
     We will refer to project names, directories, github accounts, etc. in this tutorial.
     You will be using different ones for your project, with the possible exception of `arup-group` as the `repository_owner`.
-    For reference, here's the [configuration values][configuration-values] we will use that you will have the option to set when creating your project with cruft:
+    For reference, here's the [configuration values](./configuration.md) we will use that you will have the option to set when creating your project with copier:
 
     - `github_username`: "ovearup"
     - `repository_owner`: "arup-group"
@@ -31,69 +31,69 @@ If you are new to Git and GitHub, you should probably spend a few minutes on som
     Arup users on Windows can install `miniforge` from the Arup software shop by downloading "VS Code for Python".
     - You store your projects on your device at `~/Repos` (Windows: `C:\\Users\yourusername\Repos`)
 
-1.  The package name needs to be *globally* unique, i.e., not available on [conda-forge](https://anaconda.org/conda-forge) or on [PyPI](https://pypi.org/).
-This is why it could look different to `repository_name` and `module_name`.
-Search for your preferred package name before setting it here.
-In the City Modelling Lab, we use the `cml-` prefix if we need to make our package name unique.
-2.  Repositories tend to use `-` between words while modules **must** have `_` between words as this is the name you will use to import your module in Python: `import python_boilerplate`.
+1. The package name needs to be *globally* unique, i.e., not available on [conda-forge](https://anaconda.org/conda-forge) or on [PyPI](https://pypi.org/).
+   This is why it could look different to `repository_name` and `module_name`.
+   Search for your preferred package name before setting it here.
+   In the City Modelling Lab, we use the `cml-` prefix if we need to make our package name unique.
+2. Repositories tend to use `-` between words while modules **must** have `_` between words as this is the name you will use to import your module in Python: `import python_boilerplate`.
 
-### Step 1: Install Cruft
+### Step 1: Install Copier
 
-First, you need to create and activate a [conda](https://docs.conda.io/en/latest/) environment for using Cruft (a Cookiecutter-compatible tool which allows for updating projects).
+First, you need to create and activate a [conda](https://docs.conda.io/en/latest/) environment for using Copier.
 
 Use your favorite method, or create an environment like this:
 
 === "With conda"
     ``` bash
-    conda create -n cookiecutter cruft
+    conda create -n copier-env copier
     ```
     Activate your environment:
 
     ``` bash
-    conda activate cookiecutter
+    conda activate copier-env
     ```
 
 === "With pip"
     ``` bash
-    pip install -U cruft
+    pip install -U copier
     ```
 
 ### Step 2: Generate Your Package
 
 Now it's time to generate your Python package.
 
-Use cruft, pointing it at the cookiecutter-pypackage repository:
+Use copier, pointing it at the pypackage-template repository:
 
 ``` bash
 cd ~/Repos # (1)!
-cruft create https://github.com/arup-group/cookiecutter-pypackage.git
+copier copy git@github.com/arup-group/pypackage-template.git
 ```
 
-1.  Change this directory name to match where you store GitHub repositories on your device.
+1. Change this directory name to match where you store GitHub repositories on your device.
 
-You'll be asked to enter a bunch of values to set the package up.
-If you don't know what to enter, stick with the defaults.
-The following steps are based on using the default values.
+   You'll be asked to enter a bunch of values to set the package up.
+   If you don't know what to enter, stick with the defaults.
+   The following steps are based on using the default values.
 
-Once complete, you will find the `python-boilerplate` directory.
-Change directory into this folder:
+   Once complete, you will find the `python-boilerplate` directory.
+   Change directory into this folder:
 
-```bash
-cd python-boilerplate # (1)!
-```
+   ```bash
+   cd python-boilerplate # (1)!
+   ```
 
-1.  Change this directory name based on the name you gave in `repository_name`.
+1. Change this directory name based on the name you gave in `repository_name`.
 
-!!! tip
+  !!! tip
 
-    If you are generating a project which will be hosted in `arup-group`, it will default to `internal`.
-    This is why we set the `project_visibility` parameter to `internal` by default.
+      If you are generating a project which will be hosted in `arup-group`, it will default to `internal`.
+      This is why we set the `project_visibility` parameter to `internal` by default.
 
-    The parameters `upload_conda_package` and `upload_pip_package` default to `n` (i.e. no upload of packages), but you can set these to `y` to upload `internal` projects to the Arup package index (<https://packages.arup.com/>) so long as you make a service-now request to allow access to the `packages` self-hosted runner for your repository.
+      The arguments `upload_conda_package` and `upload_pip_package` default to `n` (i.e. no upload of packages), but you can set these to `y` to upload `internal` projects to the Arup package index (<https://packages.arup.com/>) so long as you make a service-now request to allow access to the `packages` self-hosted runner for your repository.
 
-    You will need to wait until the project is made public (with a suitable open source license) before you allow uploads of your package to PyPI or an Anaconda channel.
-    When you're ready to take the leap to a public repository, you can [update your project input parameters][changing-input-parameters-after-project-generation] to set the project visibility to `public`.
-    At this point, you will need to add PyPI/Anaconda upload tokens to your repository "secrets", as [described below](#step-7-tweak-the-generated-project-files-to-meet-your-specific-needs--preferences).
+      You will need to wait until the project is made public (with a suitable open source license) before you allow uploads of your package to PyPI or an Anaconda channel.
+      When you're ready to take the leap to a public repository, you can [update your project input arguments](./stay_updated.md#changing-input-arguments-after-project-generation) to set the project visibility to `public`.
+      At this point, you will need to add PyPI/Anaconda upload tokens to your repository "secrets", as [described below](#step-7-tweak-the-generated-project-files-to-meet-your-specific-needs--preferences).
 
 ### Step 3: Create a GitHub Repository
 
@@ -113,7 +113,7 @@ git remote add origin git@github.com:arup-group/python-boilerplate.git # (1)!
 git push -u origin main
 ```
 
-1.  Change `python-boilerplate` to match the name you have gave in `repository-name`.
+1. Change `python-boilerplate` to match the name you have gave in `repository-name`.
 
 Where `arup-group` and `python-boilerplate` are adjusted to the host group/user for your repository and the package name, respectively.
 
@@ -195,16 +195,16 @@ If that is the case, be sure to dive into `conda.recipe/meta.yaml` and change so
 
 __Is something not working?__
 
-[:material-bug: Report a bug](https://github.com/arup-group/cookiecutter-pypackage/issues/new?template=BUG-REPORT.yml "Report a bug in the template by creating an issue and a reproduction"){ .md-button }
+[:material-bug: Report a bug](https://github.com/arup-group/pypackage-template/issues/new?template=BUG-REPORT.yml "Report a bug in the template by creating an issue and a reproduction"){ .md-button }
 
 __Missing information in our docs?__
 
-[:material-file-document: Report a docs issue](https://github.com/arup-group/cookiecutter-pypackage/issues/new?template=DOCS.yml "Report missing information or potential inconsistencies in our documentation"){ .md-button }
+[:material-file-document: Report a docs issue](https://github.com/arup-group/pypackage-template/issues/new?template=DOCS.yml "Report missing information or potential inconsistencies in our documentation"){ .md-button }
 
 __Want to submit an idea?__
 
-[:material-lightbulb-on: Request a change](https://github.com/arup-group/cookiecutter-pypackage/issues/new?template=FEATURE-REQUEST.yml "Propose a change or feature request or suggest an improvement"){ .md-button }
+[:material-lightbulb-on: Request a change](https://github.com/arup-group/pypackage-template/issues/new?template=FEATURE-REQUEST.yml "Propose a change or feature request or suggest an improvement"){ .md-button }
 
 __Have a question or need help?__
 
-[:material-chat-question: Ask a question](https://github.com/arup-group/cookiecutter-pypackage/discussions "Ask questions on our discussion board and get in touch with our community"){ .md-button }
+[:material-chat-question: Ask a question](https://github.com/arup-group/pypackage-template/discussions "Ask questions on our discussion board and get in touch with our community"){ .md-button }

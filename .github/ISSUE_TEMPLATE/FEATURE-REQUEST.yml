@@ -1,12 +1,12 @@
 name: Feature Request
-description: Suggest an idea for the Cookiecutter template.
+description: Suggest an idea for the Python package template.
 labels: [enhancement]
 body:
   - type: markdown
     attributes:
       value: |
         Thanks for letting us know about your idea!
-        
+
   - type: textarea
     id: description
     attributes:
@@ -20,7 +20,7 @@ body:
     id: version
     attributes:
       label: Version
-      description: Which version of the arup-group/cookiecutter-pypackage are you using?
+      description: Which version of the arup-group/pypackage-template are you using?
       placeholder: v0.1.0
     validations:
       required: true

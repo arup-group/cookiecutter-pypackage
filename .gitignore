@@ -93,10 +93,10 @@ docs/_build/
 # PyBuilder
 target/
 
-# Cookiecutter
+# Copier
 output/
 python_boilerplate/
-cookiecutter-pypackage-env/
+pypackage-template-env/
 
 # IDE settings
 .vscode/

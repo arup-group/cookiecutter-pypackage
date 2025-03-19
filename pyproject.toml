@@ -1,11 +1,13 @@
 [tool.pytest.ini_options]
 minversion = "6.0"
 # opts:
-# `-n2` - parallelise over two threads (uses pytest-xdist)
-# `--keep-baked-projects` - keep the cookiecutter projects that are generated in the tests (they will be stored in a temporary directory)
+# `-nauto` - parallelise over as many threads are available (uses pytest-xdist)
 
-addopts = "-rav -nauto --keep-baked-projects"
+addopts = "-rav -nauto"
 testpaths = ["tests"]
+filterwarnings = [
+    "ignore::copier.errors.DirtyLocalWarning"
+]
 
 [tool.ruff]
 line-length = 100
@@ -80,7 +82,7 @@ include = []
 
 [project]
 keywords = ['cookiecutter', 'template', 'package']
-name = "cookiecutter-pypackage"
+name = "pypackage-template"
 authors = [{ name = "Bryn Pickering", email = "bryn.pickering@arup.com" }]
 maintainers = []
 description = 'Cookiecutter template for a Python package'
@@ -106,6 +108,6 @@ version = "0.1.0"
 dependencies = { file = ["requirements/dev.txt"] }
 
 [project.urls]
-repository = "https://github.com/arup-group/cookiecutter-pypackage"
-documentation = "https://arup-group.github.io/cookiecutter-pypackage"
-changelog = "https://github.com/arup-group/cookiecutter-pypackage/blob/main/CHANGELOG.md"
+repository = "https://github.com/arup-group/pypackage-template"
+documentation = "https://arup-group.github.io/pypackage-template"
+changelog = "https://github.com/arup-group/pypackage-template/blob/main/CHANGELOG.md"

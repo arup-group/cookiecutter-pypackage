@@ -33,10 +33,10 @@ Arup users on Windows can install `miniforge` from the Arup software shop by dow
 <!--- --8<-- [start:docs-install-user] -->
 
 ``` shell
-{% if upload_conda_package == "y" -%}
+{% if upload_conda_package -%}
 conda create -n {{ repository_name }} -c conda-forge -c {{ conda_channel }} {{ package_name }}
 conda activate {{ repository_name }}
-{% elif upload_pip_package == "y" %}
+{% elif upload_pip_package %}
 conda create -n {{ repository_name }} -c conda-forge python
 conda activate {{ repository_name }}
 {%- if project_visibility == "internal" %}
@@ -110,4 +110,4 @@ Licensed under the {{ open_source_license }}.
 
 ## Credits
 
-This package was created with [Cookiecutter](https://github.com/audreyr/cookiecutter) and the [arup-group/cookiecutter-pypackage](https://github.com/arup-group/cookiecutter-pypackage) project template.
+This package was created with [Copier](https://copier.readthedocs.io/) and the [arup-group/pypackage-template](https://github.com/arup-group/pypackage-template) project template.

@@ -1,5 +1,5 @@
 name: Bug Report
-description: Report a bug that leads to the Cookiecutter template not working as expected.
+description: Report a bug that leads to the Python package template not working as expected.
 labels: [bug]
 body:
   - type: markdown
@@ -24,14 +24,12 @@ body:
         - label: macOS
         - label: Windows
         - label: Linux
-    validations:
-        required: true
 
   - type: textarea
     id: version
     attributes:
       label: Version
-      description: Which version of the arup-group/cookiecutter-pypackage are you using?
+      description: Which version of the arup-group/pypackage-template are you using?
       placeholder: v0.1.0
     validations:
       required: true

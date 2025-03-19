@@ -142,7 +142,7 @@ Here are some use-cases that you may come across in which you are considering up
 
 ??? question "I have a new example notebook"
 
-    If the project is set up to include process examples (see `.cruft.json` option `create_jupyter_notebook_directory`),
+    If the project is set up to include process examples (see `.copier-answers.yaml` option `create_jupyter_notebook_directory`),
     then you can just add a [Jupyter notebook](https://jupyter.org/) to the `examples` directory and it will automatically render in the documentation under `Examples`.
 
 ??? question "I want to add images to my docs"
@@ -215,8 +215,8 @@ If you find that your documentation has issues, here are some possible ways to r
 
 ## Updating the project when the template updates
 
-This project has been built with [cruft](https://cruft.github.io/cruft/) based on the [Arup Cookiecutter template](https://github.com/arup-group/cookiecutter-pypackage).
-When changes are made to the base template, they can be merged into this project by running `cruft update` from the  `{{ repository_name }}` conda environment.
+This project has been built with [copier](https://copier.readthedocs.io/) based on the [Arup Python project template](https://github.com/arup-group/pypackage-template).
+When changes are made to the base template, they can be merged into this project by running `copier update --skip-answered` from the  `{{ repository_name }}` conda environment.
 
 You may be prompted to do this when you open a Pull Request, if our automated checks identify that the template is newer than that used in the project.
 

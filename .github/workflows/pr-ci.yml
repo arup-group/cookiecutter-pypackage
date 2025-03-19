@@ -41,21 +41,21 @@ jobs:
       - uses: mamba-org/setup-micromamba@v1
         with:
           micromamba-version: latest
-          environment-name: ${{ github.event.repository.name }}-cookiecutter
+          environment-name: ${{ github.event.repository.name }}-copier
           create-args: >-
-            cookiecutter
+            copier
             python=3.12
           post-cleanup: all
           cache-environment: true
 
       - name: install package
-        run: cookiecutter --no-input .
+        run: copier copy --vcs-ref HEAD --defaults . template
 
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: built-package
-          path: python_boilerplate/
+          path: template/python_boilerplate/
           if-no-files-found: error
           retention-days: 5
           include-hidden-files: true
