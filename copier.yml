@@ -143,7 +143,7 @@ create_author_file:
 create_jupyter_notebook_directory:
   help: Add an `examples` directory in which Jupyter Notebooks can be saved? These notebooks will be rendered in the documentation and will be formatted with Ruff.
   type: bool
-  default: no
+  default: yes
 
 check_docs_accessibility_in_CI:
   type: bool
