@@ -5,7 +5,7 @@
 
 [Copier] template for an Arup Python package.
 
-This template was originally based on [@audreyfeldroy's original cookiecutter template](https://github.com/audreyfeldroy/pypackage-template).
+This template was originally based on [@audreyfeldroy's original cookiecutter template](https://github.com/audreyfeldroy/cookiecutter-pypackage).
 It has been updated to use latest Python Package best practices, to align with [Arup's City Modelling Lab Python projects](https://github.com/search?q=topic%3Acml+org%3Aarup-group&type=repositories), and to use the [Copier] template manager.
 
 ## Features
