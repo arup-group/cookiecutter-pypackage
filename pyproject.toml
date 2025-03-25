@@ -12,14 +12,14 @@ filterwarnings = [
 [tool.ruff]
 line-length = 100
 preview = true # required to activate many pycodestyle errors and warnings as of 2024-03-13
-exclude = [".*.egg-info", "requirements/**", "\\{\\{repository_name\\}}\\}}"]
+exclude = [".*.egg-info", "requirements/**"]
 
 [tool.ruff.format]
 skip-magic-trailing-comma = true
 quote-style = "double"
 indent-style = "space"
 line-ending = "auto"
-exclude = ["\\{\\{repository_name\\}}\\}}"]
+exclude = []
 
 [tool.ruff.lint]
 select = [
