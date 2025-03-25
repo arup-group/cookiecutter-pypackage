@@ -49,13 +49,13 @@ jobs:
           cache-environment: true
 
       - name: install package
-        run: copier copy --vcs-ref HEAD --defaults . template
+        run: copier copy --vcs-ref HEAD --defaults . python_boilerplate
 
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: built-package
-          path: template/python_boilerplate/
+          path: python_boilerplate/
           if-no-files-found: error
           retention-days: 5
           include-hidden-files: true

@@ -37,8 +37,10 @@ Generate a local Python package project in a directory of your choice (change `m
 
 ``` bash
 cd my-repositories
-copier copy https://github.com/arup-group/pypackage-template .
+copier copy https://github.com/arup-group/pypackage-template <repository-name>
 ```
+
+`<repository-name>` should be the name for your repository that you will use locally (usually, the same as you plan your repository name to be on GitHub!).
 
 Then:
 

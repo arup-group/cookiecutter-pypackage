@@ -66,34 +66,36 @@ Use copier, pointing it at the pypackage-template repository:
 
 ``` bash
 cd ~/Repos # (1)!
-copier copy git@github.com/arup-group/pypackage-template.git
+copier copy git@github.com/arup-group/pypackage-template.git python-boilerplate # (2)!
 ```
 
 1. Change this directory name to match where you store GitHub repositories on your device.
 
-   You'll be asked to enter a bunch of values to set the package up.
-   If you don't know what to enter, stick with the defaults.
-   The following steps are based on using the default values.
+2. Change `python-boilerplate` to whatever you plan your repository name to be.
 
-   Once complete, you will find the `python-boilerplate` directory.
-   Change directory into this folder:
+You'll be asked to enter a bunch of values to set the package up.
+If you don't know what to enter, stick with the defaults.
+The following steps are based on using the default values.
 
-   ```bash
-   cd python-boilerplate # (1)!
-   ```
+Once complete, you will find the `python-boilerplate` directory.
+Change directory into this folder:
 
-1. Change this directory name based on the name you gave in `repository_name`.
+```bash
+cd python-boilerplate # (1)!
+```
 
-  !!! tip
+1. Change `python-boilerplate` to whatever you plan your repository name to be.
 
-      If you are generating a project which will be hosted in `arup-group`, it will default to `internal`.
-      This is why we set the `project_visibility` parameter to `internal` by default.
+!!! tip
 
-      The arguments `upload_conda_package` and `upload_pip_package` default to `n` (i.e. no upload of packages), but you can set these to `y` to upload `internal` projects to the Arup package index (<https://packages.arup.com/>) so long as you make a service-now request to allow access to the `packages` self-hosted runner for your repository.
+    If you are generating a project which will be hosted in `arup-group`, it will default to `internal`.
+    This is why we set the `project_visibility` parameter to `internal` by default.
 
-      You will need to wait until the project is made public (with a suitable open source license) before you allow uploads of your package to PyPI or an Anaconda channel.
-      When you're ready to take the leap to a public repository, you can [update your project input arguments](./stay_updated.md#changing-input-arguments-after-project-generation) to set the project visibility to `public`.
-      At this point, you will need to add PyPI/Anaconda upload tokens to your repository "secrets", as [described below](#step-7-tweak-the-generated-project-files-to-meet-your-specific-needs--preferences).
+    The arguments `upload_conda_package` and `upload_pip_package` default to `n` (i.e. no upload of packages), but you can set these to `y` to upload `internal` projects to the Arup package index (<https://packages.arup.com/>) so long as you make a service-now request to allow access to the `packages` self-hosted runner for your repository.
+
+    You will need to wait until the project is made public (with a suitable open source license) before you allow uploads of your package to PyPI or an Anaconda channel.
+    When you're ready to take the leap to a public repository, you can [update your project input arguments](./stay_updated.md#changing-input-arguments-after-project-generation) to set the project visibility to `public`.
+    At this point, you will need to add PyPI/Anaconda upload tokens to your repository "secrets", as [described below](#step-7-tweak-the-generated-project-files-to-meet-your-specific-needs--preferences).
 
 ### Step 3: Create a GitHub Repository
 
