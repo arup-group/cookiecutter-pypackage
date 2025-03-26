@@ -8,7 +8,7 @@ on:
 jobs:
   {% if cookiecutter.upload_conda_package|lower == 'y' -%}
   conda-build:
-    uses: arup-group/actions-city-modelling-lab/.github/workflows/conda-build.yml@main
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/conda-build.yml@v1.1.0
     secrets:
       ANACONDA_TOKEN: {% if cookiecutter.project_visibility == 'public' %}{% raw %}${{ secrets.ANACONDA_TOKEN }}{% endraw %}{% else %}NA{% endif %}
     with:
@@ -19,7 +19,7 @@ jobs:
   {% endif %}
   {% if cookiecutter.upload_pip_package|lower == 'y' -%}
   pip-build:
-    uses: arup-group/actions-city-modelling-lab/.github/workflows/pip-build.yml@main
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/pip-build.yml@v1.1.0
     secrets:
       TEST_PYPI_API_TOKEN:  {% if cookiecutter.project_visibility == 'public' %}{% raw %}${{ secrets.TEST_PYPI_API_TOKEN }}{% endraw %}{% else %}NA{% endif %}
     with:

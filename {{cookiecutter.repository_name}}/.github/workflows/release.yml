@@ -7,7 +7,7 @@ on:
 jobs:
   {% if cookiecutter.upload_conda_package|lower == 'y' -%}
   conda-upload:
-    uses: arup-group/actions-city-modelling-lab/.github/workflows/conda-upload.yml@main
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/conda-upload.yml@v1.1.0
     secrets:
       ANACONDA_TOKEN: {% if cookiecutter.project_visibility == 'public' %}{% raw %}${{ secrets.ANACONDA_TOKEN }}{% endraw %}{% else %}NA{% endif %}
     with:
@@ -19,7 +19,7 @@ jobs:
   {% endif %}
   {% if cookiecutter.upload_pip_package|lower == 'y' -%}
   pip-upload:
-    uses: arup-group/actions-city-modelling-lab/.github/workflows/pip-upload.yml@main
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/pip-upload.yml@v1.1.0
     secrets:
       PYPI_API_TOKEN: {% if cookiecutter.project_visibility == 'public' %}{% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}{% else %}NA{% endif %}
     with:
@@ -32,7 +32,7 @@ jobs:
   docs-stable:
     permissions:
       contents: write
-    uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@main
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@v1.1.0
     with:
       deploy_type: update_stable
       {%- if cookiecutter.create_jupyter_notebook_directory|lower == "y" %}

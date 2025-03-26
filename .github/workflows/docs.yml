@@ -18,7 +18,7 @@ jobs:
     permissions:
       contents: write
     if: github.ref != 'refs/heads/main'
-    uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@main
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@v1.1.0
     with:
       deploy_type: test
 
@@ -26,6 +26,6 @@ jobs:
     permissions:
       contents: write
     if: github.ref == 'refs/heads/main'
-    uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@main
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/docs-deploy.yml@v1.1.0
     with:
       deploy_type: update_latest

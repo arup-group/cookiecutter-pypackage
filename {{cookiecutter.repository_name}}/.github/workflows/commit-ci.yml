@@ -14,7 +14,7 @@ on:
 
 jobs:
   test:
-    uses: arup-group/actions-city-modelling-lab/.github/workflows/python-install-lint-test.yml@main
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/python-install-lint-test.yml@v1.1.0
     with:
       os: ubuntu-latest
       py3version: "12"
@@ -40,7 +40,7 @@ jobs:
   aws-upload:
     needs: [test, aws-pre-check]
     if: always() && needs.test.result == 'success' && needs.aws-pre-check.outputs.aws-secrets-exist == 'true'
-    uses: arup-group/actions-city-modelling-lab/.github/workflows/aws-upload.yml@main
+    uses: arup-group/actions-city-modelling-lab/.github/workflows/aws-upload.yml@v1.1.0
     secrets:
       AWS_ACCESS_KEY_ID: {% raw %}${{ secrets.AWS_ACCESS_KEY_ID }}{% endraw %}
       AWS_SECRET_ACCESS_KEY: {% raw %}${{ secrets.AWS_SECRET_ACCESS_KEY }}{% endraw %}
