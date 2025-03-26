@@ -1,6 +1,6 @@
 # Arup Cookiecutter Python Package Template
 
->[!CRITICAL]
+>[!CAUTION]
 >This project is now in maintenance mode.
 >See the [Copier Python Package template](https://github.com/arup-group/pypackage-template) repository for the latest template.
 
