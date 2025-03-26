@@ -17,7 +17,7 @@ jobs:
     with:
       os: ubuntu-latest
       py3version: "12"
-      cache_mamba_env: false
+      cache_env: false
       lint: false
       upload_to_codecov: false
-      mamba_env_name: ${{ needs.get-date.outputs.DATE }}
+      env_name: ${{ needs.get-date.outputs.DATE }}
