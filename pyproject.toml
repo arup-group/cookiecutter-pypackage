@@ -100,7 +100,7 @@ classifiers = [
     'Topic :: Software Development',
 ]
 dynamic = ["dependencies"]
-version = "0.1.0"
+version = "0.3.0"
 
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements/dev.txt"] }
